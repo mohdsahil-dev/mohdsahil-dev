@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="Mohd Sahil — AI & ML Enthusiast, Full Stack Developer, CSE Student at University of Mumbai"/>
+<title>Mohd Sahil | AI & ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">&lt;MS /&gt;</div>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+</div>
+
+<!-- AURORA -->
+<div class="aurora aurora-1"></div>
+<div class="aurora aurora-2"></div>
+<div class="aurora aurora-3"></div>
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo"><span>&lt;</span>Mohd Sahil<span>/&gt;</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect</button>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#skills" onclick="closeMenu()">Skills</a>
+  <a href="#projects" onclick="closeMenu()">Projects</a>
+  <a href="#achievements" onclick="closeMenu()">Achievements</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span></span>Open to Internships & Opportunities
+    </div>
+    <h1 class="hero-name">
+      <span class="gradient">Mohd Sahil</span>
+    </h1>
+    <div class="hero-title">
+      <span id="typing-text"></span><span class="typing-cursor"></span>
+    </div>
+    <p class="hero-desc">
+      Passionate Computer Science Engineering student specializing in Artificial Intelligence & Machine Learning. Building intelligent systems, web applications, and solving real-world problems through technology.
+    </p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        View Projects
+      </a>
+      <a href="#contact" class="btn-secondary">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2z"/><polyline points="22,6 12,13 2,6"></polyline></svg>
+        Contact Me
+      </a>
+      <a href="Mohd_Sahil_Resume.pdf"  target="_blank" download class="btn-secondary" id="resume-btn">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Resume
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num" data-count="2">0</div>
+        <div class="stat-label">Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">AI/ML</div>
+        <div class="stat-label">Core Focus</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num" data-count="3">0</div>
+        <div class="stat-label">Year of Engineering</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Curiosity & Drive</div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-arrow"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-tag reveal">About Me</div>
+    <h2 class="section-title reveal reveal-delay-1">Building at the intersection of<br><span class="hl">AI and Engineering</span></h2>
+    <div class="about-grid">
+      <div class="about-img-wrap reveal reveal-delay-1">
+        <div style="position:relative">
+          <div class="about-img-ring">
+            <div class="about-img-border">
+              <img src="assets/images/profile.jpeg" alt="Sahil Image" class="profile-pic"/>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal reveal-delay-2">
+        <p>I'm a third-year <strong style="color:var(--text)">B.E. Computer Science Engineering (AI & ML)</strong> student at the University of Mumbai, driven by a deep passion for building systems that think, learn, and solve real problems.</p>
+        <p>My journey spans from crafting responsive web applications to experimenting with machine learning algorithms — always seeking to bridge the gap between theoretical concepts and practical implementations.</p>
+        <p>Beyond coursework, I actively participate in hackathons, build side projects, and stay current with the latest developments in AI research and software engineering.</p>
+        <div class="about-chips">
+          <span class="chip">🤖 Artificial Intelligence</span>
+          <span class="chip">📊 Machine Learning</span>
+          <span class="chip">🌐 Web Development</span>
+          <span class="chip">🔧 Software Engineering</span>
+          <span class="chip">🏆 Hackathons</span>
+          <span class="chip">📚 Continuous Learner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-wrap">
+    <div class="section-tag reveal">Education</div>
+    <h2 class="section-title reveal reveal-delay-1">Academic <span class="hl">Journey</span></h2>
+    <div class="edu-timeline">
+      <div class="edu-item reveal reveal-delay-2">
+        <div class="edu-year">2022 — Present</div>
+        <div class="edu-card">
+          <div class="edu-degree">B.E. Computer Science Engineering</div>
+          <div class="edu-school">Specialization: Artificial Intelligence & Machine Learning</div>
+          <div class="edu-desc">University of Mumbai · Third Year · Studying core AI/ML concepts including machine learning fundamentals, data structures, algorithms, and software engineering principles while developing practical skills through projects and coursework.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-wrap">
+    <div class="section-tag reveal">Skills</div>
+    <h2 class="section-title reveal reveal-delay-1">Technical <span class="hl">Arsenal</span></h2>
+    <p class="section-sub reveal reveal-delay-2" style="margin-bottom:2rem">A curated set of technologies and tools I work with regularly.</p>
+    <div class="skills-tabs reveal reveal-delay-2">
+      <button class="skill-tab active" onclick="filterSkills('all',this)">All</button>
+      <button class="skill-tab" onclick="filterSkills('lang',this)">Languages</button>
+      <button class="skill-tab" onclick="filterSkills('aiml',this)">AI & ML</button>
+      <button class="skill-tab" onclick="filterSkills('web',this)">Web Dev</button>
+      <button class="skill-tab" onclick="filterSkills('tools',this)">Tools</button>
+    </div>
+    <div class="skills-grid" id="skills-grid">
+      <!-- Language -->
+      <div class="skill-card reveal" data-cat="lang">
+        <span class="skill-icon">🐍</span>
+        <div class="skill-name">Python</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-cat="lang">
+        <span class="skill-icon">⚡</span>
+        <div class="skill-name">JavaScript</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="75"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-cat="lang">
+        <span class="skill-icon">🌐</span>
+        <div class="skill-name">HTML5</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3" data-cat="lang">
+        <span class="skill-icon">🎨</span>
+        <div class="skill-name">CSS3</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="82"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="lang">
+        <span class="skill-icon">🗄️</span>
+        <div class="skill-name">SQL</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div>
+      </div>
+      <!-- AI/ML -->
+      <div class="skill-card reveal reveal-delay-1" data-cat="aiml">
+        <span class="skill-icon">🤖</span>
+        <div class="skill-name">Machine Learning</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="72"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-cat="aiml">
+        <span class="skill-icon">📊</span>
+        <div class="skill-name">Data Analysis</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="68"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-3" data-cat="aiml">
+        <span class="skill-icon">🧠</span>
+        <div class="skill-name">AI Concepts</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div>
+      </div>
+      <!-- Web -->
+      <div class="skill-card reveal" data-cat="web">
+        <span class="skill-icon">🖥️</span>
+        <div class="skill-name">Frontend Dev</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="80"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-cat="web">
+        <span class="skill-icon">📱</span>
+        <div class="skill-name">Responsive Design</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-cat="web">
+        <span class="skill-icon">🔌</span>
+        <div class="skill-name">REST APIs</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div>
+      </div>
+      <!-- DB -->
+      <div class="skill-card reveal reveal-delay-3" data-cat="tools">
+        <span class="skill-icon">🐬</span>
+        <div class="skill-name">MySQL</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="72"></div></div>
+      </div>
+      <div class="skill-card reveal" data-cat="tools">
+        <span class="skill-icon">🪶</span>
+        <div class="skill-name">SQLite</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="68"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-1" data-cat="tools">
+        <span class="skill-icon">🐙</span>
+        <div class="skill-name">Git & GitHub</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="78"></div></div>
+      </div>
+      <div class="skill-card reveal reveal-delay-2" data-cat="tools">
+        <span class="skill-icon">💻</span>
+        <div class="skill-name">VS Code</div>
+        <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-wrap">
+    <div class="section-tag reveal">Projects</div>
+    <h2 class="section-title reveal reveal-delay-1">Things I've <span class="hl">Built</span></h2>
+    <p class="section-sub reveal reveal-delay-2">A selection of projects showcasing my skills in web development and AI/ML.</p>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-num">01 — Web Application</div>
+        <div class="project-title">Expense Tracker</div>
+        <div class="project-desc">A web-based expense management application that helps users track income, expenses, and spending habits through an intuitive dashboard with real-time balance updates.</div>
+        <div class="project-features">
+          <div class="project-feat">Add income and expense entries</div>
+          <div class="project-feat">Smart expense categorization</div>
+          <div class="project-feat">Real-time balance tracking</div>
+          <div class="project-feat">Data management & persistence</div>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">CSS</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">MySQL</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link github">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="proj-link demo">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+      </div>
+      <!-- Project 2 -->
+      <div class="project-card reveal reveal-delay-2">
+        <div class="project-num">02 — AI / ML System</div>
+        <div class="project-title">Fake Reviews Detective</div>
+        <div class="project-desc">An AI-powered system designed to identify and analyze fake online reviews using machine learning classification techniques and data-driven insights for trustworthy review analysis.</div>
+        <div class="project-features">
+          <div class="project-feat">ML-based fake review detection</div>
+          <div class="project-feat">Intelligent review classification</div>
+          <div class="project-feat">Data-driven authenticity scoring</div>
+          <div class="project-feat">Pattern analysis & insights</div>
+        </div>
+        <div class="tech-tags">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Machine Learning</span>
+          <span class="tech-tag">SQLite</span>
+          <span class="tech-tag">Data Analysis</span>
+        </div>
+        <div class="project-links">
+          <a href="#" class="proj-link github">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="#" class="proj-link demo">
+            <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Live Demo
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="section-wrap">
+    <div class="section-tag reveal">Achievements</div>
+    <h2 class="section-title reveal reveal-delay-1">What I <span class="hl">Bring</span></h2>
+    <div class="achievements-grid">
+      <div class="ach-card reveal">
+        <span class="ach-icon">🤖</span>
+        <div class="ach-title">AI & ML Enthusiast</div>
+        <div class="ach-desc">Deeply passionate about artificial intelligence and machine learning, actively exploring modern techniques and frameworks.</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-1">
+        <span class="ach-icon">🚀</span>
+        <div class="ach-title">Project Development</div>
+        <div class="ach-desc">Built end-to-end projects spanning web applications and AI systems, applying real-world software engineering practices.</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-2">
+        <span class="ach-icon">🧩</span>
+        <div class="ach-title">Problem Solving</div>
+        <div class="ach-desc">Strong analytical mindset with ability to break complex problems into manageable, elegant solutions.</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-3">
+        <span class="ach-icon">📖</span>
+        <div class="ach-title">Continuous Learning</div>
+        <div class="ach-desc">Committed to staying ahead of the curve by continuously exploring new technologies, research papers, and industry trends.</div>
+      </div>
+      <div class="ach-card reveal reveal-delay-4">
+        <span class="ach-icon">🏆</span>
+        <div class="ach-title">Hackathon Participation</div>
+        <div class="ach-desc">Actively participates in hackathons, embracing time-pressured innovation and collaborative problem solving.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="glow-line"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-wrap">
+    <div class="section-tag reveal">Experience</div>
+    <h2 class="section-title reveal reveal-delay-1">Current <span class="hl">Focus</span></h2>
+    <div class="exp-card reveal reveal-delay-2">
+      <div class="exp-status">Active</div>
+      <div class="exp-title">Academic & Personal Projects</div>
+      <div class="exp-desc">Actively working on academic and personal projects focused on AI, Machine Learning, and Full Stack Development. Building a strong foundation through hands-on experience, exploring new frameworks, and contributing to open-source initiatives. Seeking internship opportunities to apply and grow these skills in a professional environment.</div>
+      <div class="exp-skills">
+        <span class="chip">Python</span>
+        <span class="chip">Machine Learning</span>
+        <span class="chip">Web Development</span>
+        <span class="chip">Data Analysis</span>
+        <span class="chip">Git & GitHub</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-tag reveal">Contact</div>
+    <h2 class="section-title reveal reveal-delay-1">Let's <span class="hl">Connect</span></h2>
+    <p class="section-sub reveal reveal-delay-2">Open to internships, collaborations, and interesting conversations about AI & technology.</p>
+    <div class="contact-grid">
+      <div class="contact-info reveal reveal-delay-2">
+        <a href="https://linkedin.com/in/sahil-choudhary-5828887416" target="_blank" class="contact-link">
+          <div class="contact-link-icon">
+          <i class="fab fa-linkedin-in"></i>
+          </div>
+          <div>
+            <div class="contact-link-name">LinkedIn</div>
+            <div class="contact-link-text">Connect professionally</div>
+          </div>
+        </a>
+        <a href="https://github.com/mohdsahil-dev" target="_blank" class="contact-link">
+    <div class="contact-link-icon">
+        <i class="fab fa-github"></i>
+    </div>
+
+    <div>
+        <div class="contact-link-name">GitHub</div>
+        <div class="contact-link-text">Explore my code</div>
+    </div>
+</a>
+        <a href="mailto:mdsahil962830@example.com" class="contact-link">
+          <div class="contact-link-icon">✉️</div>
+          <div>
+            <div class="contact-link-name">Email</div>
+            <div class="contact-link-text">mohdsahil962830@example.com</div>
+          </div>
+        </a>
+        <a href="https://wa.me/919628304015" target="_blank" class="contact-link">
+    <div class="contact-link-icon">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+    <div>
+        <div class="contact-link-name">WhatsApp</div>
+        <div class="contact-link-text">Send a Message</div>
+    </div>
+</a>
+</a>
+
+<a href="tel:+919628304015" class="contact-link">
+  <div class="contact-link-icon">📞</div>
+  <div>
+    <div class="contact-link-name">Call Me</div>
+    <div class="contact-link-text">+91 9628304015</div>
+  </div>
+</a>
+        <div style="padding:1.25rem;background:var(--card);border:1px solid var(--border);border-radius:14px;font-size:0.875rem;color:var(--muted);line-height:1.7">
+          📍 Mumbai, Maharashtra, India<br>
+          🎓 University of Mumbai — 3rd Year<br>
+          💡 Available for internships & collaborations
+        </div>
+      </div>
+      <div class="contact-form reveal reveal-delay-3">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" type="text" placeholder="Your name" id="form-name"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com" id="form-email"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" placeholder="Tell me about the opportunity..." id="form-msg"></textarea>
+        </div>
+        <button class="form-submit" onclick="handleFormSubmit()">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">&lt;Mohd Sahil /&gt;</div>
+        <div class="footer-brand-desc">AI & ML Enthusiast | Full Stack Developer | B.E. CSE Student at University of Mumbai, building intelligent systems and innovative web applications.</div>
+        <div class="footer-socials">
+          <a href="https://linkedin.com" target="_blank" class="social-icon" title="LinkedIn">💼</a>
+          <a href="https://github.com" target="_blank" class="social-icon" title="GitHub">🐙</a>
+          <a href="mailto:mohdsahil@example.com" class="social-icon" title="Email">✉️</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigation</div>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Tech Stack</div>
+        <ul class="footer-links">
+          <li><a href="#">Python</a></li>
+          <li><a href="#">Machine Learning</a></li>
+          <li><a href="#">JavaScript</a></li>
+          <li><a href="#">HTML & CSS</a></li>
+          <li><a href="#">MySQL / SQLite</a></li>
+          <li><a href="#">Git & GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Mohd Sahil. Crafted with passion in Mumbai 🇮🇳</div>
+      <div style="font-size:0.8rem;color:var(--muted)">AI & ML Engineer in the Making</div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>
