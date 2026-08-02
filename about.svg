@@ -44,8 +44,8 @@
   <circle cx="47" cy="288" r="4.5" fill="#e30000" opacity="0.9"/>
   <text x="70"  y="293" font-family="NType82, monospace" font-size="16" letter-spacing="0.8" fill="#e6edf3">Higher Secondary Certificate (HSC)</text>
   <text x="70"  y="314" font-family="NType82, monospace" font-size="12" letter-spacing="0.5" fill="#8b949e">Maharashtra State Board</text>
-  <text x="440" y="293" font-family="NType82, monospace" font-size="13" letter-spacing="1" fill="#e30000" opacity="0.75">2020 – 2022</text>
-  <text x="590" y="293" font-family="NType82, monospace" font-size="12" letter-spacing="0.5" fill="#8b949e">Grade: A</text>
+  <text x="440" y="293" font-family="NType82, monospace" font-size="13" letter-spacing="1" fill="#e30000" opacity="0.75">2021 – 2022</text>
+  <text x="590" y="293" font-family="NType82, monospace" font-size="12" letter-spacing="0.5" fill="#8b949e">45.17%</text>
   <rect x="70" y="327" width="600" height="0.7" fill="#e30000" opacity="0.12"/>
 
   <!-- Entry 03 -->
