@@ -12,7 +12,7 @@
 
 <p align="center">
   <a href="#_"><img src="contact_heading.svg" alt="Contact" /></a><br>
-  <a href="mailto:mohdsahil962830@gmail.com"><img src="contact_email.svg" alt="Email" /></a><a href="https://www.linkedin.com/in/mohdsahil/"><img src="contact_linkedin.svg" alt="LinkedIn" /></a>
+  <a href="mailto:mdsahil962830@gmail.com"><img src="contact_email.svg" alt="Email" /></a><a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/"><img src="contact_linkedin.svg" alt="LinkedIn" /></a>
 </p>
 
 ---
