@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mohd Sahil | AI & ML Engineer</title>
+
+    <!-- Main Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+     PAGE LOADER
+===================================================== -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-number">00</div>
+        <div class="loader-line">
+            <span></span>
+        </div>
+    </div>
+
+
+    <!-- =====================================================
+     CUSTOM CURSOR
+===================================================== -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+
+    <!-- =====================================================
+     NAVBAR
+===================================================== -->
+    <header class="navbar" id="navbar">
+
+        <div class="nav-inner">
+
+            <a href="#home" class="brand">
+                <span class="brand-circle">MS</span>
+                <span class="brand-name">Mohd Sahil<span class="brand-dot">.</span></span>
+            </a>
+
+            <nav class="desktop-nav">
+
+                <a href="#home" class="nav-link active">Home<span class="nav-active-dot"></span></a>
+                <a href="#about" class="nav-link">About Me</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#achievements" class="nav-link">Achievements</a>
+
+            </nav>
+
+            <div class="nav-actions">
+                <a href="#contact" class="nav-contact-btn">
+                    Contact Me
+                </a>
+
+                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+
+                <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+     MOBILE MENU
+===================================================== -->
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">Home</a>
+        <a href="#about">About Me</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact Me</a>
+
+    </div>
+
+
+    <!-- =====================================================
+     FLOATING SOCIAL SIDEBAR (RIGHT)
+===================================================== -->
+    <aside class="floating-social-sidebar" aria-label="Social links">
+        <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer" class="social-side-btn"
+            aria-label="GitHub">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/" target="_blank" rel="noopener noreferrer"
+            class="social-side-btn" aria-label="LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+        </a>
+        <a href="mailto:ks9137581@gmail.com" class="social-side-btn" aria-label="Email">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+        </a>
+    </aside>
+
+
+    <main>
+
+
+        <!-- =====================================================
+     HERO
+===================================================== -->
+        <section class="hero section-light" id="home">
+
+            <div class="container hero-container">
+
+                <!-- LEFT COLUMN -->
+                <div class="hero-content reveal">
+
+                    <!-- Title -->
+                    <h1 class="hero-title">
+                        <span>Mohd</span>
+                        <span>Sahil</span>
+                    </h1>
+
+                    <!-- Bio / Description Area with Doodles -->
+                    <div class="hero-bio-container">
+
+                        <p class="hero-description">
+                            <span class="bio-dash">—</span>
+                            <span class="role-badge">AI &amp; ML Engineer</span>, with knowledge in machine learning,
+                            deep learning and modern web development, I build intelligent systems resulting in impactful
+                            solutions.
+                        </p>
+
+                        <!-- Hand-drawn Curled Looped Arrow Doodle (Centered in Gap) -->
+                        <div class="doodle-arrow-wrapper" aria-hidden="true">
+                            <svg class="doodle-arrow" viewBox="0 0 150 115" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M145,15 C124,30 98,48 78,42 C60,36 64,15 82,18 C96,22 92,50 70,72 C54,86 42,90 28,94"
+                                    stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                                <path d="M42,82 L28,94 L44,102" stroke="currentColor" stroke-width="3"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Hand-drawn Scribble Doodle Under Text -->
+                        <div class="doodle-scribble-wrapper" aria-hidden="true">
+                            <svg class="doodle-scribble" viewBox="0 0 130 35" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4,22 L35,8 L18,26 L58,9 L40,28 L85,12 L66,30 L108,14 L88,31 L124,18"
+                                    stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+
+                    </div>
+
+                    <!-- Bottom Left: Scroll Down Indicator -->
+                    <div class="hero-bottom-area">
+                        <a href="#about" class="hero-scroll-down">
+                            <span class="scroll-square">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <polyline points="19 12 12 19 5 12"></polyline>
+                                </svg>
+                            </span>
+                            <span class="scroll-label">Scroll Down</span>
+                        </a>
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT COLUMN: PHOTO WITH OFFSET FRAME -->
+                <div class="hero-visual reveal reveal-delay-2">
+
+                    <div class="hero-photo-container">
+
+                        <!-- Offset Back Frame -->
+                        <div class="photo-offset-frame"></div>
+
+                        <!-- Photo Card -->
+                        <div class="hero-photo-card">
+                            <img src="assets/images/hero_portrait.jpg" alt="Mohd Sahil - AI & ML Engineer"
+                                class="hero-portrait-img">
+                        </div>
+
+                        <!-- 3D Floating Orange Diamond Accent -->
+                        <div class="floating-accent-box floating-bottom-left" aria-hidden="true">
+                            <div class="isometric-cube"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     ABOUT
+===================================================== -->
+        <section class="about section-light" id="about">
+
+            <div class="container about-container">
+
+                <!-- LEFT: VISUAL PHOTO WITH ACCENTS -->
+                <div class="about-visual reveal">
+
+                    <div class="about-composition">
+
+                        <!-- Offset Back Panel -->
+                        <div class="about-back-panel"></div>
+
+                        <!-- Orange Accent Bottom Bar -->
+                        <div class="about-orange-bar"></div>
+
+                        <!-- Photo Card -->
+                        <div class="about-photo-card">
+                            <img src="assets/images/hero_portrait.jpg" alt="Mohd Sahil" class="about-portrait-img">
+                        </div>
+
+                        <!-- Floating 3D Diamond Cube -->
+                        <div class="about-floating-cube" aria-hidden="true">
+                            <div class="isometric-cube"></div>
+                        </div>
+
+                        <!-- Hand-Drawn Diagonal Lines Doodle -->
+                        <div class="about-doodle-lines" aria-hidden="true">
+                            <svg viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="10" y1="5" x2="40" y2="55" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                                <line x1="20" y1="5" x2="50" y2="55" stroke="currentColor" stroke-width="2.5"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </div>
+
+                        <!-- Vertical Orange Accent Bar -->
+                        <div class="about-accent-strip"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RIGHT: ABOUT CONTENT -->
+                <div class="about-content reveal reveal-delay-2">
+
+                    <div class="about-title-wrap">
+                        <h2 class="about-title">
+                            About <span class="title-highlight">Me<span class="title-dot">.</span></span>
+                        </h2>
+                    </div>
+
+                    <p class="about-lead">
+                        <span class="lead-dash">—</span>
+                        I am a Computer Science & Engineering (AI&ML) student and an <strong>AI &amp; ML
+                            Enthusiast</strong> passionate about
+                        Artificial Intelligence, Machine Learning, and Modern Web Development. I enjoy building
+                        practical projects, exploring new technologies, and participating in hackathons to turn
+                        innovative ideas into meaningful real-world solutions.
+                    </p>
+                    <div class="about-skills-row">
+                        <span class="skills-bullet">•</span>
+                        <p>
+                            <strong>My Skills Are:</strong> Python, Machine Learning, Deep Learning, TensorFlow,
+                            PyTorch, Scikit-Learn, Computer Vision, NLP, HTML, CSS, JavaScript, React, Node.js, SQL, Git
+                            &amp; GitHub, AI Tools.
+                        </p>
+                    </div>
+
+                    <div class="about-cta-buttons">
+                        <a href="#contact" class="btn-about-dark">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                </path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                            Contact Me
+                        </a>
+
+                        <a href="#contact" class="btn-about-outline">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Resume
+                        </a>
+
+                        <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer"
+                            class="btn-about-icon" aria-label="GitHub">
+                            <i class="devicon-github-original"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     EDUCATION
+===================================================== -->
+        <section class="education section-light" id="education">
+
+            <div class="container">
+
+                <div class="education-item reveal">
+
+                    <div class="education-date">
+                        2024 — PRESENT
+                    </div>
+
+                    <div class="education-main">
+
+                        <h3>Bachelor of Engineering</h3>
+
+                        <p>
+                            <span>Computer Science & Engineering</span>
+                            (AI & ML)
+                        </p>
+
+                        <small>
+                            University of Mumbai
+                        </small>
+
+                    </div>
+
+                    <div class="education-year">
+                        <strong>03</strong>
+                        <span>Year</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     SKILLS
+===================================================== -->
+        <section class="skills section-dark" id="skills">
+
+            <div class="container">
+
+                <div class="section-marker dark-marker reveal">
+                    <span>03</span>
+                    <span>SKILLS</span>
+                    <i></i>
+                </div>
+
+
+                <div class="skills-heading reveal">
+
+                    <h2>
+                        Tools & technologies<br>
+                        <span>I work with.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="skill-filters reveal">
+
+                    <button class="skill-filter active" data-filter="all">
+                        All
+                    </button>
+
+                    <button class="skill-filter" data-filter="lang">
+                        Languages
+                    </button>
+
+                    <button class="skill-filter" data-filter="web">
+                        Web
+                    </button>
+
+                    <button class="skill-filter" data-filter="aiml">
+                        AI / Data
+                    </button>
+
+                    <button class="skill-filter" data-filter="tools">
+                        Tools
+                    </button>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+
+                    <!-- Python -->
+                    <div class="skill-item reveal" data-category="lang">
+                        <div class="skill-number">01</div>
+                        <i class="devicon-python-plain skill-logo"></i>
+                        <h3>Python</h3>
+                        <span>Programming</span>
+                    </div>
+
+
+                    <!-- JavaScript -->
+                    <div class="skill-item reveal" data-category="lang">
+                        <div class="skill-number">02</div>
+                        <i class="devicon-javascript-plain skill-logo"></i>
+                        <h3>JavaScript</h3>
+                        <span>Programming</span>
+                    </div>
+
+
+                    <!-- SQL -->
+                    <div class="skill-item reveal" data-category="lang">
+                        <div class="skill-number">03</div>
+                        <i class="devicon-mysql-plain skill-logo"></i>
+                        <h3>SQL</h3>
+                        <span>Database</span>
+                    </div>
+
+
+                    <!-- HTML -->
+                    <div class="skill-item reveal" data-category="web">
+                        <div class="skill-number">04</div>
+                        <i class="devicon-html5-plain skill-logo"></i>
+                        <h3>HTML5</h3>
+                        <span>Web Development</span>
+                    </div>
+
+
+                    <!-- CSS -->
+                    <div class="skill-item reveal" data-category="web">
+                        <div class="skill-number">05</div>
+                        <i class="devicon-css3-plain skill-logo"></i>
+                        <h3>CSS3</h3>
+                        <span>Web Development</span>
+                    </div>
+
+
+                    <!-- ML -->
+                    <div class="skill-item reveal" data-category="aiml">
+                        <div class="skill-number">06</div>
+                        <i class="devicon-tensorflow-original skill-logo"></i>
+                        <h3>Machine Learning</h3>
+                        <span>Artificial Intelligence</span>
+                    </div>
+
+
+                    <!-- Data -->
+                    <div class="skill-item reveal" data-category="aiml">
+                        <div class="skill-number">07</div>
+                        <i class="devicon-pandas-plain skill-logo"></i>
+                        <h3>Data Analysis</h3>
+                        <span>AI / Data</span>
+                    </div>
+
+
+                    <!-- AI -->
+                    <div class="skill-item reveal" data-category="aiml">
+                        <div class="skill-number">08</div>
+                        <div class="skill-text-logo">AI</div>
+                        <h3>AI Concepts</h3>
+                        <span>Artificial Intelligence</span>
+                    </div>
+
+
+                    <!-- Frontend -->
+                    <div class="skill-item reveal" data-category="web">
+                        <div class="skill-number">09</div>
+                        <i class="devicon-react-original skill-logo"></i>
+                        <h3>Frontend Dev</h3>
+                        <span>Web Development</span>
+                    </div>
+
+
+                    <!-- Responsive -->
+                    <div class="skill-item reveal" data-category="web">
+                        <div class="skill-number">10</div>
+                        <i class="devicon-bootstrap-plain skill-logo"></i>
+                        <h3>Responsive Design</h3>
+                        <span>Web Development</span>
+                    </div>
+
+
+                    <!-- REST -->
+                    <div class="skill-item reveal" data-category="web">
+                        <div class="skill-number">11</div>
+                        <div class="skill-text-logo">{ }</div>
+                        <h3>REST APIs</h3>
+                        <span>Backend Integration</span>
+                    </div>
+
+
+                    <!-- MySQL -->
+                    <div class="skill-item reveal" data-category="tools">
+                        <div class="skill-number">12</div>
+                        <i class="devicon-mysql-plain skill-logo"></i>
+                        <h3>MySQL</h3>
+                        <span>Database</span>
+                    </div>
+
+
+                    <!-- SQLite -->
+                    <div class="skill-item reveal" data-category="tools">
+                        <div class="skill-number">13</div>
+                        <div class="skill-text-logo">SQL</div>
+                        <h3>SQLite</h3>
+                        <span>Database</span>
+                    </div>
+
+
+                    <!-- Git -->
+                    <div class="skill-item reveal" data-category="tools">
+                        <div class="skill-number">14</div>
+                        <i class="devicon-git-plain skill-logo"></i>
+                        <h3>Git & GitHub</h3>
+                        <span>Version Control</span>
+                    </div>
+
+
+                    <!-- VS Code -->
+                    <div class="skill-item reveal" data-category="tools">
+                        <div class="skill-number">15</div>
+                        <i class="devicon-vscode-plain skill-logo"></i>
+                        <h3>VS Code</h3>
+                        <span>Development Tool</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     PROJECTS
+===================================================== -->
+        <section class="projects section-light" id="projects">
+
+            <div class="container">
+
+                <div class="projects-header-row reveal">
+                    <div class="projects-heading-wrap">
+                        <h2 class="section-title-left">
+                            Projects<span class="title-highlight"><span class="title-dot">.</span></span>
+                        </h2>
+                    </div>
+
+                    <!-- Left / Right Navigation Buttons -->
+                    <div class="projects-nav-controls">
+                        <button class="project-nav-btn project-prev" id="projectPrevBtn" aria-label="Previous project">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="project-nav-btn project-next" id="projectNextBtn" aria-label="Next project">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- HORIZONTAL SIDE-BY-SIDE TRACK -->
+                <div class="projects-slider-wrap">
+                    <div class="projects-track" id="projectsTrack">
+
+                        <!-- PROJECT 1: Univora-College-Management -->
+                        <article class="project-card reveal">
+                            <div class="project-thumb-box">
+                                <img src="assets/images/project_univora.svg" alt="Univora College Management"
+                                    class="project-thumb-img">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="project-floating-btn" aria-label="Open project">
+                                    ↗
+                                </a>
+                            </div>
+                            <div class="project-card-body">
+                                <div class="project-tag-line">— Web Application</div>
+                                <h3 class="project-card-title">Univora-College-Management</h3>
+                                <p class="project-card-desc">
+                                    🎓 A comprehensive college management platform featuring student enrollment portals,
+                                    course management, timetable tracking, and administrative dashboards.
+                                </p>
+                                <div class="project-card-actions">
+                                    <a href="https://github.com/mohdsahil-dev/Univora-College-Management"
+                                        target="_blank" rel="noopener noreferrer" class="project-action-link">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        View
+                                    </a>
+                                    <a href="https://github.com/mohdsahil-dev/Univora-College-Management"
+                                        target="_blank" rel="noopener noreferrer" class="project-action-link">
+                                        <i class="devicon-github-original"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- PROJECT 2: NexusAI -->
+                        <article class="project-card reveal reveal-delay-2">
+                            <div class="project-thumb-box">
+                                <img src="assets/images/project_nexusai.svg" alt="NexusAI Business OS"
+                                    class="project-thumb-img">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="project-floating-btn" aria-label="Open project">
+                                    ↗
+                                </a>
+                            </div>
+                            <div class="project-card-body">
+                                <div class="project-tag-line">— Business Operating System</div>
+                                <h3 class="project-card-title">NexusAI</h3>
+                                <p class="project-card-desc">
+                                    💼 An intelligent, all-in-one AI Business Operating System designed to automate
+                                    enterprise workflows, manage business operations, streamline analytics, and drive
+                                    data-backed decision making.
+                                </p>
+                                <div class="project-card-actions">
+                                    <a href="https://github.com/mohdsahil-dev/NexusAI " target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        View
+                                    </a>
+                                    <a href="https://github.com/mohdsahil-dev/NexusAI " target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <i class="devicon-github-original"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- PROJECT 3: Personal Expense Tracker -->
+                        <article class="project-card reveal">
+                            <div class="project-thumb-box">
+                                <img src="assets/images/project1.jpg" alt="Personal Expense Tracker"
+                                    class="project-thumb-img">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="project-floating-btn" aria-label="Open project">
+                                    ↗
+                                </a>
+                            </div>
+                            <div class="project-card-body">
+                                <div class="project-tag-line">— Financial Web App</div>
+                                <h3 class="project-card-title">Personal Expense Tracker</h3>
+                                <p class="project-card-desc">
+                                    📊 A responsive expense tracking platform with real-time balance tracking, dynamic
+                                    visual charts, category breakdowns, and monthly budget management.
+                                </p>
+                                <div class="project-card-actions">
+                                    <a href="https://github.com/mohdsahil-dev/expense-tracker" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        View
+                                    </a>
+                                    <a href="https://github.com/mohdsahil-dev/expense-tracker" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <i class="devicon-github-original"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- PROJECT 4: birthday-surprise-3d -->
+                        <article class="project-card reveal reveal-delay-2">
+                            <div class="project-thumb-box">
+                                <img src="assets/images/project_birthday3d.svg" alt="birthday-surprise-3d"
+                                    class="project-thumb-img">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="project-floating-btn" aria-label="Open project">
+                                    ↗
+                                </a>
+                            </div>
+                            <div class="project-card-body">
+                                <div class="project-tag-line">— Creative 3D Web</div>
+                                <h3 class="project-card-title">birthday-surprise-3d</h3>
+                                <p class="project-card-desc">
+                                    🎉 An interactive 3D web celebration built with JavaScript, Three.js, and WebGL
+                                    featuring real-time particle effects, custom 3D animations, and dynamic lighting.
+                                </p>
+                                <div class="project-card-actions">
+                                    <a href="https://github.com/mohdsahil-dev/birthday-surprise-3d" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        View
+                                    </a>
+                                    <a href="https://github.com/mohdsahil-dev/birthday-surprise-3d" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <i class="devicon-github-original"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- PROJECT 5: todo -->
+                        <article class="project-card reveal">
+                            <div class="project-thumb-box">
+                                <img src="assets/images/project_todo.svg" alt="Todo App" class="project-thumb-img">
+                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                    class="project-floating-btn" aria-label="Open project">
+                                    ↗
+                                </a>
+                            </div>
+                            <div class="project-card-body">
+                                <div class="project-tag-line">— Productivity App</div>
+                                <h3 class="project-card-title">todo</h3>
+                                <p class="project-card-desc">
+                                    📝 A clean, responsive task management application with real-time status filtering,
+                                    local storage persistence, priority categorization, and progress tracking.
+                                </p>
+                                <div class="project-card-actions">
+                                    <a href="https://github.com/mohdsahil-dev/todo" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        View
+                                    </a>
+                                    <a href="https://github.com/mohdsahil-dev/todo" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
+                                        <i class="devicon-github-original"></i>
+                                        Code
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Progress Bar / Indicator -->
+                    <div class="projects-progress-wrap">
+                        <div class="projects-progress-bar" id="projectsProgressBar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     ACHIEVEMENTS + CERTIFICATES
+     SAME SECTION
+===================================================== -->
+        <section class="recognition section-light" id="achievements">
+
+            <div class="container">
+
+                <div class="section-marker reveal">
+                    <span>05</span>
+                    <span>ACHIEVEMENTS</span>
+                    <i></i>
+                </div>
+
+
+                <div class="recognition-heading reveal">
+
+                    <h2>
+                        Learning,<br>
+                        <span>building & growing.</span>
+                    </h2>
+
+                    <p>
+                        Certificates, hackathon participation and
+                        achievements collected throughout my learning journey.
+                    </p>
+
+                </div>
+
+
+                <!-- ACHIEVEMENTS -->
+                <div class="achievement-list">
+
+                    <div class="achievement-row reveal">
+                        <span class="achievement-number">01</span>
+                        <div>
+                            <h3>Bharatiya Antariksh Hackathon 2026</h3>
+                            <p>
+                                Participated &amp; submitted innovative solutions for space technology challenges
+                                presented by ISRO &amp; Hack2skill.
+                            </p>
+                        </div>
+                        <a href="assets/certificates/isro_hackathon_2026.pdf" target="_blank" rel="noopener noreferrer"
+                            class="achievement-arrow" aria-label="View ISRO Certificate">↗</a>
+                    </div>
+
+                    <div class="achievement-row reveal">
+                        <span class="achievement-number">02</span>
+                        <div>
+                            <h3>OOSC 4.0 Hackathon — IIIT Allahabad</h3>
+                            <p>
+                                Participated as Team Logical Innovators in Opportunity Open Source Conference 4.0
+                                organized by IIIT Allahabad.
+                            </p>
+                        </div>
+                        <a href="assets/certificates/iiit_oosc_hackathon.pdf" target="_blank" rel="noopener noreferrer"
+                            class="achievement-arrow" aria-label="View IIIT Certificate">↗</a>
+                    </div>
+
+                    <div class="achievement-row reveal">
+                        <span class="achievement-number">03</span>
+                        <div>
+                            <h3>AI &amp; ML System Development</h3>
+                            <p>
+                                Designing intelligent systems, neural networks, NLP classifiers, and business operating
+                                systems.
+                            </p>
+                        </div>
+                        <span class="achievement-arrow">↗</span>
+                    </div>
+
+                    <div class="achievement-row reveal">
+                        <span class="achievement-number">04</span>
+                        <div>
+                            <h3>Interactive Web &amp; 3D Graphics</h3>
+                            <p>
+                                Crafting high-performance web applications, responsive management systems, and Three.js
+                                3D web experiences.
+                            </p>
+                        </div>
+                        <span class="achievement-arrow">↗</span>
+                    </div>
+
+                </div>
+
+
+                <!-- CERTIFICATES HEADER & NAVIGATION -->
+                <div class="certificates-header-row reveal">
+                    <div class="certificate-heading">
+                        <span>CERTIFICATIONS &amp; HACKATHONS</span>
+                        <i></i>
+                    </div>
+                    <div class="certificates-nav-controls">
+                        <button class="cert-nav-btn cert-prev" id="certPrevBtn" aria-label="Previous certificate">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="cert-nav-btn cert-next" id="certNextBtn" aria-label="Next certificate">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- HORIZONTAL SIDE-BY-SIDE TRACK -->
+                <div class="certificates-slider-wrap">
+                    <div class="certificates-track" id="certificatesTrack">
+
+                        <!-- CERTIFICATE 1: ISRO -->
+                        <article class="certificate-card reveal">
+                            <div class="certificate-thumb-box">
+                                <img src="assets/images/cert_isro_hackathon.svg"
+                                    alt="ISRO Bharatiya Antariksh Hackathon 2026 Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">ISRO 🚀</span>
+                            </div>
+                            <div class="certificate-content">
+                                <small>HACKATHON • ISRO &amp; HACK2SKILL</small>
+                                <h3>Bharatiya Antariksh Hackathon 2026</h3>
+                                <p>
+                                    Recognition of participation and successful idea submission in the national space
+                                    innovation hackathon.
+                                </p>
+                                <a href="assets/certificates/isro_hackathon_2026.pdf" target="_blank"
+                                    rel="noopener noreferrer" class="cert-link">
+                                    View Official Certificate ↗
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- CERTIFICATE 2: IIIT Allahabad -->
+                        <article class="certificate-card featured reveal reveal-delay-2">
+                            <div class="certificate-thumb-box">
+                                <img src="assets/images/cert_iiit_hackathon.svg"
+                                    alt="IIIT Allahabad OOSC 4.0 Hackathon Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">IIIT ALLAHABAD 🏆</span>
+                            </div>
+                            <div class="certificate-content">
+                                <small>HACKATHON • IIIT ALLAHABAD &amp; UNSTOP</small>
+                                <h3>OOSC 4.0 Hackathon</h3>
+                                <p>
+                                    Certificate of Participation representing Team Logical Innovators in Opportunity
+                                    Open
+                                    Source Conference 4.0.
+                                </p>
+                                <a href="assets/certificates/iiit_oosc_hackathon.pdf" target="_blank"
+                                    rel="noopener noreferrer" class="cert-link">
+                                    View Official Certificate ↗
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- CERTIFICATE 3: Aimanthan AI Project Excellence -->
+                        <article class="certificate-card reveal">
+                            <div class="certificate-thumb-box">
+                                <img src="assets/certificates/aimanthan_ml_excellence.jpg"
+                                    alt="Aimanthan Machine Learning Fundamentals Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">GRADE A • 80/100 🌟</span>
+                            </div>
+                            <div class="certificate-content">
+                                <small>AI EVALUATION • AIMANTHAN &amp; CLAUDE AI</small>
+                                <h3>Machine Learning Fundamentals</h3>
+                                <p>
+                                    Certificate of AI Project Excellence with Advanced Level Distinction evaluated by
+                                    Claude AI assessment engine.
+                                </p>
+                                <a href="assets/certificates/aimanthan_ml_excellence.jpg" target="_blank"
+                                    rel="noopener noreferrer" class="cert-link">
+                                    View Official Certificate ↗
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- CERTIFICATE 4: WorkSmarter Data Analysis -->
+                        <article class="certificate-card reveal reveal-delay-2">
+                            <div class="certificate-thumb-box">
+                                <img src="assets/images/cert_worksmarter_data.svg"
+                                    alt="AI-Powered Data Analysis Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">VERIFIED QUIZ 📊</span>
+                            </div>
+                            <div class="certificate-content">
+                                <small>SKILL TRACK • WORKSMARTERWITH.AI</small>
+                                <h3>AI-Powered Data Analysis</h3>
+                                <p>
+                                    Successfully completed and verified the comprehensive online AI analytics and quiz
+                                    skill track.
+                                </p>
+                                <a href="assets/certificates/worksmarter_data_analysis.pdf" target="_blank"
+                                    rel="noopener noreferrer" class="cert-link">
+                                    View Official Certificate ↗
+                                </a>
+                            </div>
+                        </article>
+
+                        <!-- CERTIFICATE 5: WorkSmarter Meetings -->
+                        <article class="certificate-card reveal">
+                            <div class="certificate-thumb-box">
+                                <img src="assets/images/cert_worksmarter_meetings.svg"
+                                    alt="Run Better Meetings Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">VERIFIED QUIZ 💼</span>
+                            </div>
+                            <div class="certificate-content">
+                                <small>SKILL TRACK • WORKSMARTERWITH.AI</small>
+                                <h3>Run Better Meetings</h3>
+                                <p>
+                                    Successfully completed the professional productivity and team collaboration skill
+                                    track with verified completion.
+                                </p>
+                                <a href="assets/certificates/worksmarter_meetings.pdf" target="_blank"
+                                    rel="noopener noreferrer" class="cert-link">
+                                    View Official Certificate ↗
+                                </a>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Progress Bar / Indicator -->
+                    <div class="certificates-progress-wrap">
+                        <div class="certificates-progress-bar" id="certificatesProgressBar"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     EXPERIENCE
+===================================================== -->
+        <section class="experience section-dark">
+
+            <div class="container">
+
+                <div class="section-marker dark-marker reveal">
+                    <span>06</span>
+                    <span>EXPERIENCE</span>
+                    <i></i>
+                </div>
+
+
+                <div class="experience-row reveal">
+
+                    <div class="experience-date">
+                        PRESENT
+                    </div>
+
+                    <div class="experience-content">
+
+                        <small>
+                            ACADEMIC & PERSONAL
+                        </small>
+
+                        <h2>
+                            Academic & Personal Projects
+                        </h2>
+
+                        <p>
+                            Developing software projects while studying Computer
+                            Science Engineering with a focus on Artificial
+                            Intelligence and Machine Learning. Working with Python,
+                            web technologies, databases and AI concepts.
+                        </p>
+
+                    </div>
+
+                    <div class="experience-number">
+                        01
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+     CONTACT
+===================================================== -->
+        <section class="contact section-light" id="contact">
+
+            <div class="container">
+
+                <div class="section-marker reveal">
+                    <span>07</span>
+                    <span>CONTACT</span>
+                    <i></i>
+                </div>
+
+
+                <div class="contact-grid">
+
+
+                    <!-- LEFT -->
+                    <div class="contact-left reveal">
+
+                        <h2>
+                            Let's work<br>
+                            <span>together.</span>
+                        </h2>
+
+                        <p>
+                            Have an idea, project or opportunity?
+                            Feel free to reach out. I'm always open to
+                            learning, collaborating and building something useful.
+                        </p>
+
+
+                        <div class="contact-details">
+
+
+                            <!-- PHONE -->
+                            <a href="tel:+919628304015" class="contact-item" aria-label="Phone">
+                                <div class="contact-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <small>PHONE</small>
+                                    <strong>Phone</strong>
+                                </div>
+                                <span>↗</span>
+                            </a>
+
+                            <!-- EMAIL -->
+                            <a href="mailto:ks9137581@gmail.com" class="contact-item" aria-label="Email">
+                                <div class="contact-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                                        </path>
+                                        <polyline points="22,6 12,13 2,6"></polyline>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <small>EMAIL</small>
+                                    <strong>Email</strong>
+                                </div>
+                                <span>↗</span>
+                            </a>
+
+                            <!-- WHATSAPP -->
+                            <a href="https://wa.me/919628304015" target="_blank" rel="noopener noreferrer"
+                                class="contact-item" aria-label="WhatsApp">
+                                <div class="contact-icon">
+                                    <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.2 1.25-1.66 1.32-.42.06-.97.09-2.81-.67-2.35-.97-3.86-3.34-3.98-3.5-.12-.16-.94-1.25-.94-2.38 0-1.13.59-1.69.8-1.92.21-.24.47-.3.62-.3.16 0 .31 0 .45.01.14.01.34-.05.53.4.2.48.67 1.63.73 1.75.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.63 1.04 1.36 1.68.94.84 1.73 1.1 1.97 1.22.24.12.38.1.53-.06.14-.16.62-.73.79-.98.16-.25.33-.21.55-.13.22.08 1.41.67 1.65.79.24.12.4.18.46.28.06.11.06.63-.18 1.3z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <small>WHATSAPP</small>
+                                    <strong>WhatsApp</strong>
+                                </div>
+                                <span>↗</span>
+                            </a>
+
+                            <!-- GITHUB -->
+                            <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer"
+                                class="contact-item" aria-label="GitHub Profile">
+                                <div class="contact-icon">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <small>GITHUB</small>
+                                    <strong>GitHub</strong>
+                                </div>
+                                <span>↗</span>
+                            </a>
+
+                            <!-- LINKEDIN -->
+                            <a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/" target="_blank"
+                                rel="noopener noreferrer" class="contact-item" aria-label="LinkedIn Profile">
+                                <div class="contact-icon">
+                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                        <path
+                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <small>LINKEDIN</small>
+                                    <strong>LinkedIn</strong>
+                                </div>
+                                <span>↗</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RIGHT FORM -->
+                    <div class="contact-form-box reveal reveal-delay-2">
+
+                        <div class="form-label-top">
+                            HAVE A PROJECT?
+                        </div>
+
+                        <h3>
+                            Send Me A Message
+                        </h3>
+
+
+                        <form id="contactForm">
+
+                            <div class="form-field">
+
+                                <label>Your Name</label>
+
+                                <input type="text" id="formName" placeholder="Enter your name" required>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>Your Email</label>
+
+                                <input type="email" id="formEmail" placeholder="Enter your email" required>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>Subject</label>
+
+                                <input type="text" id="formSubject" placeholder="What is this about?" required>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>Message</label>
+
+                                <textarea id="formMessage" placeholder="Tell me about your project..."
+                                    required></textarea>
+
+                            </div>
+
+
+                            <button type="submit" class="form-submit">
+                                <span>Send Message</span>
+                                <span>↗</span>
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+     FOOTER
+===================================================== -->
+    <footer class="footer">
+
+        <div class="container footer-inner">
+
+            <div>
+                <strong>Mohd Sahil</strong>
+                <span>AI & ML Enthusiast</span>
+            </div>
+
+            <div class="footer-socials">
+                <a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+
+                <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                    </svg>
+                </a>
+
+                <a href="mailto:ks9137581@gmail.com" aria-label="Email">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+            </div>
+
+            <div>
+                © 2026 Mohd Sahil
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

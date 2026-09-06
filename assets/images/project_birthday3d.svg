@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bdayBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180424" />
+      <stop offset="50%" stop-color="#2a0845" />
+      <stop offset="100%" stop-color="#0b0114" />
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="50%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="boxPink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f43f5e" />
+      <stop offset="100%" stop-color="#be123c" />
+    </linearGradient>
+    <linearGradient id="boxPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#6b21a8" />
+    </linearGradient>
+    <filter id="bdayGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bdayBg)" />
+
+  <!-- 3D Perspective Plane Grid -->
+  <g opacity="0.2" stroke="#e879f9" stroke-width="1.5">
+    <line x1="0" y1="420" x2="800" y2="420" />
+    <line x1="60" y1="380" x2="740" y2="380" />
+    <line x1="120" y1="340" x2="680" y2="340" />
+    <line x1="180" y1="300" x2="620" y2="300" />
+    <line x1="400" y1="260" x2="0" y2="450" />
+    <line x1="400" y1="260" x2="200" y2="450" />
+    <line x1="400" y1="260" x2="400" y2="450" />
+    <line x1="400" y1="260" x2="600" y2="450" />
+    <line x1="400" y1="260" x2="800" y2="450" />
+  </g>
+
+  <!-- Floating 3D Gift Box -->
+  <g transform="translate(400, 205)">
+    <!-- Top Face (Isometric) -->
+    <polygon points="0,-90 100,-40 0,10 -100,-40" fill="url(#boxPink)" stroke="#fda4af" stroke-width="2" />
+    <!-- Left Face -->
+    <polygon points="-100,-40 0,10 0,110 -100,60" fill="url(#boxPurple)" stroke="#c084fc" stroke-width="2" />
+    <!-- Right Face -->
+    <polygon points="0,10 100,-40 100,60 0,110" fill="#7e22ce" stroke="#a855f7" stroke-width="2" />
+    
+    <!-- Gold Ribbon on Top -->
+    <polygon points="-12,-84 12,-72 12,4 -12,-8" fill="url(#goldGrad)" />
+    <polygon points="-84,-48 84,-48 92,-36 -76,-36" fill="url(#goldGrad)" />
+    <!-- Ribbon Left Face -->
+    <polygon points="-12,-8 12,4 12,104 -12,92" fill="url(#goldGrad)" />
+    <!-- Ribbon Right Face -->
+    <polygon points="44,-18 56,-24 56,76 44,82" fill="url(#goldGrad)" />
+
+    <!-- 3D Ribbon Bow -->
+    <ellipse cx="-18" cy="-105" rx="22" ry="14" fill="#fbbf24" transform="rotate(-25 -18 -105)" />
+    <ellipse cx="18" cy="-105" rx="22" ry="14" fill="#f59e0b" transform="rotate(25 18 -105)" />
+    <circle cx="0" cy="-96" r="10" fill="#d97706" />
+  </g>
+
+  <!-- Floating 3D Spheres & Balloons -->
+  <circle cx="160" cy="140" r="32" fill="#ec4899" filter="url(#bdayGlow)" opacity="0.85" />
+  <ellipse cx="150" cy="130" rx="8" ry="5" fill="#ffffff" opacity="0.6" />
+
+  <circle cx="640" cy="130" r="38" fill="#a855f7" filter="url(#bdayGlow)" opacity="0.85" />
+  <ellipse cx="628" cy="118" rx="10" ry="6" fill="#ffffff" opacity="0.6" />
+
+  <circle cx="250" cy="270" r="18" fill="#38bdf8" filter="url(#bdayGlow)" />
+  <circle cx="560" cy="290" r="22" fill="#fbbf24" filter="url(#bdayGlow)" />
+
+  <!-- Confetti & Particles -->
+  <rect x="220" y="80" width="12" height="6" fill="#f43f5e" transform="rotate(25 220 80)" />
+  <rect x="520" y="70" width="10" height="8" fill="#fbbf24" transform="rotate(-35 520 70)" />
+  <rect x="300" y="110" width="8" height="8" fill="#34d399" transform="rotate(45 300 110)" />
+  <rect x="490" y="120" width="12" height="5" fill="#38bdf8" transform="rotate(15 490 120)" />
+  <rect x="180" y="210" width="10" height="6" fill="#f472b6" transform="rotate(-50 180 210)" />
+  <rect x="620" y="230" width="8" height="8" fill="#f59e0b" transform="rotate(30 620 230)" />
+
+  <!-- Header Overlay Card -->
+  <rect x="210" y="25" width="380" height="42" rx="21" fill="#1f0a33" stroke="#d946ef" stroke-width="1.5" opacity="0.95" />
+  <text x="400" y="52" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="0.5">🎉 3D Birthday Surprise • Three.js WebGL</text>
+</svg>

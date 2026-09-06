@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="nexusBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a14" />
+      <stop offset="50%" stop-color="#111126" />
+      <stop offset="100%" stop-color="#06060f" />
+    </linearGradient>
+    <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#181830" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0f0f20" stop-opacity="0.95" />
+    </linearGradient>
+    <linearGradient id="accentOrange" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff5722" />
+      <stop offset="100%" stop-color="#ff8a65" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Dark Background -->
+  <rect width="800" height="450" fill="url(#nexusBg)" />
+
+  <!-- Subtle Blueprint Tech Grid -->
+  <g opacity="0.12" stroke="#818cf8" stroke-width="1">
+    <line x1="0" y1="75" x2="800" y2="75" />
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="225" x2="800" y2="225" />
+    <line x1="0" y1="300" x2="800" y2="300" />
+    <line x1="0" y1="375" x2="800" y2="375" />
+    <line x1="160" y1="0" x2="160" y2="450" />
+    <line x1="320" y1="0" x2="320" y2="450" />
+    <line x1="480" y1="0" x2="480" y2="450" />
+    <line x1="640" y1="0" x2="640" y2="450" />
+  </g>
+
+  <!-- Nexus Business Operating System App Window -->
+  <g transform="translate(50, 35)">
+    <rect width="700" height="380" rx="12" fill="#0d0d1a" stroke="#312e81" stroke-width="1.8" />
+    
+    <!-- Top Header -->
+    <path d="M 0 12 Q 0 0 12 0 L 688 0 Q 700 0 700 12 L 700 42 L 0 42 Z" fill="#14142b" />
+    <circle cx="22" cy="21" r="5" fill="#ef4444" />
+    <circle cx="38" cy="21" r="5" fill="#f59e0b" />
+    <circle cx="54" cy="21" r="5" fill="#10b981" />
+    
+    <text x="75" y="26" fill="#c7d2fe" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="800" font-size="13" letter-spacing="0.5">NEXUS AI • Business Operating System (BOS)</text>
+    
+    <!-- Enterprise Live Status Pill -->
+    <rect x="520" y="10" width="165" height="22" rx="11" fill="#1e1b4b" stroke="#6366f1" stroke-width="1" />
+    <circle cx="534" cy="21" r="3.5" fill="#22c55e" filter="url(#glow)" />
+    <text x="544" y="25" fill="#e0e7ff" font-family="sans-serif" font-size="9.5" font-weight="700">Enterprise AI Engine Online</text>
+
+    <!-- Left Sidebar: Operations Modules -->
+    <rect x="0" y="42" width="155" height="338" fill="#101022" />
+    
+    <!-- Active Module: Executive Dashboard -->
+    <rect x="10" y="58" width="135" height="28" rx="6" fill="url(#primaryGrad)" />
+    <text x="22" y="76" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="10.5">⚡ Executive OS</text>
+    
+    <!-- Module List -->
+    <text x="22" y="112" fill="#94a3b8" font-family="sans-serif" font-size="10.5">💼 Operations</text>
+    <text x="22" y="146" fill="#94a3b8" font-family="sans-serif" font-size="10.5">📈 Revenue &amp; CRM</text>
+    <text x="22" y="180" fill="#94a3b8" font-family="sans-serif" font-size="10.5">🤖 Auto Workflows</text>
+    <text x="22" y="214" fill="#94a3b8" font-family="sans-serif" font-size="10.5">👥 Team Pipelines</text>
+    <text x="22" y="248" fill="#94a3b8" font-family="sans-serif" font-size="10.5">📊 AI Analytics</text>
+    <text x="22" y="282" fill="#94a3b8" font-family="sans-serif" font-size="10.5">🔐 Compliance</text>
+
+    <!-- Main Dashboard Area -->
+    <!-- Top 3 KPI Metric Cards -->
+    <!-- Card 1: MRR & Business Growth -->
+    <rect x="175" y="58" width="160" height="74" rx="8" fill="url(#cardBg)" stroke="#312e81" stroke-width="1" />
+    <text x="188" y="78" fill="#a5b4fc" font-family="sans-serif" font-size="10">Monthly Revenue (MRR)</text>
+    <text x="188" y="106" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="20">$128.4K</text>
+    <text x="280" y="104" fill="#22c55e" font-family="sans-serif" font-size="10" font-weight="700">↑ 24%</text>
+
+    <!-- Card 2: Automated Workflows -->
+    <rect x="350" y="58" width="160" height="74" rx="8" fill="url(#cardBg)" stroke="#312e81" stroke-width="1" />
+    <text x="363" y="78" fill="#a5b4fc" font-family="sans-serif" font-size="10">Active AI Workflows</text>
+    <text x="363" y="106" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="20">1,840 / hr</text>
+    <text x="455" y="104" fill="#38bdf8" font-family="sans-serif" font-size="9" font-weight="700">Auto</text>
+
+    <!-- Card 3: Ops Efficiency -->
+    <rect x="525" y="58" width="160" height="74" rx="8" fill="url(#cardBg)" stroke="#312e81" stroke-width="1" />
+    <text x="538" y="78" fill="#a5b4fc" font-family="sans-serif" font-size="10">System Efficiency</text>
+    <text x="538" y="106" fill="#c084fc" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="20">99.4%</text>
+    <text x="635" y="104" fill="#a855f7" font-family="sans-serif" font-size="10" font-weight="700">BOS</text>
+
+    <!-- Center Chart: Business Pipeline & AI Predictions -->
+    <rect x="175" y="144" width="335" height="152" rx="8" fill="url(#cardBg)" stroke="#312e81" stroke-width="1" />
+    <text x="190" y="166" fill="#f8fafc" font-family="sans-serif" font-weight="700" font-size="11.5">Enterprise Operations Velocity</text>
+    
+    <!-- Graph Lines -->
+    <path d="M 195 260 Q 240 220 280 235 T 360 185 T 430 195 T 495 168" fill="none" stroke="#6366f1" stroke-width="3" stroke-linecap="round" />
+    <path d="M 195 260 Q 240 220 280 235 T 360 185 T 430 195 T 495 168 L 495 280 L 195 280 Z" fill="url(#primaryGrad)" opacity="0.15" />
+    <circle cx="495" cy="168" r="4.5" fill="#a855f7" filter="url(#glow)" />
+
+    <!-- Right Box: AI Copilot & Real-Time Decision Feed -->
+    <rect x="525" y="144" width="160" height="152" rx="8" fill="url(#cardBg)" stroke="#312e81" stroke-width="1" />
+    <text x="538" y="166" fill="#f8fafc" font-family="sans-serif" font-weight="700" font-size="11.5">AI Insights Feed</text>
+    
+    <rect x="534" y="178" width="142" height="48" rx="4" fill="#14142b" stroke="#312e81" stroke-width="0.8" />
+    <text x="542" y="194" fill="#38bdf8" font-family="sans-serif" font-size="8.5" font-weight="700">⚡ Auto-Allocation</text>
+    <text x="542" y="210" fill="#94a3b8" font-family="sans-serif" font-size="8">Re-routed 420 tasks to idle node</text>
+
+    <rect x="534" y="234" width="142" height="48" rx="4" fill="#14142b" stroke="#312e81" stroke-width="0.8" />
+    <text x="542" y="250" fill="#a855f7" font-family="sans-serif" font-size="8.5" font-weight="700">📈 Sales Forecast</text>
+    <text x="542" y="266" fill="#94a3b8" font-family="sans-serif" font-size="8">+18% projected Q4 pipeline</text>
+
+    <!-- Bottom AI Command Bar -->
+    <rect x="175" y="308" width="510" height="48" rx="8" fill="#121226" stroke="#4338ca" stroke-width="1.2" />
+    <text x="195" y="337" fill="#6366f1" font-family="monospace" font-size="14" font-weight="700">&gt;</text>
+    <text x="215" y="337" fill="#e2e8f0" font-family="'Space Grotesk', sans-serif" font-size="11.5">NexusBOS: "Automate supplier invoicing and optimize Q3 resource allocation across 12 teams."</text>
+    <rect x="615" y="316" width="60" height="30" rx="6" fill="url(#accentOrange)" />
+    <text x="626" y="335" fill="#ffffff" font-family="sans-serif" font-weight="700" font-size="10">EXECUTE</text>
+  </g>
+</svg>

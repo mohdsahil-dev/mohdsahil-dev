@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="todoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#09131f" />
+      <stop offset="50%" stop-color="#0f2137" />
+      <stop offset="100%" stop-color="#060c14" />
+    </linearGradient>
+    <linearGradient id="todoAccent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#06b6d4" />
+    </linearGradient>
+    <linearGradient id="progressGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#todoBg)" />
+
+  <!-- Grid overlay -->
+  <g opacity="0.1" stroke="#38bdf8" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90" />
+    <line x1="0" y1="180" x2="800" y2="180" />
+    <line x1="0" y1="270" x2="800" y2="270" />
+    <line x1="0" y1="360" x2="800" y2="360" />
+    <line x1="160" y1="0" x2="160" y2="450" />
+    <line x1="320" y1="0" x2="320" y2="450" />
+    <line x1="480" y1="0" x2="480" y2="450" />
+    <line x1="640" y1="0" x2="640" y2="450" />
+  </g>
+
+  <!-- App Window Container -->
+  <g transform="translate(60, 40)">
+    <rect width="680" height="370" rx="12" fill="#0b1726" stroke="#1e3a5f" stroke-width="2" />
+    
+    <!-- Top Window Controls -->
+    <path d="M 0 12 Q 0 0 12 0 L 668 0 Q 680 0 680 12 L 680 42 L 0 42 Z" fill="#13233a" />
+    <circle cx="22" cy="21" r="5" fill="#ef4444" />
+    <circle cx="38" cy="21" r="5" fill="#f59e0b" />
+    <circle cx="54" cy="21" r="5" fill="#10b981" />
+    
+    <text x="75" y="26" fill="#7dd3fc" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-weight="700" font-size="13">TODO • Smart Task &amp; Workflow Manager</text>
+
+    <!-- Top Metrics Row -->
+    <rect x="25" y="60" width="195" height="50" rx="8" fill="#10243d" stroke="#1e3a5f" stroke-width="1" />
+    <text x="40" y="80" fill="#94a3b8" font-family="sans-serif" font-size="10">Completed Tasks</text>
+    <text x="40" y="100" fill="#10b981" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16">18 / 24 Done</text>
+
+    <rect x="240" y="60" width="195" height="50" rx="8" fill="#10243d" stroke="#1e3a5f" stroke-width="1" />
+    <text x="255" y="80" fill="#94a3b8" font-family="sans-serif" font-size="10">Overall Efficiency</text>
+    <text x="255" y="100" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16">75% Target</text>
+
+    <rect x="455" y="60" width="200" height="50" rx="8" fill="#10243d" stroke="#1e3a5f" stroke-width="1" />
+    <text x="470" y="80" fill="#94a3b8" font-family="sans-serif" font-size="10">Pending Today</text>
+    <text x="470" y="100" fill="#f59e0b" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16">6 Action Items</text>
+
+    <!-- Task List Items -->
+    <!-- Task Item 1 (Done) -->
+    <g transform="translate(25, 125)">
+      <rect width="630" height="48" rx="8" fill="#0e1d30" stroke="#10b981" stroke-width="1" opacity="0.9" />
+      <circle cx="28" cy="24" r="10" fill="#10b981" />
+      <path d="M 23 24 L 27 28 L 34 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="52" y="28" fill="#94a3b8" font-family="sans-serif" font-size="12" text-decoration="line-through">Deploy Univora College Management portal to production</text>
+      <rect x="520" y="14" width="90" height="20" rx="10" fill="#064e3b" />
+      <text x="542" y="28" fill="#34d399" font-family="sans-serif" font-size="9" font-weight="700">COMPLETED</text>
+    </g>
+
+    <!-- Task Item 2 (Done) -->
+    <g transform="translate(25, 185)">
+      <rect width="630" height="48" rx="8" fill="#0e1d30" stroke="#10b981" stroke-width="1" opacity="0.9" />
+      <circle cx="28" cy="24" r="10" fill="#10b981" />
+      <path d="M 23 24 L 27 28 L 34 20" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      <text x="52" y="28" fill="#94a3b8" font-family="sans-serif" font-size="12" text-decoration="line-through">Train Machine Learning classifier for Fake Reviews Detection</text>
+      <rect x="520" y="14" width="90" height="20" rx="10" fill="#064e3b" />
+      <text x="542" y="28" fill="#34d399" font-family="sans-serif" font-size="9" font-weight="700">COMPLETED</text>
+    </g>
+
+    <!-- Task Item 3 (In Progress) -->
+    <g transform="translate(25, 245)">
+      <rect width="630" height="48" rx="8" fill="#14263f" stroke="#38bdf8" stroke-width="1.5" />
+      <circle cx="28" cy="24" r="10" fill="none" stroke="#38bdf8" stroke-width="2" />
+      <text x="52" y="29" fill="#f8fafc" font-family="sans-serif" font-weight="600" font-size="12">Integrate NexusAI intelligence engine API endpoints</text>
+      <rect x="520" y="14" width="90" height="20" rx="10" fill="#075985" />
+      <text x="536" y="28" fill="#38bdf8" font-family="sans-serif" font-size="9" font-weight="700">IN PROGRESS</text>
+    </g>
+
+    <!-- Task Item 4 (Pending) -->
+    <g transform="translate(25, 305)">
+      <rect width="630" height="48" rx="8" fill="#0e1d30" stroke="#1e3a5f" stroke-width="1" />
+      <circle cx="28" cy="24" r="10" fill="none" stroke="#64748b" stroke-width="1.5" />
+      <text x="52" y="29" fill="#cbd5e1" font-family="sans-serif" font-size="12">Add 3D particle physics engine to birthday-surprise web scene</text>
+      <rect x="520" y="14" width="90" height="20" rx="10" fill="#451a03" />
+      <text x="542" y="28" fill="#fbbf24" font-family="sans-serif" font-size="9" font-weight="700">HIGH PRIORITY</text>
+    </g>
+  </g>
+</svg>
