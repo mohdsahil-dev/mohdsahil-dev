@@ -149,6 +149,11 @@
 ===================================================== -->
         <section class="hero section-light" id="home">
 
+            <!-- Interactive 3D Background Canvas -->
+            <div class="hero-3d-bg" id="hero3dContainer" aria-hidden="true">
+                <canvas id="hero3dCanvas"></canvas>
+            </div>
+
             <div class="container hero-container">
 
                 <!-- LEFT COLUMN -->
@@ -215,7 +220,7 @@
                 <!-- RIGHT COLUMN: PHOTO WITH OFFSET FRAME -->
                 <div class="hero-visual reveal reveal-delay-2">
 
-                    <div class="hero-photo-container">
+                    <div class="hero-photo-container" data-tilt="true" data-tilt-max="10">
 
                         <!-- Offset Back Frame -->
                         <div class="photo-offset-frame"></div>
@@ -226,9 +231,18 @@
                                 class="hero-portrait-img">
                         </div>
 
-                        <!-- 3D Floating Orange Diamond Accent -->
+                        <!-- 3D Floating Multi-Face Cube Accent -->
                         <div class="floating-accent-box floating-bottom-left" aria-hidden="true">
-                            <div class="isometric-cube"></div>
+                            <div class="cube-3d-wrapper">
+                                <div class="cube-3d">
+                                    <div class="cube-face front"></div>
+                                    <div class="cube-face back"></div>
+                                    <div class="cube-face right"></div>
+                                    <div class="cube-face left"></div>
+                                    <div class="cube-face top"></div>
+                                    <div class="cube-face bottom"></div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
@@ -251,7 +265,7 @@
                 <!-- LEFT: VISUAL PHOTO WITH ACCENTS -->
                 <div class="about-visual reveal">
 
-                    <div class="about-composition">
+                    <div class="about-composition" data-tilt="true" data-tilt-max="10">
 
                         <!-- Offset Back Panel -->
                         <div class="about-back-panel"></div>
@@ -264,9 +278,18 @@
                             <img src="assets/images/hero_portrait.jpg" alt="Mohd Sahil" class="about-portrait-img">
                         </div>
 
-                        <!-- Floating 3D Diamond Cube -->
+                        <!-- Floating 3D Multi-Face Cube -->
                         <div class="about-floating-cube" aria-hidden="true">
-                            <div class="isometric-cube"></div>
+                            <div class="cube-3d-wrapper cube-alt">
+                                <div class="cube-3d">
+                                    <div class="cube-face front"></div>
+                                    <div class="cube-face back"></div>
+                                    <div class="cube-face right"></div>
+                                    <div class="cube-face left"></div>
+                                    <div class="cube-face top"></div>
+                                    <div class="cube-face bottom"></div>
+                                </div>
+                            </div>
                         </div>
 
                         <!-- Hand-Drawn Diagonal Lines Doodle -->
@@ -1343,6 +1366,8 @@
     </footer>
 
 
+    <!-- Three.js for 3D Cyber Neural Graphics -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="js/script.js"></script>
 
 </body>

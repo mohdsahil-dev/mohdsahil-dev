@@ -2114,6 +2114,169 @@ body.dark-mode .certificate-card:hover {
 }
 
 /* =========================================================
+   3D ANIMATIONS & PERSPECTIVE SYSTEM
+   ========================================================= */
+
+/* 3D Canvas Background in Hero */
+.hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-3d-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.9;
+    transition: opacity 0.5s ease;
+}
+
+#hero3dCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.hero-container {
+    position: relative;
+    z-index: 2;
+}
+
+/* 3D Multi-Faced Rotating Cubes */
+.floating-accent-box {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    z-index: 10;
+}
+
+.about-floating-cube {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    z-index: 10;
+}
+
+.cube-3d-wrapper {
+    width: 52px;
+    height: 52px;
+    perspective: 600px;
+    display: inline-block;
+    filter: drop-shadow(0 10px 20px rgba(255, 87, 34, 0.4));
+}
+
+.cube-3d {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: rotate3dCube 12s linear infinite;
+    transform-origin: center center;
+}
+
+.cube-alt .cube-3d {
+    animation: rotate3dCubeReverse 15s linear infinite;
+}
+
+.cube-face {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, rgba(255, 107, 53, 0.8), rgba(255, 87, 34, 0.45));
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.35), 0 0 15px rgba(255, 87, 34, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
+}
+
+.cube-face.front  { transform: translateZ(26px); }
+.cube-face.back   { transform: rotateY(180deg) translateZ(26px); }
+.cube-face.right  { transform: rotateY(90deg) translateZ(26px); }
+.cube-face.left   { transform: rotateY(-90deg) translateZ(26px); }
+.cube-face.top    { transform: rotateX(90deg) translateZ(26px); }
+.cube-face.bottom { transform: rotateX(-90deg) translateZ(26px); }
+
+@keyframes rotate3dCube {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(720deg) rotateZ(360deg);
+    }
+}
+
+@keyframes rotate3dCubeReverse {
+    0% {
+        transform: rotateX(360deg) rotateY(0deg) rotateZ(360deg);
+    }
+    100% {
+        transform: rotateX(0deg) rotateY(-720deg) rotateZ(0deg);
+    }
+}
+
+/* 3D Interactive Card Tilt with Specular Glare */
+[data-tilt="true"],
+.project-card,
+.certificate-card {
+    transform-style: preserve-3d;
+    perspective: 1200px;
+    transition: transform 0.15s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+    will-change: transform;
+    position: relative;
+}
+
+.tilt-glare {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle 220px at var(--glare-x, 50%) var(--glare-y, 50%), rgba(255, 255, 255, 0.25), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+    z-index: 10;
+}
+
+[data-tilt="true"]:hover .tilt-glare,
+.project-card:hover .tilt-glare,
+.certificate-card:hover .tilt-glare {
+    opacity: 1;
+}
+
+.project-card-thumb,
+.certificate-thumb-box {
+    transform: translateZ(22px);
+    transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-card-thumb,
+.certificate-card:hover .certificate-thumb-box {
+    transform: translateZ(32px);
+}
+
+.project-card-body h3,
+.certificate-content h3 {
+    transform: translateZ(28px);
+}
+
+.project-card-actions,
+.cert-link {
+    transform: translateZ(35px);
+}
+
+.photo-offset-frame {
+    transform: translateZ(-15px);
+}
+
+.hero-photo-card {
+    transform: translateZ(25px);
+}
+
+/* =========================================================
    REDUCED MOTION
    ========================================================= */
 

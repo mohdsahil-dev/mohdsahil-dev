@@ -611,4 +611,215 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+
+    /* =====================================================
+       3D HERO THREE.JS CYBER NEURAL CANVAS
+       ===================================================== */
+    const heroCanvas = document.getElementById("hero3dCanvas");
+    if (heroCanvas && typeof THREE !== "undefined") {
+        try {
+            const container = document.getElementById("hero3dContainer") || heroCanvas.parentElement;
+            const scene = new THREE.Scene();
+
+            const camera = new THREE.PerspectiveCamera(50, (container.clientWidth || window.innerWidth) / (container.clientHeight || window.innerHeight), 0.1, 1000);
+            camera.position.z = 24;
+
+            const renderer = new THREE.WebGLRenderer({
+                canvas: heroCanvas,
+                alpha: true,
+                antialias: true,
+                powerPreference: "high-performance"
+            });
+            renderer.setSize(container.clientWidth || window.innerWidth, container.clientHeight || window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Central 3D Group
+            const sceneGroup = new THREE.Group();
+            scene.add(sceneGroup);
+
+            // 1. Icosahedron Wireframe (AI Core)
+            const icoGeometry = new THREE.IcosahedronGeometry(7, 1);
+            const icoWireframe = new THREE.WireframeGeometry(icoGeometry);
+            const icoLineMaterial = new THREE.LineBasicMaterial({
+                color: 0xff5722,
+                transparent: true,
+                opacity: 0.38,
+                linewidth: 1
+            });
+            const icoMesh = new THREE.LineSegments(icoWireframe, icoLineMaterial);
+            sceneGroup.add(icoMesh);
+
+            // 2. Glowing Nodes at vertices
+            const nodeGeo = new THREE.BufferGeometry();
+            const positions = icoGeometry.attributes.position.array;
+            nodeGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+            const nodeMat = new THREE.PointsMaterial({
+                color: 0xff7043,
+                size: 0.45,
+                transparent: true,
+                opacity: 0.9
+            });
+            const nodePoints = new THREE.Points(nodeGeo, nodeMat);
+            sceneGroup.add(nodePoints);
+
+            // 3. Orbital Ring 1
+            const ring1Geo = new THREE.TorusGeometry(10.5, 0.05, 16, 100);
+            const ring1Mat = new THREE.MeshBasicMaterial({
+                color: 0xff9800,
+                transparent: true,
+                opacity: 0.45
+            });
+            const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
+            ring1.rotation.x = Math.PI / 3;
+            sceneGroup.add(ring1);
+
+            // 4. Orbital Ring 2
+            const ring2Geo = new THREE.TorusGeometry(12.5, 0.04, 16, 100);
+            const ring2Mat = new THREE.MeshBasicMaterial({
+                color: 0xff5722,
+                transparent: true,
+                opacity: 0.35
+            });
+            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+            ring2.rotation.y = Math.PI / 4;
+            ring2.rotation.x = -Math.PI / 6;
+            sceneGroup.add(ring2);
+
+            // 5. Floating Starfield / AI Neural Particles
+            const particleCount = 150;
+            const particleGeo = new THREE.BufferGeometry();
+            const particleCoords = new Float32Array(particleCount * 3);
+            for (let i = 0; i < particleCount * 3; i += 3) {
+                particleCoords[i] = (Math.random() - 0.5) * 50;
+                particleCoords[i + 1] = (Math.random() - 0.5) * 40;
+                particleCoords[i + 2] = (Math.random() - 0.5) * 30;
+            }
+            particleGeo.setAttribute("position", new THREE.BufferAttribute(particleCoords, 3));
+            const particleMat = new THREE.PointsMaterial({
+                color: 0xffab91,
+                size: 0.22,
+                transparent: true,
+                opacity: 0.65
+            });
+            const particles = new THREE.Points(particleGeo, particleMat);
+            scene.add(particles);
+
+            // Responsive offset on right side (near visual portrait)
+            function updatePosition() {
+                if (window.innerWidth > 992) {
+                    sceneGroup.position.set(6, 0, 0);
+                } else {
+                    sceneGroup.position.set(0, 0, -4);
+                }
+            }
+            updatePosition();
+
+            // Mouse interaction with smooth interpolation
+            let targetMouseX = 0;
+            let targetMouseY = 0;
+            let currentMouseX = 0;
+            let currentMouseY = 0;
+
+            window.addEventListener("mousemove", (e) => {
+                targetMouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                targetMouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            }, { passive: true });
+
+            // Resize handling
+            function onResize() {
+                if (!container) return;
+                const width = container.clientWidth || window.innerWidth;
+                const height = container.clientHeight || window.innerHeight;
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                renderer.setSize(width, height);
+                updatePosition();
+            }
+            window.addEventListener("resize", onResize);
+
+            // Intersection Observer to stop animation loop when off-screen
+            let isVisible = true;
+            const heroObserver = new IntersectionObserver((entries) => {
+                isVisible = entries[0].isIntersecting;
+            }, { threshold: 0.05 });
+            heroObserver.observe(container);
+
+            // Animation Loop
+            let clock = new THREE.Clock();
+            function animate() {
+                requestAnimationFrame(animate);
+                if (!isVisible) return;
+
+                const elapsedTime = clock.getElapsedTime();
+
+                // Smooth lerp mouse
+                currentMouseX += (targetMouseX - currentMouseX) * 0.05;
+                currentMouseY += (targetMouseY - currentMouseY) * 0.05;
+
+                // Rotations
+                icoMesh.rotation.x = elapsedTime * 0.15;
+                icoMesh.rotation.y = elapsedTime * 0.2 + currentMouseX * 0.5;
+                nodePoints.rotation.x = icoMesh.rotation.x;
+                nodePoints.rotation.y = icoMesh.rotation.y;
+
+                ring1.rotation.z = elapsedTime * 0.25;
+                ring1.rotation.x = (Math.PI / 3) + currentMouseY * 0.3;
+                ring2.rotation.z = -elapsedTime * 0.2;
+                ring2.rotation.y = (Math.PI / 4) + currentMouseX * 0.3;
+
+                particles.rotation.y = elapsedTime * 0.04;
+                particles.rotation.x = elapsedTime * 0.02;
+
+                sceneGroup.rotation.x = currentMouseY * 0.3;
+                sceneGroup.rotation.y = currentMouseX * 0.4;
+
+                renderer.render(scene, camera);
+            }
+            animate();
+
+        } catch (err) {
+            console.warn("Three.js 3D initialization warning:", err);
+        }
+    }
+
+
+    /* =====================================================
+       3D INTERACTIVE CARD TILT WITH DYNAMIC GLARE
+       ===================================================== */
+    const tiltCards = document.querySelectorAll(
+        '[data-tilt="true"], .project-card, .certificate-card'
+    );
+
+    tiltCards.forEach(card => {
+        // Add glare overlay if not present
+        if (!card.querySelector(".tilt-glare")) {
+            const glare = document.createElement("div");
+            glare.className = "tilt-glare";
+            card.appendChild(glare);
+        }
+
+        const maxTilt = parseFloat(card.getAttribute("data-tilt-max")) || 12;
+
+        card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = ((y - centerY) / centerY) * -maxTilt;
+            const rotateY = ((x - centerX) / centerX) * maxTilt;
+
+            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+
+            card.style.setProperty("--glare-x", `${(x / rect.width) * 100}%`);
+            card.style.setProperty("--glare-y", `${(y / rect.height) * 100}%`);
+        });
+
+        card.addEventListener("mouseleave", () => {
+            card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+        });
+    });
+
 });
