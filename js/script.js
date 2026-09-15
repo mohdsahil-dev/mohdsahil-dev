@@ -60,8 +60,22 @@ document.addEventListener("DOMContentLoaded", () => {
             cursorRing.animate({
                 left: `${posX}px`,
                 top: `${posY}px`
-            }, { duration: 400, fill: "forwards" });
+            }, { duration: 250, fill: "forwards" });
         });
+
+        // Hover scale feedback for interactive elements
+        const interactiveSelectors = "a, button, input, textarea, select, .project-card, .certificate-card, .cert-nav-btn, .project-nav-btn, .project-action-link, .project-floating-btn, [role='button']";
+        const attachCursorHover = () => {
+            document.querySelectorAll(interactiveSelectors).forEach(el => {
+                el.removeEventListener("mouseenter", addHover);
+                el.removeEventListener("mouseleave", removeHover);
+                el.addEventListener("mouseenter", addHover);
+                el.addEventListener("mouseleave", removeHover);
+            });
+        };
+        function addHover() { document.body.classList.add("cursor-hover"); }
+        function removeHover() { document.body.classList.remove("cursor-hover"); }
+        attachCursorHover();
     }
 
 
@@ -373,57 +387,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       3D CYLINDRICAL ROUND CURVE & HORIZON FINISH ENGINE
-       (Ultra-smooth 60FPS 3D Curve, Depth Parallax & Horizon Fade)
+       CARD VISIBILITY & STATE ENGINE
+       (Keeps all cards crisp, 100% visible, sharp & easily interactive)
        ===================================================== */
     function apply3DCurve(track) {
         if (!track) return;
-        const trackRect = track.getBoundingClientRect();
-        if (trackRect.width === 0) return;
-        const trackCenter = trackRect.left + trackRect.width / 2;
-        const halfWidth = trackRect.width * 0.42;
         const cards = track.children;
-
         for (let i = 0; i < cards.length; i++) {
             const card = cards[i];
             if (!card.classList.contains("project-card") && !card.classList.contains("certificate-card")) continue;
-
-            const cardRect = card.getBoundingClientRect();
-            const cardCenter = cardRect.left + cardRect.width / 2;
-            const offset = (cardCenter - trackCenter) / halfWidth;
-            const clampedOffset = Math.max(-1.6, Math.min(1.6, offset));
-            const absOffset = Math.abs(clampedOffset);
-
-            // Clean 3D Cylindrical Round Curve:
-            // 1. Dynamic Y-Axis Rotation: Left curves inward right (+26deg), Right curves inward left (-26deg)
-            const rotateY = -clampedOffset * 26;
-            
-            // 2. 3D Depth Curve: Pushed into deep Z-space at start & end edges (up to -120px)
-            const translateZ = -Math.pow(absOffset, 1.7) * 120;
-            
-            // 3. Round Horizon Vertical Arch
-            const translateY = Math.pow(absOffset, 1.4) * 10;
-            
-            // 4. Smooth Scale from 1.04x (center) down to 0.82x (edges)
-            const scale = Math.max(0.80, 1.04 - absOffset * 0.16);
-            
-            // 5. Atmospheric Horizon Soft Finish & Opacity
-            const opacity = Math.max(0.55, 1.0 - absOffset * 0.28);
-            const blur = absOffset > 0.95 ? (absOffset - 0.95) * 2.2 : 0;
-
-            if (card.matches(":hover")) {
-                card.style.transform = `perspective(1300px) rotateY(${rotateY * 0.15}deg) translateZ(${Math.max(25, translateZ + 60)}px) translateY(-4px) scale(${scale * 1.04})`;
-                card.style.opacity = "1";
-                card.style.filter = "none";
-                card.style.clipPath = "none";
-                card.style.zIndex = "30";
-            } else {
-                card.style.transform = `perspective(1300px) rotateY(${rotateY.toFixed(2)}deg) translateZ(${translateZ.toFixed(1)}px) translateY(${translateY.toFixed(1)}px) scale(${scale.toFixed(3)})`;
-                card.style.opacity = opacity.toFixed(2);
-                card.style.filter = blur > 0 ? `blur(${blur.toFixed(1)}px)` : "none";
-                card.style.clipPath = "none";
-                card.style.zIndex = Math.round((3 - absOffset) * 10);
-            }
+            card.style.opacity = "1";
+            card.style.filter = "none";
+            card.style.clipPath = "none";
         }
     }
 
@@ -509,41 +484,53 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Drag to scroll for mouse
         let isDown = false;
-        let startX, scrollLeft;
+        let startX = 0;
+        let scrollLeft = 0;
         let isDragging = false;
+        let dragDistance = 0;
 
         projectsTrack.addEventListener("mousedown", (e) => {
+            // Never initiate track dragging if clicked on interactive elements
+            if (e.target.closest("a, button, .project-floating-btn, .project-action-link, .project-nav-btn")) {
+                isDown = false;
+                isDragging = false;
+                return;
+            }
             isDown = true;
             isDragging = false;
+            dragDistance = 0;
             isProjectsPaused = true;
             startX = e.pageX - projectsTrack.offsetLeft;
             scrollLeft = projectsTrack.scrollLeft;
         });
 
-        projectsTrack.addEventListener("mouseup", () => {
-            isDown = false;
-            setTimeout(() => {
-                projectsTrack.classList.remove("dragging");
-                isDragging = false;
-            }, 60);
+        window.addEventListener("mouseup", () => {
+            if (isDown) {
+                isDown = false;
+                setTimeout(() => {
+                    projectsTrack.classList.remove("dragging");
+                    isDragging = false;
+                    dragDistance = 0;
+                }, 50);
+            }
         });
 
         projectsTrack.addEventListener("mousemove", (e) => {
             if (!isDown) return;
             const x = e.pageX - projectsTrack.offsetLeft;
             const walk = (x - startX) * 1.5;
-            if (Math.abs(x - startX) > 5) {
+            dragDistance = Math.abs(x - startX);
+            if (dragDistance > 12) {
                 isDragging = true;
                 projectsTrack.classList.add("dragging");
-                e.preventDefault();
                 projectsTrack.scrollLeft = scrollLeft - walk;
                 apply3DCurve(projectsTrack);
             }
         });
 
-        // Prevent accidental link open when user was dragging
+        // Prevent link opening ONLY if user was deliberately dragging the track
         projectsTrack.addEventListener("click", (e) => {
-            if (isDragging) {
+            if (isDragging && dragDistance > 12) {
                 e.preventDefault();
                 e.stopPropagation();
             }
@@ -670,33 +657,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Drag to scroll for mouse
         let isCertDown = false;
-        let certStartX, certScrollLeft;
+        let certStartX = 0;
+        let certScrollLeft = 0;
         let isCertDragging = false;
+        let certDragDistance = 0;
 
         certificatesTrack.addEventListener("mousedown", (e) => {
+            if (e.target.closest("a, button, .cert-link, .cert-nav-btn")) {
+                isCertDown = false;
+                isCertDragging = false;
+                return;
+            }
             isCertDown = true;
             isCertDragging = false;
+            certDragDistance = 0;
             isCertPaused = true;
             certStartX = e.pageX - certificatesTrack.offsetLeft;
             certScrollLeft = certificatesTrack.scrollLeft;
         });
 
-        certificatesTrack.addEventListener("mouseup", () => {
-            isCertDown = false;
-            setTimeout(() => {
-                certificatesTrack.classList.remove("dragging");
-                isCertDragging = false;
-            }, 60);
+        window.addEventListener("mouseup", () => {
+            if (isCertDown) {
+                isCertDown = false;
+                setTimeout(() => {
+                    certificatesTrack.classList.remove("dragging");
+                    isCertDragging = false;
+                    certDragDistance = 0;
+                }, 50);
+            }
         });
 
         certificatesTrack.addEventListener("mousemove", (e) => {
             if (!isCertDown) return;
             const x = e.pageX - certificatesTrack.offsetLeft;
             const walk = (x - certStartX) * 1.5;
-            if (Math.abs(x - certStartX) > 5) {
+            certDragDistance = Math.abs(x - certStartX);
+            if (certDragDistance > 12) {
                 isCertDragging = true;
                 certificatesTrack.classList.add("dragging");
-                e.preventDefault();
                 certificatesTrack.scrollLeft = certScrollLeft - walk;
                 apply3DCurve(certificatesTrack);
             }
@@ -704,7 +702,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Prevent accidental link open when user was dragging
         certificatesTrack.addEventListener("click", (e) => {
-            if (isCertDragging) {
+            if (isCertDragging && certDragDistance > 12) {
                 e.preventDefault();
                 e.stopPropagation();
             }
@@ -1396,11 +1394,11 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =====================================================
        3D INTERACTIVE CARD TILT WITH DYNAMIC GLARE
        ===================================================== */
-    const tiltCards = document.querySelectorAll(
+    const allGlaredCards = document.querySelectorAll(
         '[data-tilt="true"], .project-card, .certificate-card'
     );
 
-    tiltCards.forEach(card => {
+    allGlaredCards.forEach(card => {
         // Add glare overlay if not present
         if (!card.querySelector(".tilt-glare")) {
             const glare = document.createElement("div");
@@ -1408,6 +1406,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.appendChild(glare);
         }
 
+        const isStandaloneTilt = card.hasAttribute("data-tilt") && card.getAttribute("data-tilt") === "true";
         const maxTilt = parseFloat(card.getAttribute("data-tilt-max")) || 12;
 
         card.addEventListener("mousemove", (e) => {
@@ -1415,21 +1414,23 @@ document.addEventListener("DOMContentLoaded", () => {
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
 
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -maxTilt;
-            const rotateY = ((x - centerX) / centerX) * maxTilt;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
-
             card.style.setProperty("--glare-x", `${(x / rect.width) * 100}%`);
             card.style.setProperty("--glare-y", `${(y / rect.height) * 100}%`);
+
+            if (isStandaloneTilt) {
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = ((y - centerY) / centerY) * -maxTilt;
+                const rotateY = ((x - centerX) / centerX) * maxTilt;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateZ(8px)`;
+            }
         });
 
-        card.addEventListener("mouseleave", () => {
-            card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
-        });
+        if (isStandaloneTilt) {
+            card.addEventListener("mouseleave", () => {
+                card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) translateZ(0px)";
+            });
+        }
     });
 
 });
