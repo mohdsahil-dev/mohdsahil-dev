@@ -41,6 +41,20 @@
 
 
     <!-- =====================================================
+     GLOBAL INTERACTIVE BACKGROUND CANVAS & AMBIENT AURORA
+     (Visible across all pages / sections)
+===================================================== -->
+    <div class="global-bg-wrapper" id="globalBgWrapper" aria-hidden="true">
+        <canvas id="globalBgCanvas"></canvas>
+        <div class="ambient-glow-orb orb-1"></div>
+        <div class="ambient-glow-orb orb-2"></div>
+        <div class="ambient-glow-orb orb-3"></div>
+        <div class="ambient-glow-orb orb-4"></div>
+        <div class="ambient-grid-overlay"></div>
+    </div>
+
+
+    <!-- =====================================================
      NAVBAR
 ===================================================== -->
     <header class="navbar" id="navbar">
@@ -315,7 +329,7 @@
 
                     <div class="about-title-wrap">
                         <h2 class="about-title">
-                            About <span class="title-highlight">Me<span class="title-dot">.</span></span>
+                            About Me<span class="title-dot">.</span>
                         </h2>
                     </div>
 
@@ -337,17 +351,7 @@
                     </div>
 
                     <div class="about-cta-buttons">
-                        <a href="#contact" class="btn-about-dark">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                </path>
-                                <polyline points="22,6 12,13 2,6"></polyline>
-                            </svg>
-                            Contact Me
-                        </a>
-
-                        <a href="#contact" class="btn-about-outline">
+                        <a href="assets/Mohd_Sahil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-about-dark" id="aboutResumeBtn">
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -357,11 +361,6 @@
                                 <polyline points="10 9 9 9 8 9"></polyline>
                             </svg>
                             Resume
-                        </a>
-
-                        <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer"
-                            class="btn-about-icon" aria-label="GitHub">
-                            <i class="devicon-github-original"></i>
                         </a>
                     </div>
 
@@ -618,7 +617,7 @@
                 <div class="projects-header-row reveal">
                     <div class="projects-heading-wrap">
                         <h2 class="section-title-left">
-                            Projects<span class="title-highlight"><span class="title-dot">.</span></span>
+                            Projects<span class="title-dot">.</span>
                         </h2>
                     </div>
 
@@ -648,8 +647,8 @@
                             <div class="project-thumb-box">
                                 <img src="assets/images/project_univora.svg" alt="Univora College Management"
                                     class="project-thumb-img">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                    class="project-floating-btn" aria-label="Open project">
+                                <a href="https://univora-college-management.onrender.com" target="_blank"
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open project">
                                     ↗
                                 </a>
                             </div>
@@ -661,8 +660,8 @@
                                     course management, timetable tracking, and administrative dashboards.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://github.com/mohdsahil-dev/Univora-College-Management"
-                                        target="_blank" rel="noopener noreferrer" class="project-action-link">
+                                    <a href="https://univora-college-management.onrender.com" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round">
@@ -685,7 +684,7 @@
                             <div class="project-thumb-box">
                                 <img src="assets/images/project_nexusai.svg" alt="NexusAI Business OS"
                                     class="project-thumb-img">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                <a href="https://nexusai-g6mv.onrender.com" target="_blank" rel="noopener noreferrer"
                                     class="project-floating-btn" aria-label="Open project">
                                     ↗
                                 </a>
@@ -699,7 +698,7 @@
                                     data-backed decision making.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://github.com/mohdsahil-dev/NexusAI " target="_blank"
+                                    <a href="https://nexusai-g6mv.onrender.com" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -709,7 +708,7 @@
                                         </svg>
                                         View
                                     </a>
-                                    <a href="https://github.com/mohdsahil-dev/NexusAI " target="_blank"
+                                    <a href="https://github.com/mohdsahil-dev/NexusAI" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <i class="devicon-github-original"></i>
                                         Code
@@ -723,8 +722,8 @@
                             <div class="project-thumb-box">
                                 <img src="assets/images/project1.jpg" alt="Personal Expense Tracker"
                                     class="project-thumb-img">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                    class="project-floating-btn" aria-label="Open project">
+                                <a href="https://expense-tracker-h39g.onrender.com" target="_blank"
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open project">
                                     ↗
                                 </a>
                             </div>
@@ -736,7 +735,7 @@
                                     visual charts, category breakdowns, and monthly budget management.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://github.com/mohdsahil-dev/expense-tracker" target="_blank"
+                                    <a href="https://expense-tracker-h39g.onrender.com" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -754,14 +753,13 @@
                                 </div>
                             </div>
                         </article>
-
                         <!-- PROJECT 4: birthday-surprise-3d -->
                         <article class="project-card reveal reveal-delay-2">
                             <div class="project-thumb-box">
                                 <img src="assets/images/project_birthday3d.svg" alt="birthday-surprise-3d"
                                     class="project-thumb-img">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                                    class="project-floating-btn" aria-label="Open project">
+                                <a href="https://birthday-surprise-3d.onrender.com" target="_blank"
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open project">
                                     ↗
                                 </a>
                             </div>
@@ -773,7 +771,7 @@
                                     featuring real-time particle effects, custom 3D animations, and dynamic lighting.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://github.com/mohdsahil-dev/birthday-surprise-3d" target="_blank"
+                                    <a href="https://birthday-surprise-3d.onrender.com" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -796,7 +794,7 @@
                         <article class="project-card reveal">
                             <div class="project-thumb-box">
                                 <img src="assets/images/project_todo.svg" alt="Todo App" class="project-thumb-img">
-                                <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                                <a href="https://todo-vinx.onrender.com" target="_blank" rel="noopener noreferrer"
                                     class="project-floating-btn" aria-label="Open project">
                                     ↗
                                 </a>
@@ -809,8 +807,8 @@
                                     local storage persistence, priority categorization, and progress tracking.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://github.com/mohdsahil-dev/todo" target="_blank"
-                                        rel="noopener noreferrer" class="project-action-link">
+                                    <a href="https://todo-vinx.onrender.com" target="_blank" rel="noopener noreferrer"
+                                        class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round">

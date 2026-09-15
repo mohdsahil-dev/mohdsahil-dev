@@ -373,7 +373,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       PROJECTS HORIZONTAL SLIDER CONTROLS
+       3D CYLINDRICAL ROUND CURVE & HORIZON FINISH ENGINE
+       (Ultra-smooth 60FPS 3D Curve, Depth Parallax & Horizon Fade)
+       ===================================================== */
+    function apply3DCurve(track) {
+        if (!track) return;
+        const trackRect = track.getBoundingClientRect();
+        if (trackRect.width === 0) return;
+        const trackCenter = trackRect.left + trackRect.width / 2;
+        const halfWidth = trackRect.width * 0.42;
+        const cards = track.children;
+
+        for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+            if (!card.classList.contains("project-card") && !card.classList.contains("certificate-card")) continue;
+
+            const cardRect = card.getBoundingClientRect();
+            const cardCenter = cardRect.left + cardRect.width / 2;
+            const offset = (cardCenter - trackCenter) / halfWidth;
+            const clampedOffset = Math.max(-1.6, Math.min(1.6, offset));
+            const absOffset = Math.abs(clampedOffset);
+
+            // Clean 3D Cylindrical Round Curve:
+            // 1. Dynamic Y-Axis Rotation: Left curves inward right (+26deg), Right curves inward left (-26deg)
+            const rotateY = -clampedOffset * 26;
+            
+            // 2. 3D Depth Curve: Pushed into deep Z-space at start & end edges (up to -120px)
+            const translateZ = -Math.pow(absOffset, 1.7) * 120;
+            
+            // 3. Round Horizon Vertical Arch
+            const translateY = Math.pow(absOffset, 1.4) * 10;
+            
+            // 4. Smooth Scale from 1.04x (center) down to 0.82x (edges)
+            const scale = Math.max(0.80, 1.04 - absOffset * 0.16);
+            
+            // 5. Atmospheric Horizon Soft Finish & Opacity
+            const opacity = Math.max(0.55, 1.0 - absOffset * 0.28);
+            const blur = absOffset > 0.95 ? (absOffset - 0.95) * 2.2 : 0;
+
+            if (card.matches(":hover")) {
+                card.style.transform = `perspective(1300px) rotateY(${rotateY * 0.15}deg) translateZ(${Math.max(25, translateZ + 60)}px) translateY(-4px) scale(${scale * 1.04})`;
+                card.style.opacity = "1";
+                card.style.filter = "none";
+                card.style.clipPath = "none";
+                card.style.zIndex = "30";
+            } else {
+                card.style.transform = `perspective(1300px) rotateY(${rotateY.toFixed(2)}deg) translateZ(${translateZ.toFixed(1)}px) translateY(${translateY.toFixed(1)}px) scale(${scale.toFixed(3)})`;
+                card.style.opacity = opacity.toFixed(2);
+                card.style.filter = blur > 0 ? `blur(${blur.toFixed(1)}px)` : "none";
+                card.style.clipPath = "none";
+                card.style.zIndex = Math.round((3 - absOffset) * 10);
+            }
+        }
+    }
+
+    /* =====================================================
+       PROJECTS HORIZONTAL SLIDER (ROUND 3D ELEVATOR SCROLL & HOVER PAUSE)
        ===================================================== */
     const projectsTrack = document.getElementById("projectsTrack");
     const projectPrevBtn = document.getElementById("projectPrevBtn");
@@ -381,25 +436,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const projectsProgressBar = document.getElementById("projectsProgressBar");
 
     if (projectsTrack) {
+        let isProjectsPaused = false;
+        let projectsScrollDirection = 1;
+        let isProjectsVisible = true;
+        let projectsResumeTimer = null;
+        let projectsAccumulator = 0;
+        let projectsPauseTimer = 0;
+
         const getScrollDistance = () => {
             const firstCard = projectsTrack.querySelector(".project-card");
-            return firstCard ? firstCard.offsetWidth + 28 : 450;
+            return firstCard ? firstCard.offsetWidth + 32 : 450;
+        };
+
+        const pauseAndResumeProjects = () => {
+            isProjectsPaused = true;
+            clearTimeout(projectsResumeTimer);
+            projectsResumeTimer = setTimeout(() => {
+                isProjectsPaused = false;
+            }, 2500);
         };
 
         if (projectPrevBtn) {
             projectPrevBtn.addEventListener("click", () => {
+                pauseAndResumeProjects();
                 projectsTrack.scrollBy({ left: -getScrollDistance(), behavior: "smooth" });
             });
+            projectPrevBtn.addEventListener("mouseenter", () => isProjectsPaused = true);
+            projectPrevBtn.addEventListener("mouseleave", () => isProjectsPaused = false);
         }
 
         if (projectNextBtn) {
             projectNextBtn.addEventListener("click", () => {
+                pauseAndResumeProjects();
                 projectsTrack.scrollBy({ left: getScrollDistance(), behavior: "smooth" });
             });
+            projectNextBtn.addEventListener("mouseenter", () => isProjectsPaused = true);
+            projectNextBtn.addEventListener("mouseleave", () => isProjectsPaused = false);
         }
 
-        // Update progress bar
-        const updateProgressBar = () => {
+        // Update progress bar and 3D curve
+        const updateProjectsView = () => {
+            apply3DCurve(projectsTrack);
             if (!projectsProgressBar) return;
             const maxScroll = projectsTrack.scrollWidth - projectsTrack.clientWidth;
             if (maxScroll > 0) {
@@ -410,40 +487,109 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        projectsTrack.addEventListener("scroll", updateProgressBar);
+        projectsTrack.addEventListener("scroll", updateProjectsView, { passive: true });
+        window.addEventListener("resize", () => apply3DCurve(projectsTrack));
+
+        // Hover & Touch Pause
+        projectsTrack.addEventListener("mouseenter", () => {
+            isProjectsPaused = true;
+        });
+
+        projectsTrack.addEventListener("mouseleave", () => {
+            isProjectsPaused = false;
+        });
+
+        projectsTrack.addEventListener("touchstart", () => {
+            isProjectsPaused = true;
+        }, { passive: true });
+
+        projectsTrack.addEventListener("touchend", () => {
+            pauseAndResumeProjects();
+        });
 
         // Drag to scroll for mouse
         let isDown = false;
         let startX, scrollLeft;
+        let isDragging = false;
 
         projectsTrack.addEventListener("mousedown", (e) => {
             isDown = true;
-            projectsTrack.classList.add("dragging");
+            isDragging = false;
+            isProjectsPaused = true;
             startX = e.pageX - projectsTrack.offsetLeft;
             scrollLeft = projectsTrack.scrollLeft;
         });
 
-        projectsTrack.addEventListener("mouseleave", () => {
-            isDown = false;
-            projectsTrack.classList.remove("dragging");
-        });
-
         projectsTrack.addEventListener("mouseup", () => {
             isDown = false;
-            projectsTrack.classList.remove("dragging");
+            setTimeout(() => {
+                projectsTrack.classList.remove("dragging");
+                isDragging = false;
+            }, 60);
         });
 
         projectsTrack.addEventListener("mousemove", (e) => {
             if (!isDown) return;
-            e.preventDefault();
             const x = e.pageX - projectsTrack.offsetLeft;
             const walk = (x - startX) * 1.5;
-            projectsTrack.scrollLeft = scrollLeft - walk;
+            if (Math.abs(x - startX) > 5) {
+                isDragging = true;
+                projectsTrack.classList.add("dragging");
+                e.preventDefault();
+                projectsTrack.scrollLeft = scrollLeft - walk;
+                apply3DCurve(projectsTrack);
+            }
         });
+
+        // Prevent accidental link open when user was dragging
+        projectsTrack.addEventListener("click", (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+
+        // Visibility observer
+        const projectsObserver = new IntersectionObserver((entries) => {
+            isProjectsVisible = entries[0].isIntersecting;
+            if (isProjectsVisible) apply3DCurve(projectsTrack);
+        }, { threshold: 0.1 });
+        projectsObserver.observe(projectsTrack);
+
+        // Smooth 60FPS Elevator Auto-Scroll with 3D Curve (Speed increased to 1.35px)
+        function autoScrollProjects() {
+            if (!isProjectsPaused && isProjectsVisible) {
+                const maxScroll = projectsTrack.scrollWidth - projectsTrack.clientWidth;
+                if (maxScroll > 5) {
+                    if (projectsPauseTimer > 0) {
+                        projectsPauseTimer--;
+                    } else {
+                        projectsAccumulator += 1.35 * projectsScrollDirection;
+                        if (Math.abs(projectsAccumulator) >= 1) {
+                            const step = Math.trunc(projectsAccumulator);
+                            projectsTrack.scrollLeft += step;
+                            projectsAccumulator -= step;
+                            apply3DCurve(projectsTrack);
+
+                            if (projectsTrack.scrollLeft >= maxScroll - 2 && projectsScrollDirection === 1) {
+                                projectsScrollDirection = -1;
+                                projectsPauseTimer = 90; // pause at end for ~1.5s
+                            } else if (projectsTrack.scrollLeft <= 2 && projectsScrollDirection === -1) {
+                                projectsScrollDirection = 1;
+                                projectsPauseTimer = 90; // pause at start for ~1.5s
+                            }
+                        }
+                    }
+                }
+            }
+            requestAnimationFrame(autoScrollProjects);
+        }
+        autoScrollProjects();
+        setTimeout(() => apply3DCurve(projectsTrack), 300);
     }
 
     /* =====================================================
-       CERTIFICATES HORIZONTAL SLIDER CONTROLS
+       CERTIFICATES HORIZONTAL SLIDER (ROUND 3D ELEVATOR SCROLL & HOVER PAUSE)
        ===================================================== */
     const certificatesTrack = document.getElementById("certificatesTrack");
     const certPrevBtn = document.getElementById("certPrevBtn");
@@ -451,25 +597,47 @@ document.addEventListener("DOMContentLoaded", () => {
     const certificatesProgressBar = document.getElementById("certificatesProgressBar");
 
     if (certificatesTrack) {
+        let isCertPaused = false;
+        let certScrollDirection = 1;
+        let isCertVisible = true;
+        let certResumeTimer = null;
+        let certAccumulator = 0;
+        let certPauseTimer = 0;
+
         const getCertScrollDistance = () => {
             const firstCard = certificatesTrack.querySelector(".certificate-card");
-            return firstCard ? firstCard.offsetWidth + 24 : 400;
+            return firstCard ? firstCard.offsetWidth + 28 : 400;
+        };
+
+        const pauseAndResumeCert = () => {
+            isCertPaused = true;
+            clearTimeout(certResumeTimer);
+            certResumeTimer = setTimeout(() => {
+                isCertPaused = false;
+            }, 2500);
         };
 
         if (certPrevBtn) {
             certPrevBtn.addEventListener("click", () => {
+                pauseAndResumeCert();
                 certificatesTrack.scrollBy({ left: -getCertScrollDistance(), behavior: "smooth" });
             });
+            certPrevBtn.addEventListener("mouseenter", () => isCertPaused = true);
+            certPrevBtn.addEventListener("mouseleave", () => isCertPaused = false);
         }
 
         if (certNextBtn) {
             certNextBtn.addEventListener("click", () => {
+                pauseAndResumeCert();
                 certificatesTrack.scrollBy({ left: getCertScrollDistance(), behavior: "smooth" });
             });
+            certNextBtn.addEventListener("mouseenter", () => isCertPaused = true);
+            certNextBtn.addEventListener("mouseleave", () => isCertPaused = false);
         }
 
-        // Update progress bar
-        const updateCertProgressBar = () => {
+        // Update progress bar and 3D curve
+        const updateCertView = () => {
+            apply3DCurve(certificatesTrack);
             if (!certificatesProgressBar) return;
             const maxScroll = certificatesTrack.scrollWidth - certificatesTrack.clientWidth;
             if (maxScroll > 0) {
@@ -480,36 +648,105 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
 
-        certificatesTrack.addEventListener("scroll", updateCertProgressBar);
+        certificatesTrack.addEventListener("scroll", updateCertView, { passive: true });
+        window.addEventListener("resize", () => apply3DCurve(certificatesTrack));
+
+        // Hover & Touch Pause
+        certificatesTrack.addEventListener("mouseenter", () => {
+            isCertPaused = true;
+        });
+
+        certificatesTrack.addEventListener("mouseleave", () => {
+            isCertPaused = false;
+        });
+
+        certificatesTrack.addEventListener("touchstart", () => {
+            isCertPaused = true;
+        }, { passive: true });
+
+        certificatesTrack.addEventListener("touchend", () => {
+            pauseAndResumeCert();
+        });
 
         // Drag to scroll for mouse
         let isCertDown = false;
         let certStartX, certScrollLeft;
+        let isCertDragging = false;
 
         certificatesTrack.addEventListener("mousedown", (e) => {
             isCertDown = true;
-            certificatesTrack.classList.add("dragging");
+            isCertDragging = false;
+            isCertPaused = true;
             certStartX = e.pageX - certificatesTrack.offsetLeft;
             certScrollLeft = certificatesTrack.scrollLeft;
         });
 
-        certificatesTrack.addEventListener("mouseleave", () => {
-            isCertDown = false;
-            certificatesTrack.classList.remove("dragging");
-        });
-
         certificatesTrack.addEventListener("mouseup", () => {
             isCertDown = false;
-            certificatesTrack.classList.remove("dragging");
+            setTimeout(() => {
+                certificatesTrack.classList.remove("dragging");
+                isCertDragging = false;
+            }, 60);
         });
 
         certificatesTrack.addEventListener("mousemove", (e) => {
             if (!isCertDown) return;
-            e.preventDefault();
             const x = e.pageX - certificatesTrack.offsetLeft;
             const walk = (x - certStartX) * 1.5;
-            certificatesTrack.scrollLeft = certScrollLeft - walk;
+            if (Math.abs(x - certStartX) > 5) {
+                isCertDragging = true;
+                certificatesTrack.classList.add("dragging");
+                e.preventDefault();
+                certificatesTrack.scrollLeft = certScrollLeft - walk;
+                apply3DCurve(certificatesTrack);
+            }
         });
+
+        // Prevent accidental link open when user was dragging
+        certificatesTrack.addEventListener("click", (e) => {
+            if (isCertDragging) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }, true);
+
+        // Visibility observer
+        const certObserver = new IntersectionObserver((entries) => {
+            isCertVisible = entries[0].isIntersecting;
+            if (isCertVisible) apply3DCurve(certificatesTrack);
+        }, { threshold: 0.1 });
+        certObserver.observe(certificatesTrack);
+
+        // Smooth 60FPS Elevator Auto-Scroll with 3D Curve (Speed increased to 1.35px)
+        function autoScrollCertificates() {
+            if (!isCertPaused && isCertVisible) {
+                const maxScroll = certificatesTrack.scrollWidth - certificatesTrack.clientWidth;
+                if (maxScroll > 5) {
+                    if (certPauseTimer > 0) {
+                        certPauseTimer--;
+                    } else {
+                        certAccumulator += 1.35 * certScrollDirection;
+                        if (Math.abs(certAccumulator) >= 1) {
+                            const step = Math.trunc(certAccumulator);
+                            certificatesTrack.scrollLeft += step;
+                            certAccumulator -= step;
+                            apply3DCurve(certificatesTrack);
+
+                            if (certificatesTrack.scrollLeft >= maxScroll - 2 && certScrollDirection === 1) {
+                                certScrollDirection = -1;
+                                certPauseTimer = 90; // pause at end for ~1.5s
+                            } else if (certificatesTrack.scrollLeft <= 2 && certScrollDirection === -1) {
+                                certScrollDirection = 1;
+                                certPauseTimer = 90; // pause at start for ~1.5s
+                            }
+                        }
+                    }
+                }
+            }
+            requestAnimationFrame(autoScrollCertificates);
+        }
+        autoScrollCertificates();
+        setTimeout(() => apply3DCurve(certificatesTrack), 300);
     }
 
     /* =====================================================
@@ -613,7 +850,327 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =====================================================
-       3D HERO THREE.JS CYBER NEURAL CANVAS
+       GLOBAL INTERACTIVE CYBER CONSTELLATION & NEURAL CANVAS
+       (Runs across all sections & pages with dynamic interactivity)
+       ===================================================== */
+    const globalCanvas = document.getElementById("globalBgCanvas");
+    if (globalCanvas) {
+        const ctx = globalCanvas.getContext("2d");
+        let width = 0;
+        let height = 0;
+        let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+        function resizeGlobalCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            globalCanvas.width = width * dpr;
+            globalCanvas.height = height * dpr;
+            globalCanvas.style.width = `${width}px`;
+            globalCanvas.style.height = `${height}px`;
+            ctx.scale(dpr, dpr);
+        }
+        resizeGlobalCanvas();
+        window.addEventListener("resize", resizeGlobalCanvas);
+
+        // Track global mouse state across all sections
+        const mouse = {
+            x: -9999,
+            y: -9999,
+            radius: 175,
+            active: false
+        };
+
+        window.addEventListener("mousemove", (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            mouse.active = true;
+        }, { passive: true });
+
+        window.addEventListener("mouseleave", () => {
+            mouse.active = false;
+            mouse.x = -9999;
+            mouse.y = -9999;
+        });
+
+        // Click shockwaves array
+        const shockwaves = [];
+        window.addEventListener("pointerdown", (e) => {
+            if (shockwaves.length < 5) {
+                shockwaves.push({
+                    x: e.clientX,
+                    y: e.clientY,
+                    radius: 5,
+                    maxRadius: 180,
+                    alpha: 0.85
+                });
+            }
+        });
+
+        // Theme-aware palette helper
+        function isDarkMode() {
+            return document.body.classList.contains("dark-mode");
+        }
+
+        // Particle Class
+        class CyberNode {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = initial ? Math.random() * width : (Math.random() > 0.5 ? -10 : width + 10);
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.65;
+                this.vy = (Math.random() - 0.5) * 0.65;
+                this.baseRadius = Math.random() * 1.8 + 1.2;
+                this.radius = this.baseRadius;
+                this.pulseSpeed = Math.random() * 0.03 + 0.015;
+                this.pulsePhase = Math.random() * Math.PI * 2;
+                this.isAccent = Math.random() < 0.28; // 28% orange accent nodes
+                this.isSpecial = Math.random() < 0.08; // Special glowing rotating diamond
+                this.ringAngle = Math.random() * Math.PI * 2;
+                this.ringSpeed = (Math.random() - 0.5) * 0.02;
+            }
+
+            update() {
+                this.pulsePhase += this.pulseSpeed;
+                this.ringAngle += this.ringSpeed;
+
+                // Mouse gravitational attraction
+                if (mouse.active) {
+                    const dx = mouse.x - this.x;
+                    const dy = mouse.y - this.y;
+                    const dist = Math.hypot(dx, dy);
+
+                    if (dist < mouse.radius && dist > 1) {
+                        const force = (1 - dist / mouse.radius) * 0.85;
+                        this.x += (dx / dist) * force;
+                        this.y += (dy / dist) * force;
+                    }
+                }
+
+                // Shockwave reaction
+                for (let i = 0; i < shockwaves.length; i++) {
+                    const sw = shockwaves[i];
+                    const dx = this.x - sw.x;
+                    const dy = this.y - sw.y;
+                    const dist = Math.hypot(dx, dy);
+                    if (Math.abs(dist - sw.radius) < 25 && dist > 0) {
+                        const push = ((25 - Math.abs(dist - sw.radius)) / 25) * 4;
+                        this.x += (dx / dist) * push;
+                        this.y += (dy / dist) * push;
+                    }
+                }
+
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Screen edge wrap
+                if (this.x < -30) this.x = width + 30;
+                if (this.x > width + 30) this.x = -30;
+                if (this.y < -30) this.y = height + 30;
+                if (this.y > height + 30) this.y = -30;
+            }
+
+            draw() {
+                const dark = isDarkMode();
+                const pulsingSize = this.baseRadius + Math.sin(this.pulsePhase) * 0.6;
+
+                let fillColor;
+                if (this.isAccent) {
+                    fillColor = dark ? "rgba(255, 107, 53, 0.9)" : "rgba(255, 87, 34, 0.85)";
+                } else {
+                    fillColor = dark ? "rgba(230, 230, 240, 0.65)" : "rgba(35, 35, 40, 0.45)";
+                }
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, Math.max(0.5, pulsingSize), 0, Math.PI * 2);
+                ctx.fillStyle = fillColor;
+                ctx.fill();
+
+                // Special nodes: draw rotating diamond wireframe
+                if (this.isSpecial) {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.ringAngle);
+                    ctx.strokeStyle = dark ? "rgba(255, 138, 101, 0.45)" : "rgba(255, 87, 34, 0.38)";
+                    ctx.lineWidth = 1;
+                    ctx.strokeRect(-6, -6, 12, 12);
+                    ctx.restore();
+                }
+            }
+        }
+
+        // Floating Cyber Geometric Glyphs (Hexagons, Crosses, Reticles)
+        class CyberGlyph {
+            constructor() {
+                this.reset();
+            }
+
+            reset() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.22;
+                this.vy = (Math.random() - 0.5) * 0.22;
+                this.size = Math.random() * 24 + 14;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotSpeed = (Math.random() - 0.5) * 0.008;
+                this.type = Math.floor(Math.random() * 3); // 0: Hexagon, 1: Cross +, 2: Concentric Reticle
+                this.alpha = Math.random() * 0.18 + 0.08;
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.rotation += this.rotSpeed;
+
+                if (this.x < -50) this.x = width + 50;
+                if (this.x > width + 50) this.x = -50;
+                if (this.y < -50) this.y = height + 50;
+                if (this.y > height + 50) this.y = -50;
+            }
+
+            draw() {
+                const dark = isDarkMode();
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.strokeStyle = dark ? `rgba(255, 110, 64, ${this.alpha * 1.3})` : `rgba(255, 87, 34, ${this.alpha * 0.9})`;
+                ctx.lineWidth = 1.2;
+
+                if (this.type === 0) {
+                    // Wireframe Hexagon
+                    ctx.beginPath();
+                    for (let i = 0; i < 6; i++) {
+                        const angle = (i * Math.PI) / 3;
+                        const px = Math.cos(angle) * (this.size / 2);
+                        const py = Math.sin(angle) * (this.size / 2);
+                        if (i === 0) ctx.moveTo(px, py);
+                        else ctx.lineTo(px, py);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                } else if (this.type === 1) {
+                    // Cyber Cross +
+                    const len = this.size * 0.4;
+                    ctx.beginPath();
+                    ctx.moveTo(-len, 0);
+                    ctx.lineTo(len, 0);
+                    ctx.moveTo(0, -len);
+                    ctx.lineTo(0, len);
+                    ctx.stroke();
+                } else {
+                    // Cyber Reticle Ring
+                    const r = this.size * 0.35;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, r, 0, Math.PI * 2);
+                    ctx.moveTo(0, -r - 4); ctx.lineTo(0, -r + 2);
+                    ctx.moveTo(0, r - 2); ctx.lineTo(0, r + 4);
+                    ctx.moveTo(-r - 4, 0); ctx.lineTo(-r + 2, 0);
+                    ctx.moveTo(r - 2, 0); ctx.lineTo(r + 4, 0);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+        }
+
+        // Initialize Nodes & Glyphs based on viewport size
+        const nodeCount = Math.min(110, Math.max(50, Math.floor((width * height) / 14000)));
+        const nodes = Array.from({ length: nodeCount }, () => new CyberNode());
+        const glyphs = Array.from({ length: 9 }, () => new CyberGlyph());
+
+        const maxConnectionDist = 135;
+
+        // Render Loop
+        function renderGlobalCanvas() {
+            ctx.clearRect(0, 0, width, height);
+            const dark = isDarkMode();
+
+            // 1. Draw Shockwaves
+            for (let i = shockwaves.length - 1; i >= 0; i--) {
+                const sw = shockwaves[i];
+                sw.radius += 5;
+                sw.alpha *= 0.94;
+
+                ctx.beginPath();
+                ctx.arc(sw.x, sw.y, sw.radius, 0, Math.PI * 2);
+                ctx.strokeStyle = dark ? `rgba(255, 110, 64, ${sw.alpha * 0.7})` : `rgba(255, 87, 34, ${sw.alpha * 0.6})`;
+                ctx.lineWidth = 1.8;
+                ctx.stroke();
+
+                if (sw.radius > sw.maxRadius || sw.alpha < 0.02) {
+                    shockwaves.splice(i, 1);
+                }
+            }
+
+            // 2. Update & Draw Cyber Glyphs
+            for (let i = 0; i < glyphs.length; i++) {
+                glyphs[i].update();
+                glyphs[i].draw();
+            }
+
+            // 3. Update & Draw Nodes
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].update();
+                nodes[i].draw();
+            }
+
+            // 4. Draw Connecting Laser Threads
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dx = nodes[i].x - nodes[j].x;
+                    const dy = nodes[i].y - nodes[j].y;
+                    const dist = Math.hypot(dx, dy);
+
+                    if (dist < maxConnectionDist) {
+                        const alpha = (1 - dist / maxConnectionDist);
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(nodes[j].x, nodes[j].y);
+
+                        if (nodes[i].isAccent || nodes[j].isAccent) {
+                            ctx.strokeStyle = dark 
+                                ? `rgba(255, 107, 53, ${alpha * 0.38})`
+                                : `rgba(255, 87, 34, ${alpha * 0.28})`;
+                            ctx.lineWidth = 0.9;
+                        } else {
+                            ctx.strokeStyle = dark
+                                ? `rgba(255, 255, 255, ${alpha * 0.12})`
+                                : `rgba(0, 0, 0, ${alpha * 0.07})`;
+                            ctx.lineWidth = 0.65;
+                        }
+                        ctx.stroke();
+                    }
+                }
+
+                // 5. Connect Laser Tether to Mouse
+                if (mouse.active) {
+                    const mdx = nodes[i].x - mouse.x;
+                    const mdy = nodes[i].y - mouse.y;
+                    const mDist = Math.hypot(mdx, mdy);
+
+                    if (mDist < 160) {
+                        const mAlpha = (1 - mDist / 160);
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[i].x, nodes[i].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.strokeStyle = dark
+                            ? `rgba(255, 110, 64, ${mAlpha * 0.55})`
+                            : `rgba(255, 87, 34, ${mAlpha * 0.45})`;
+                        ctx.lineWidth = 1.1;
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            requestAnimationFrame(renderGlobalCanvas);
+        }
+        renderGlobalCanvas();
+    }
+
+
+    /* =====================================================
+       3D HERO THREE.JS CYBER NEURAL CORE
        ===================================================== */
     const heroCanvas = document.getElementById("hero3dCanvas");
     if (heroCanvas && typeof THREE !== "undefined") {
@@ -621,8 +1178,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const container = document.getElementById("hero3dContainer") || heroCanvas.parentElement;
             const scene = new THREE.Scene();
 
-            const camera = new THREE.PerspectiveCamera(50, (container.clientWidth || window.innerWidth) / (container.clientHeight || window.innerHeight), 0.1, 1000);
-            camera.position.z = 24;
+            const camera = new THREE.PerspectiveCamera(45, (container.clientWidth || window.innerWidth) / (container.clientHeight || window.innerHeight), 0.1, 1000);
+            camera.position.z = 26;
 
             const renderer = new THREE.WebGLRenderer({
                 canvas: heroCanvas,
@@ -637,69 +1194,105 @@ document.addEventListener("DOMContentLoaded", () => {
             const sceneGroup = new THREE.Group();
             scene.add(sceneGroup);
 
-            // 1. Icosahedron Wireframe (AI Core)
-            const icoGeometry = new THREE.IcosahedronGeometry(7, 1);
-            const icoWireframe = new THREE.WireframeGeometry(icoGeometry);
-            const icoLineMaterial = new THREE.LineBasicMaterial({
+            // 1. Inner Golden AI Core (Icosahedron)
+            const innerGeo = new THREE.IcosahedronGeometry(4.5, 1);
+            const innerWire = new THREE.WireframeGeometry(innerGeo);
+            const innerMat = new THREE.LineBasicMaterial({
+                color: 0xffb74d,
+                transparent: true,
+                opacity: 0.75,
+                linewidth: 1.5
+            });
+            const innerCore = new THREE.LineSegments(innerWire, innerMat);
+            sceneGroup.add(innerCore);
+
+            // 2. Outer Cyber Crystal Shell (Octahedron/Icosahedron 8)
+            const outerGeo = new THREE.IcosahedronGeometry(7.8, 1);
+            const outerWire = new THREE.WireframeGeometry(outerGeo);
+            const outerMat = new THREE.LineBasicMaterial({
                 color: 0xff5722,
                 transparent: true,
-                opacity: 0.38,
-                linewidth: 1
+                opacity: 0.45,
+                linewidth: 1.2
             });
-            const icoMesh = new THREE.LineSegments(icoWireframe, icoLineMaterial);
-            sceneGroup.add(icoMesh);
+            const outerShell = new THREE.LineSegments(outerWire, outerMat);
+            sceneGroup.add(outerShell);
 
-            // 2. Glowing Nodes at vertices
+            // 3. Glowing Vertex Nodes
             const nodeGeo = new THREE.BufferGeometry();
-            const positions = icoGeometry.attributes.position.array;
+            const positions = outerGeo.attributes.position.array;
             nodeGeo.setAttribute("position", new THREE.BufferAttribute(positions, 3));
             const nodeMat = new THREE.PointsMaterial({
                 color: 0xff7043,
-                size: 0.45,
+                size: 0.55,
                 transparent: true,
-                opacity: 0.9
+                opacity: 0.95
             });
             const nodePoints = new THREE.Points(nodeGeo, nodeMat);
             sceneGroup.add(nodePoints);
 
-            // 3. Orbital Ring 1
-            const ring1Geo = new THREE.TorusGeometry(10.5, 0.05, 16, 100);
+            // 4. Orbital Rings (3 Toruses at dynamic angles)
+            const ring1Geo = new THREE.TorusGeometry(11, 0.06, 16, 120);
             const ring1Mat = new THREE.MeshBasicMaterial({
-                color: 0xff9800,
+                color: 0xff7043,
                 transparent: true,
-                opacity: 0.45
+                opacity: 0.55
             });
             const ring1 = new THREE.Mesh(ring1Geo, ring1Mat);
             ring1.rotation.x = Math.PI / 3;
             sceneGroup.add(ring1);
 
-            // 4. Orbital Ring 2
-            const ring2Geo = new THREE.TorusGeometry(12.5, 0.04, 16, 100);
+            const ring2Geo = new THREE.TorusGeometry(13.2, 0.05, 16, 120);
             const ring2Mat = new THREE.MeshBasicMaterial({
+                color: 0xffb74d,
+                transparent: true,
+                opacity: 0.45
+            });
+            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
+            ring2.rotation.y = Math.PI / 3.5;
+            ring2.rotation.x = -Math.PI / 5;
+            sceneGroup.add(ring2);
+
+            const ring3Geo = new THREE.TorusGeometry(15, 0.04, 16, 120);
+            const ring3Mat = new THREE.MeshBasicMaterial({
                 color: 0xff5722,
                 transparent: true,
                 opacity: 0.35
             });
-            const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
-            ring2.rotation.y = Math.PI / 4;
-            ring2.rotation.x = -Math.PI / 6;
-            sceneGroup.add(ring2);
+            const ring3 = new THREE.Mesh(ring3Geo, ring3Mat);
+            ring3.rotation.z = Math.PI / 4;
+            ring3.rotation.x = Math.PI / 2.2;
+            sceneGroup.add(ring3);
 
-            // 5. Floating Starfield / AI Neural Particles
-            const particleCount = 150;
+            // Orbiting Satellite Beads on Rings
+            const satGeo = new THREE.SphereGeometry(0.32, 12, 12);
+            const satMat1 = new THREE.MeshBasicMaterial({ color: 0xfff3e0 });
+            const sat1 = new THREE.Mesh(satGeo, satMat1);
+            sceneGroup.add(sat1);
+
+            const satMat2 = new THREE.MeshBasicMaterial({ color: 0xffab40 });
+            const sat2 = new THREE.Mesh(satGeo, satMat2);
+            sceneGroup.add(sat2);
+
+            const satMat3 = new THREE.MeshBasicMaterial({ color: 0xff5722 });
+            const sat3 = new THREE.Mesh(satGeo, satMat3);
+            sceneGroup.add(sat3);
+
+            // 5. Starfield / Neural Point Cloud
+            const particleCount = 200;
             const particleGeo = new THREE.BufferGeometry();
             const particleCoords = new Float32Array(particleCount * 3);
             for (let i = 0; i < particleCount * 3; i += 3) {
-                particleCoords[i] = (Math.random() - 0.5) * 50;
-                particleCoords[i + 1] = (Math.random() - 0.5) * 40;
-                particleCoords[i + 2] = (Math.random() - 0.5) * 30;
+                particleCoords[i] = (Math.random() - 0.5) * 55;
+                particleCoords[i + 1] = (Math.random() - 0.5) * 45;
+                particleCoords[i + 2] = (Math.random() - 0.5) * 35;
             }
             particleGeo.setAttribute("position", new THREE.BufferAttribute(particleCoords, 3));
             const particleMat = new THREE.PointsMaterial({
                 color: 0xffab91,
-                size: 0.22,
+                size: 0.28,
                 transparent: true,
-                opacity: 0.65
+                opacity: 0.75
             });
             const particles = new THREE.Points(particleGeo, particleMat);
             scene.add(particles);
@@ -757,18 +1350,35 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentMouseY += (targetMouseY - currentMouseY) * 0.05;
 
                 // Rotations
-                icoMesh.rotation.x = elapsedTime * 0.15;
-                icoMesh.rotation.y = elapsedTime * 0.2 + currentMouseX * 0.5;
-                nodePoints.rotation.x = icoMesh.rotation.x;
-                nodePoints.rotation.y = icoMesh.rotation.y;
+                innerCore.rotation.x = -elapsedTime * 0.25;
+                innerCore.rotation.y = -elapsedTime * 0.35;
 
-                ring1.rotation.z = elapsedTime * 0.25;
+                outerShell.rotation.x = elapsedTime * 0.15;
+                outerShell.rotation.y = elapsedTime * 0.2 + currentMouseX * 0.5;
+                nodePoints.rotation.x = outerShell.rotation.x;
+                nodePoints.rotation.y = outerShell.rotation.y;
+
+                ring1.rotation.z = elapsedTime * 0.28;
                 ring1.rotation.x = (Math.PI / 3) + currentMouseY * 0.3;
-                ring2.rotation.z = -elapsedTime * 0.2;
-                ring2.rotation.y = (Math.PI / 4) + currentMouseX * 0.3;
 
-                particles.rotation.y = elapsedTime * 0.04;
-                particles.rotation.x = elapsedTime * 0.02;
+                ring2.rotation.z = -elapsedTime * 0.22;
+                ring2.rotation.y = (Math.PI / 3.5) + currentMouseX * 0.3;
+
+                ring3.rotation.z = elapsedTime * 0.18;
+                ring3.rotation.y = -currentMouseX * 0.25;
+
+                // Orbiting satellites calculation
+                const angle1 = elapsedTime * 0.8;
+                sat1.position.set(Math.cos(angle1) * 11, Math.sin(angle1) * Math.cos(Math.PI / 3) * 11, Math.sin(angle1) * Math.sin(Math.PI / 3) * 11);
+
+                const angle2 = -elapsedTime * 0.65;
+                sat2.position.set(Math.cos(angle2) * 13.2, Math.sin(angle2) * 13.2, Math.sin(angle2) * Math.cos(Math.PI / 3.5) * 13.2);
+
+                const angle3 = elapsedTime * 0.5;
+                sat3.position.set(Math.cos(angle3) * 15, Math.sin(angle3) * Math.sin(Math.PI / 2.2) * 15, Math.sin(angle3) * Math.cos(Math.PI / 2.2) * 15);
+
+                particles.rotation.y = elapsedTime * 0.035;
+                particles.rotation.x = elapsedTime * 0.018;
 
                 sceneGroup.rotation.x = currentMouseY * 0.3;
                 sceneGroup.rotation.y = currentMouseX * 0.4;
