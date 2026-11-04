@@ -208,6 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
         function startHoloCanvas() {
             if (!jarvisHoloCanvas) return;
             const ctx = jarvisHoloCanvas.getContext("2d");
+            const isMobile = window.innerWidth < 768;
             let w = (jarvisHoloCanvas.width = window.innerWidth);
             let h = (jarvisHoloCanvas.height = window.innerHeight);
 
@@ -218,16 +219,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }, { passive: true });
 
-            // Generate particles
-            const particleCount = 42;
+            // Generate particles - keep lightweight on mobile for 60fps smoothness
+            const particleCount = isMobile ? 14 : 38;
             const particles = [];
             for (let i = 0; i < particleCount; i++) {
                 particles.push({
                     x: Math.random() * w,
                     y: Math.random() * h,
-                    vx: (Math.random() - 0.5) * 0.45,
-                    vy: (Math.random() - 0.5) * 0.45,
-                    size: Math.random() * 1.8 + 0.8,
+                    vx: (Math.random() - 0.5) * (isMobile ? 0.35 : 0.45),
+                    vy: (Math.random() - 0.5) * (isMobile ? 0.35 : 0.45),
+                    size: Math.random() * (isMobile ? 1.4 : 1.8) + 0.8,
                     isRed: Math.random() < 0.45
                 });
             }
@@ -238,10 +239,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (hasTransitioned) return;
                 ctx.clearRect(0, 0, w, h);
 
-                // Draw subtle perspective grid lines
+                // Draw subtle perspective grid lines (spaced wider on mobile)
                 ctx.lineWidth = 1;
                 ctx.strokeStyle = "rgba(255, 61, 0, 0.04)";
-                const gridSpacing = 65;
+                const gridSpacing = isMobile ? 95 : 65;
                 for (let x = 0; x < w; x += gridSpacing) {
                     ctx.beginPath();
                     ctx.moveTo(x, 0);
@@ -263,37 +264,57 @@ document.addEventListener("DOMContentLoaded", () => {
                 ctx.save();
                 ctx.translate(cx, cy);
 
-                // Outer radar ring
-                ctx.beginPath();
-                ctx.arc(0, 0, 240, 0, Math.PI * 2);
-                ctx.strokeStyle = "rgba(255, 61, 0, 0.12)";
-                ctx.lineWidth = 1.2;
-                ctx.setLineDash([8, 12]);
-                ctx.stroke();
+                if (isMobile) {
+                    // Mobile-optimized clean radar rings (no expensive dashed line calculation)
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 180, 0, Math.PI * 2);
+                    ctx.strokeStyle = "rgba(255, 61, 0, 0.1)";
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
 
-                // Middle radar ring
-                ctx.beginPath();
-                ctx.arc(0, 0, 170, 0, Math.PI * 2);
-                ctx.strokeStyle = "rgba(255, 61, 0, 0.08)";
-                ctx.lineWidth = 1;
-                ctx.setLineDash([6, 10]);
-                ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 120, 0, Math.PI * 2);
+                    ctx.strokeStyle = "rgba(255, 255, 255, 0.06)";
+                    ctx.stroke();
 
-                // Inner radar ring
-                ctx.beginPath();
-                ctx.arc(0, 0, 100, 0, Math.PI * 2);
-                ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
-                ctx.setLineDash([4, 8]);
-                ctx.stroke();
+                    // Rotating sweep line
+                    ctx.rotate(radarAngle);
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(180, 0);
+                    ctx.strokeStyle = "rgba(255, 61, 0, 0.25)";
+                    ctx.stroke();
+                } else {
+                    // Desktop dashed radar rings
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 240, 0, Math.PI * 2);
+                    ctx.strokeStyle = "rgba(255, 61, 0, 0.12)";
+                    ctx.lineWidth = 1.2;
+                    ctx.setLineDash([8, 12]);
+                    ctx.stroke();
 
-                // Rotating sweep line
-                ctx.rotate(radarAngle);
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(240, 0);
-                ctx.strokeStyle = "rgba(255, 61, 0, 0.22)";
-                ctx.setLineDash([]);
-                ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 170, 0, Math.PI * 2);
+                    ctx.strokeStyle = "rgba(255, 61, 0, 0.08)";
+                    ctx.lineWidth = 1;
+                    ctx.setLineDash([6, 10]);
+                    ctx.stroke();
+
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 100, 0, Math.PI * 2);
+                    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+                    ctx.setLineDash([4, 8]);
+                    ctx.stroke();
+
+                    // Rotating sweep line
+                    ctx.rotate(radarAngle);
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(240, 0);
+                    ctx.strokeStyle = "rgba(255, 61, 0, 0.22)";
+                    ctx.setLineDash([]);
+                    ctx.stroke();
+                }
 
                 ctx.restore();
 
@@ -379,10 +400,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const dur = Math.max(0.18, item.end - item.start);
             introCinemaWord.style.animationDuration = `${dur.toFixed(2)}s`;
 
-            // Retrigger entrance animation cleanly
+            // Retrigger entrance animation cleanly without forced synchronous reflow
             introCinemaWord.classList.remove("word-active");
-            void introCinemaWord.offsetWidth; // Force reflow
-            introCinemaWord.classList.add("word-active");
+            requestAnimationFrame(() => {
+                introCinemaWord.classList.add("word-active");
+            });
 
             // Update telemetry status tag
             if (telemetryWordTrack) {
@@ -480,6 +502,7 @@ document.addEventListener("DOMContentLoaded", () => {
             playTransitionWhoosh();
 
             cinematicIntro.classList.add("intro-exiting");
+            window.dispatchEvent(new CustomEvent("ms_intro_finished"));
 
             setTimeout(() => {
                 document.body.classList.remove("intro-active");
@@ -725,9 +748,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        const count = Math.min(65, Math.max(35, Math.floor((width * height) / 22000)));
+        const isMobileScreen = window.innerWidth < 768;
+        const count = isMobileScreen ? 20 : Math.min(65, Math.max(35, Math.floor((width * height) / 22000)));
         const nodes = Array.from({ length: count }, () => new NeuralNode());
-        const maxDist = 110;
+        const maxDist = isMobileScreen ? 90 : 110;
 
         function animateNeuralNet() {
             ctx.clearRect(0, 0, width, height);
@@ -798,7 +822,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
         if (!prefersReducedMotion) {
-            loopNeuralNet();
+            // If the cinematic intro is currently active, pause background canvas to keep mobile intro 60fps smooth!
+            if (document.body.classList.contains("intro-active")) {
+                window.addEventListener("ms_intro_finished", () => {
+                    if (!animFrameId && isTabActive) {
+                        loopNeuralNet();
+                    }
+                }, { once: true });
+            } else {
+                loopNeuralNet();
+            }
         } else {
             animateNeuralNet(); // Draw once statically
         }

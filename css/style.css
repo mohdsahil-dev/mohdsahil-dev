@@ -69,6 +69,10 @@ html {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 body {
@@ -79,6 +83,15 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+    width: 100%;
+    max-width: 100%;
+}
+
+main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 a {
@@ -206,20 +219,24 @@ body.cursor-hover .cursor-ring {
     position: sticky;
     top: 0;
     width: 100%;
+    max-width: 100%;
     height: var(--header-height);
     background: rgba(5, 5, 5, 0.96);
     border-bottom: 1px solid var(--border-mid);
     z-index: 1000;
     backdrop-filter: blur(16px);
+    box-sizing: border-box;
 }
 
 .nav-inner {
-    width: min(94%, var(--max-width));
+    width: 100%;
+    max-width: min(94%, var(--max-width));
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    box-sizing: border-box;
 }
 
 .brand {
@@ -435,17 +452,30 @@ body.cursor-hover .cursor-ring {
     background-color: var(--bg-void);
     z-index: 10;
     border-bottom: 1px solid var(--border-dark);
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .container {
-    width: min(94%, var(--max-width));
+    width: 100%;
+    max-width: min(94%, var(--max-width));
     margin: 0 auto;
     position: relative;
+    box-sizing: border-box;
 }
 
 /* Hero Masthead Layout */
 .hero-editorial-grid {
     display: grid;
+    grid-template-columns: 1.25fr 0.75fr;
+    gap: 48px;
+    align-items: start;
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+}
     grid-template-columns: 1.25fr 0.75fr;
     gap: 48px;
     align-items: start;
@@ -1103,6 +1133,10 @@ section {
     padding: 100px 0;
     position: relative;
     border-bottom: 1px solid var(--border-dark);
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
 }
 
 .section-dark {
@@ -1534,11 +1568,15 @@ section {
 
 .projects-slider-wrap, .certificates-slider-wrap {
     width: 100%;
+    max-width: 100%;
     overflow-x: auto;
+    overflow-y: hidden;
+    contain: paint;
     scrollbar-width: none;
     -ms-overflow-style: none;
     cursor: grab;
     padding-bottom: 20px;
+    box-sizing: border-box;
 }
 .projects-slider-wrap::-webkit-scrollbar,
 .certificates-slider-wrap::-webkit-scrollbar {
@@ -2273,6 +2311,7 @@ section {
     .hero-visual-column {
         order: 2;
         padding-top: 10px;
+        width: 100%;
     }
     .about-manifesto-grid {
         grid-template-columns: 1fr;
@@ -2282,6 +2321,8 @@ section {
         grid-template-columns: 1fr;
         gap: 16px;
         padding: 24px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .education-degree-badge, .experience-number {
         text-align: left;
@@ -2298,48 +2339,94 @@ section {
 
 @media (max-width: 768px) {
     section {
-        padding: 68px 0;
+        padding: 64px 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
     .container {
-        width: min(92%, 100% - 32px);
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        box-sizing: border-box !important;
+    }
+    .nav-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        box-sizing: border-box !important;
+    }
+    .footer-inner {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+        box-sizing: border-box !important;
     }
     .hero-masthead-title {
         font-size: clamp(2.8rem, 11vw, 4.6rem);
         letter-spacing: -1.5px;
         margin-bottom: 24px;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
     .hero-telemetry-strip {
         gap: 10px;
         padding: 8px 12px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .hero-bio-terminal {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     .hero-cta-deck {
         gap: 12px;
+        width: 100%;
     }
     .skills-matrix-wrap {
         grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
         gap: 14px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .projects-slider-wrap,
     .certificates-slider-wrap {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+        contain: paint !important;
         -webkit-overflow-scrolling: touch;
         scroll-snap-type: x mandatory;
         padding-bottom: 16px;
+        box-sizing: border-box !important;
     }
     .project-card {
-        width: min(340px, calc(100vw - 44px));
-        scroll-snap-align: center;
-    }
-    .certificate-card {
         width: min(320px, calc(100vw - 44px));
         scroll-snap-align: center;
+        flex-shrink: 0;
+        box-sizing: border-box;
+    }
+    .certificate-card {
+        width: min(300px, calc(100vw - 44px));
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        box-sizing: border-box;
     }
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 32px;
+        width: 100%;
     }
     .contact-channels-box,
     .contact-form-box {
         padding: 22px 18px;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
@@ -2348,15 +2435,26 @@ section {
         --header-height: 58px;
     }
     section {
-        padding: 54px 0;
+        padding: 50px 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
     .container {
-        width: min(92%, 100% - 24px);
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        box-sizing: border-box !important;
     }
 
     /* Navbar on Phones */
     .nav-inner {
-        width: 92%;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+        box-sizing: border-box !important;
     }
     .brand-name {
         font-size: 15.5px;
@@ -2383,11 +2481,15 @@ section {
         letter-spacing: -1px;
         margin-bottom: 20px;
         line-height: 0.92;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
     .hero-telemetry-strip {
         gap: 6px;
         padding: 6px 10px;
         font-size: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .telemetry-tag {
         font-size: 10px;
@@ -2403,10 +2505,14 @@ section {
         padding: 16px;
         margin-bottom: 22px;
         border-left-width: 3px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
     .hero-bio-paragraph {
         font-size: 13.5px;
         line-height: 1.65;
+        word-break: break-word;
     }
     .hero-cta-deck {
         flex-direction: column;
@@ -2419,18 +2525,24 @@ section {
         min-height: 48px;
         font-size: 13px;
         padding: 13px 20px;
+        box-sizing: border-box;
     }
 
     /* Hero Suspended ID Card on Phones */
     .hero-visual-column {
         padding-top: 20px;
+        width: 100%;
+        align-items: center;
+        box-sizing: border-box;
     }
     .hero-visual-column .id-gantry-rig {
         width: min(230px, 86vw);
+        max-width: 100%;
     }
     .hero-visual-column .id-card {
         width: min(210px, 84vw);
         padding: 12px 10px;
+        max-width: 100%;
     }
     .hero-visual-column .id-card-photo-frame {
         height: 195px;
@@ -2451,18 +2563,23 @@ section {
     /* About Section on Phones */
     .about-manifesto-grid {
         gap: 28px;
+        width: 100%;
     }
     .about-pullquote {
         font-size: 1.15rem;
         padding-left: 12px;
         border-left-width: 3px;
+        word-break: break-word;
     }
     .about-body-text {
         font-size: 14.5px;
         line-height: 1.7;
+        word-break: break-word;
     }
     .about-telemetry-panel {
         padding: 16px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .about-telemetry-header {
         font-size: 11px;
@@ -2481,6 +2598,7 @@ section {
     .telemetry-val {
         text-align: left;
         font-size: 13px;
+        word-break: break-word;
     }
 
     /* Education & Experience on Phones */
@@ -2488,16 +2606,20 @@ section {
         padding: 18px 14px;
         gap: 10px;
         border-left-width: 3px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .education-timeline-years, .experience-date {
         font-size: 15.5px;
     }
     .education-degree h3, .experience-content h2 {
         font-size: 17px;
+        word-break: break-word;
     }
     .education-degree p, .experience-content p {
         font-size: 13px;
         line-height: 1.6;
+        word-break: break-word;
     }
 
     /* Skills on Phones */
@@ -2508,6 +2630,8 @@ section {
         -webkit-overflow-scrolling: touch;
         padding-bottom: 8px;
         margin-bottom: 22px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .skill-filter {
         padding: 8px 14px;
@@ -2518,10 +2642,14 @@ section {
     .skills-matrix-wrap {
         grid-template-columns: 1fr;
         gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .skill-item {
         padding: 12px 14px;
         gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .skill-icon-box {
         width: 36px;
@@ -2540,6 +2668,8 @@ section {
         grid-template-columns: 34px 1fr;
         gap: 12px;
         padding: 14px 12px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .achievement-arrow {
         display: none;
@@ -2549,15 +2679,19 @@ section {
     }
     .achievement-row h3 {
         font-size: 15.5px;
+        word-break: break-word;
     }
     .achievement-row p {
         font-size: 12.5px;
         line-height: 1.55;
+        word-break: break-word;
     }
 
     /* Carousel Cards on Phones */
     .project-card {
-        width: min(290px, calc(100vw - 32px));
+        width: min(285px, calc(100vw - 32px)) !important;
+        flex-shrink: 0;
+        box-sizing: border-box;
     }
     .project-thumb-box {
         height: 170px;
@@ -2573,7 +2707,9 @@ section {
         margin-bottom: 16px;
     }
     .certificate-card {
-        width: min(275px, calc(100vw - 32px));
+        width: min(270px, calc(100vw - 32px)) !important;
+        flex-shrink: 0;
+        box-sizing: border-box;
     }
     .certificate-thumb-box {
         height: 155px;
@@ -2583,6 +2719,8 @@ section {
     .contact-channels-box,
     .contact-form-box {
         padding: 18px 14px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .contact-channels-box h3,
     .contact-form-box h3 {
@@ -2592,6 +2730,8 @@ section {
     .contact-row {
         padding: 10px 2px;
         gap: 10px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .contact-row-badge {
         width: 38px;
@@ -2618,6 +2758,8 @@ section {
     .form-input, .form-textarea {
         padding: 11px 12px;
         font-size: 13.5px;
+        width: 100%;
+        box-sizing: border-box;
     }
     .btn-submit-brutal {
         min-height: 48px;
@@ -2625,6 +2767,7 @@ section {
         font-size: 11.5px;
         width: 100%;
         justify-content: center;
+        box-sizing: border-box;
     }
 
     /* Footer on Phones */
@@ -2632,7 +2775,9 @@ section {
         flex-direction: column;
         text-align: center;
         gap: 14px;
-        padding: 24px 0;
+        padding: 24px 14px !important;
+        width: 100% !important;
+        box-sizing: border-box;
     }
     .footer-socials {
         justify-content: center;
@@ -2706,6 +2851,7 @@ body.intro-active {
 .intro-horizontal-scanner {
     position: absolute;
     left: 0;
+    top: 0;
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent 0%, rgba(255, 61, 0, 0.3) 15%, #FF3D00 50%, rgba(255, 61, 0, 0.3) 85%, transparent 100%);
@@ -2713,12 +2859,13 @@ body.intro-active {
     pointer-events: none;
     z-index: 8;
     animation: horizontalScanSweep 4.5s ease-in-out infinite alternate;
+    will-change: transform;
 }
 
 @keyframes horizontalScanSweep {
-    0% { top: 4%; opacity: 0.25; }
+    0% { transform: translate3d(0, 4vh, 0); opacity: 0.25; }
     50% { opacity: 0.9; }
-    100% { top: 96%; opacity: 0.25; }
+    100% { transform: translate3d(0, 94vh, 0); opacity: 0.25; }
 }
 
 /* Top Status HUD */
@@ -2839,13 +2986,14 @@ body.intro-active {
     position: absolute;
     left: -10px;
     right: -10px;
+    top: 110px;
     height: 2px;
     background: #FF3D00;
     box-shadow: 0 0 16px #FF3D00, 0 0 32px rgba(255, 61, 0, 0.85);
     pointer-events: none;
     z-index: 20;
     opacity: 0;
-    top: 110px;
+    will-change: transform;
 }
 
 .card-vertical-laser.active {
@@ -2854,13 +3002,13 @@ body.intro-active {
 }
 
 @keyframes laserScanCard {
-    0% { top: 110px; }
-    100% { top: 520px; }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(0, 410px, 0); }
 }
 
 /* SCENE 1: Sudden Physical Drop of the ID Card Chassis */
 .jarvis-card-drop-chassis {
-    transform: translateY(-145vh);
+    transform: translate3d(0, -145vh, 0);
     will-change: transform;
     margin-top: -16px;
     position: relative;
@@ -2873,22 +3021,22 @@ body.intro-active {
 
 @keyframes suddenPhysicalDrop {
     0% {
-        transform: translateY(-145vh);
+        transform: translate3d(0, -145vh, 0);
     }
     52% {
-        transform: translateY(35px); /* plunge overshoot */
+        transform: translate3d(0, 35px, 0); /* plunge overshoot */
     }
     68% {
-        transform: translateY(-16px); /* lanyard elastic rebound */
+        transform: translate3d(0, -16px, 0); /* lanyard elastic rebound */
     }
     82% {
-        transform: translateY(7px);
+        transform: translate3d(0, 7px, 0);
     }
     92% {
-        transform: translateY(-2px);
+        transform: translate3d(0, -2px, 0);
     }
     100% {
-        transform: translateY(0px);
+        transform: translate3d(0, 0px, 0);
     }
 }
 
@@ -2902,6 +3050,7 @@ body.intro-active {
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95));
+    transform: translate3d(0, 0, 0);
 }
 
 .intro-lanyard-hanger.swinging {
