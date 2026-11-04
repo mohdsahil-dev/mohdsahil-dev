@@ -5,102 +5,196 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Mohd Sahil | AI & ML Engineer</title>
+    <title>Mohd Sahil | AI &amp; ML Engineer</title>
+    <meta name="description"
+        content="Mohd Sahil — AI & ML Engineer specializing in machine learning, deep learning, computer vision, and high-performance intelligent web architectures.">
 
-    <!-- Main Fonts -->
+    <!-- Fonts: Syne, Space Grotesk, JetBrains Mono, Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800;900&family=Syne:wght@700;800;900&display=swap"
         rel="stylesheet">
 
-    <!-- Devicon -->
+    <!-- Devicon Glyphs -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Redesigned Experimental Brutalist Stylesheet with Cache Buster -->
+    <link rel="stylesheet" href="css/style.css?v=2026.11.04.04">
 </head>
 
 <body>
 
     <!-- =====================================================
-     PAGE LOADER
-===================================================== -->
-    <div class="page-loader" id="pageLoader">
-        <div class="loader-number">00</div>
-        <div class="loader-line">
-            <span></span>
+     CINEMATIC AI INTRO — THE ID CARD STORY
+     Scene 1: Sudden dramatic physical drop of the ID card from above
+     Scene 2: Futuristic holographic background with data particles & red laser scan
+     Scene 3: JARVIS-style British AI voice: "Identity detected." "Mohd Sahil." "AI and Machine Learning Engineer." "Welcome to his world."
+     Scene 4: Smooth cinematic transition into homepage hero
+    ===================================================== -->
+    <div class="cinematic-intro-overlay" id="cinematicIntro" aria-label="Cinematic ID Card Intro">
+        <!-- Permanent Direct Autoplay AI Voice Audio File -->
+        <audio id="introAudio" src="assets/audio/jarvis_intro.mp3" autoplay preload="auto" playsinline></audio>
+
+        <!-- Holographic Background Canvas (Particles, Grid, Laser beams) -->
+        <canvas class="jarvis-holo-canvas" id="jarvisHoloCanvas"></canvas>
+
+        <!-- CRT Scanline Ambient Texture -->
+        <div class="intro-crt-lines" aria-hidden="true"></div>
+
+        <!-- Moving Horizontal Scanner Beam across full viewport -->
+        <div class="intro-horizontal-scanner" aria-hidden="true"></div>
+
+        <!-- Center Stage: Giant Word-by-Word Typography behind Hanging ID Card -->
+        <div class="jarvis-stage">
+            <!-- Massive Cinematic Word-by-Word Typography Layer (Positioned behind hanging ID card, z-index: 5) -->
+            <div class="intro-word-theater" id="introWordTheater" aria-live="polite">
+                <div class="intro-cinema-word" id="introCinemaWord">
+                    <span class="word-text" id="introWordText">WELCOME</span>
+                </div>
+                <!-- Real-time Speech Stream Indicator -->
+                <div class="word-speech-telemetry" id="wordSpeechTelemetry">
+                    <span class="telemetry-bracket">[</span>
+                    <span class="telemetry-signal-dot"></span>
+                    <span class="telemetry-word-track" id="telemetryWordTrack">VOICE_STREAM // SYNC_ACTIVE</span>
+                    <span class="telemetry-bracket">]</span>
+                </div>
+            </div>
+
+            <!-- Center Hero: The Large Physical Hanging ID Card (In Front of Typography, z-index: 10) -->
+            <div class="jarvis-theater" id="jarvisTheater">
+                <div class="jarvis-card-stage" id="jarvisCardStage">
+                    <!-- Holographic Target Framing & Red Ambient Backlight -->
+                    <div class="holo-card-bracket tl"></div>
+                    <div class="holo-card-bracket tr"></div>
+                    <div class="holo-card-bracket bl"></div>
+                    <div class="holo-card-bracket br"></div>
+                    <div class="holo-ambient-aura"></div>
+
+                    <!-- Vertical Laser Scanning Bar -->
+                    <div class="card-vertical-laser" id="cardVerticalLaser"></div>
+
+                    <!-- 3D Overhead Industrial Suspension Dock Rig -->
+                    <div class="id-gantry-rig" aria-hidden="true">
+                        <!-- Overhead Industrial Steel Beam -->
+                        <div class="gantry-beam">
+                            <span class="gantry-bolt left"></span>
+                            <div class="gantry-telemetry">
+                                <span class="gantry-status-led"></span>
+                                <span>// BIO-ID PROTOCOL DOCK • RIG-01</span>
+                            </div>
+                            <span class="gantry-bolt right"></span>
+                        </div>
+
+                        <!-- 3D Heavy Metallic Bracket -->
+                        <div class="gantry-bracket"></div>
+
+                        <!-- 3D Heavy-Duty Chrome Swivel Ring / Carabiner Anchor -->
+                        <div class="gantry-swivel-anchor">
+                            <div class="swivel-pin"></div>
+                            <div class="swivel-ring"></div>
+                        </div>
+                    </div>
+
+                    <!-- Physics Drop Wrapper (Gravity plunge & overshoot) -->
+                    <div class="jarvis-card-drop-chassis" id="jarvisCardDropChassis">
+                        <!-- Swinging Lanyard Hanger (Continuous Pendulum Sway around Top Suspension Pivot) -->
+                        <div class="intro-lanyard-hanger" id="jarvisIntroHanger">
+                            <!-- Suspended Crimson Lanyard Strap originating from Top Edge -->
+                            <div class="id-strap-wrap">
+                                <div class="id-strap-top-loop"></div>
+                                <div class="id-strap-crimp">
+                                    <span class="crimp-rivet"></span>
+                                    <span class="crimp-rivet"></span>
+                                </div>
+                                <div class="id-strap">
+                                    <div class="id-strap-stitch left"></div>
+                                    <div class="id-strap-stitch right"></div>
+                                </div>
+                                <div class="id-clasp">
+                                    <div class="id-clasp-ring"></div>
+                                    <div class="id-clasp-body"></div>
+                                    <div class="id-clasp-tongue"></div>
+                                </div>
+                            </div>
+
+                            <!-- Physical Black ID Card (Large Hero Badge) -->
+                            <div class="id-card">
+                                <div class="id-card-slot">
+                                    <span class="slot-hole"></span>
+                                </div>
+                                <div class="id-card-header-bar">
+                                    <span class="id-card-chip"></span>
+                                    <span class="id-card-header-title">// BIO-ACCESS PROTOCOL //</span>
+                                    <span class="id-card-status-dot"></span>
+                                </div>
+                                <div class="id-card-photo-frame">
+                                    <img src="assets/images/sahil_photo.png" alt="Mohd Sahil - AI &amp; Machine Learning Engineer"
+                                        class="id-card-real-photo">
+                                    <div class="id-photo-reticle tl"></div>
+                                    <div class="id-photo-reticle tr"></div>
+                                    <div class="id-photo-reticle bl"></div>
+                                    <div class="id-photo-reticle br"></div>
+                                </div>
+                                <div class="id-card-identity">
+                                    <h2 class="id-card-name">MOHD SAHIL</h2>
+                                    <div class="id-card-role">AI &amp; MACHINE LEARNING ENGINEER</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Scanning Progress Rail -->
+        <div class="jarvis-bottom-rail">
+            <div class="jarvis-rail-progress" id="jarvisRailProgress"></div>
         </div>
     </div>
 
-
     <!-- =====================================================
-     CUSTOM CURSOR
-===================================================== -->
+     CUSTOM CURSOR (DESKTOP ONLY)
+    ===================================================== -->
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
 
 
     <!-- =====================================================
-     GLOBAL INTERACTIVE BACKGROUND CANVAS & AMBIENT AURORA
-     (Visible across all pages / sections)
-===================================================== -->
+     GLOBAL INTERACTIVE NEURAL NETWORK CANVAS & GRID
+    ===================================================== -->
     <div class="global-bg-wrapper" id="globalBgWrapper" aria-hidden="true">
         <canvas id="globalBgCanvas"></canvas>
-        <div class="ambient-glow-orb orb-1"></div>
-        <div class="ambient-glow-orb orb-2"></div>
-        <div class="ambient-glow-orb orb-3"></div>
-        <div class="ambient-glow-orb orb-4"></div>
         <div class="ambient-grid-overlay"></div>
     </div>
 
 
     <!-- =====================================================
-     NAVBAR
-===================================================== -->
+     NAVBAR — INDUSTRIAL BRUTALIST HUD
+    ===================================================== -->
     <header class="navbar" id="navbar">
-
         <div class="nav-inner">
 
-            <a href="#home" class="brand">
+            <a href="#home" class="brand" aria-label="Mohd Sahil Home">
                 <span class="brand-circle">MS</span>
-                <span class="brand-name">Mohd Sahil<span class="brand-dot">.</span></span>
+                <span class="brand-name">Mohd Sahil</span>
             </a>
 
             <nav class="desktop-nav">
-
                 <a href="#home" class="nav-link active">Home<span class="nav-active-dot"></span></a>
                 <a href="#about" class="nav-link">About Me</a>
+                <a href="#education" class="nav-link">Education</a>
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#achievements" class="nav-link">Achievements</a>
-
             </nav>
 
             <div class="nav-actions">
                 <a href="#contact" class="nav-contact-btn">
-                    Contact Me
+                    Contact Me ↗
                 </a>
 
-                <button class="theme-toggle-btn" id="themeToggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-
-                <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+                <button class="menu-btn" id="menuBtn" aria-label="Toggle navigation menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -108,153 +202,195 @@
             </div>
 
         </div>
-
     </header>
 
 
     <!-- =====================================================
      MOBILE MENU
-===================================================== -->
+    ===================================================== -->
     <div class="mobile-menu" id="mobileMenu">
-
         <a href="#home">Home</a>
         <a href="#about">About Me</a>
+        <a href="#education">Education</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
         <a href="#achievements">Achievements</a>
         <a href="#contact">Contact Me</a>
-
     </div>
 
 
+
+
+
     <!-- =====================================================
-     FLOATING SOCIAL SIDEBAR (RIGHT)
-===================================================== -->
-    <aside class="floating-social-sidebar" aria-label="Social links">
+     FLOATING SOCIAL SIDEBAR (DESKTOP)
+    ===================================================== -->
+    <aside class="floating-social-sidebar" aria-label="Direct Social Profiles">
         <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer" class="social-side-btn"
-            aria-label="GitHub">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            aria-label="GitHub Profile">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                 <path
                     d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
             </svg>
         </a>
         <a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/" target="_blank" rel="noopener noreferrer"
-            class="social-side-btn" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            class="social-side-btn" aria-label="LinkedIn Profile">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                 <path
                     d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
             </svg>
         </a>
-        <a href="mailto:ks9137581@gmail.com" class="social-side-btn" aria-label="Email">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        <a href="mailto:ks9137581@gmail.com" class="social-side-btn" aria-label="Direct Email ks9137581@gmail.com">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                 <polyline points="22,6 12,13 2,6"></polyline>
             </svg>
         </a>
+        <a href="https://wa.me/919628304015" target="_blank" rel="noopener noreferrer" class="social-side-btn"
+            aria-label="Direct WhatsApp Message">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.2 1.25-1.66 1.32-.42.06-.97.09-2.81-.67-2.35-.97-3.86-3.34-3.98-3.5-.12-.16-.94-1.25-.94-2.38 0-1.13.59-1.69.8-1.92.21-.24.47-.3.62-.3.16 0 .31 0 .45.01.14.01.34-.05.53.4.2.48.67 1.63.73 1.75.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.63 1.04 1.36 1.68.94.84 1.73 1.1 1.97 1.22.24.12.38.1.53-.06.14-.16.62-.73.79-.98.16-.25.33-.21.55-.13.22.08 1.41.67 1.65.79.24.12.4.18.46.28.06.11.06.63-.18 1.3z" />
+            </svg>
+        </a>
     </aside>
 
 
+    <!-- =====================================================
+     MAIN CONTAINER
+    ===================================================== -->
     <main>
 
-
         <!-- =====================================================
-     HERO
-===================================================== -->
-        <section class="hero section-light" id="home">
+         1. HERO SECTION — ARCHITECTURAL EDITORIAL BRUTALISM
+        ===================================================== -->
+        <section class="hero section-dark" id="home">
 
-            <!-- Interactive 3D Background Canvas -->
-            <div class="hero-3d-bg" id="hero3dContainer" aria-hidden="true">
-                <canvas id="hero3dCanvas"></canvas>
-            </div>
+            <div class="container">
 
-            <div class="container hero-container">
+                <div class="hero-editorial-grid">
 
-                <!-- LEFT COLUMN -->
-                <div class="hero-content reveal">
+                    <!-- LEFT COLUMN: COMMAND DECK & GARGANTUAN MASTHEAD -->
+                    <div class="hero-content reveal">
 
-                    <!-- Title -->
-                    <h1 class="hero-title">
-                        <span>Mohd</span>
-                        <span>Sahil</span>
-                    </h1>
-
-                    <!-- Bio / Description Area with Doodles -->
-                    <div class="hero-bio-container">
-
-                        <p class="hero-description">
-                            <span class="bio-dash">—</span>
-                            <span class="role-badge">AI &amp; ML Engineer</span>, with knowledge in machine learning,
-                            deep learning and modern web development, I build intelligent systems resulting in impactful
-                            solutions.
-                        </p>
-
-                        <!-- Hand-drawn Curled Looped Arrow Doodle (Centered in Gap) -->
-                        <div class="doodle-arrow-wrapper" aria-hidden="true">
-                            <svg class="doodle-arrow" viewBox="0 0 150 115" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M145,15 C124,30 98,48 78,42 C60,36 64,15 82,18 C96,22 92,50 70,72 C54,86 42,90 28,94"
-                                    stroke="currentColor" stroke-width="3" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                                <path d="M42,82 L28,94 L44,102" stroke="currentColor" stroke-width="3"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-
-                        <!-- Hand-drawn Scribble Doodle Under Text -->
-                        <div class="doodle-scribble-wrapper" aria-hidden="true">
-                            <svg class="doodle-scribble" viewBox="0 0 130 35" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4,22 L35,8 L18,26 L58,9 L40,28 L85,12 L66,30 L108,14 L88,31 L124,18"
-                                    stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-
-                    </div>
-
-                    <!-- Bottom Left: Scroll Down Indicator -->
-                    <div class="hero-bottom-area">
-                        <a href="#about" class="hero-scroll-down">
-                            <span class="scroll-square">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="12" y1="5" x2="12" y2="19"></line>
-                                    <polyline points="19 12 12 19 5 12"></polyline>
-                                </svg>
+                        <!-- Telemetry Header Line -->
+                        <div class="hero-telemetry-strip">
+                            <span class="telemetry-tag">
+                                <span class="pulse-dot-red"></span>
+                                [ STATUS: ACTIVE // CSE-AIML 2026 ]
                             </span>
-                            <span class="scroll-label">Scroll Down</span>
-                        </a>
-                    </div>
-
-                </div>
-
-
-                <!-- RIGHT COLUMN: PHOTO WITH OFFSET FRAME -->
-                <div class="hero-visual reveal reveal-delay-2">
-
-                    <div class="hero-photo-container" data-tilt="true" data-tilt-max="10">
-
-                        <!-- Offset Back Frame -->
-                        <div class="photo-offset-frame"></div>
-
-                        <!-- Photo Card -->
-                        <div class="hero-photo-card">
-                            <img src="assets/images/hero_portrait.jpg" alt="Mohd Sahil - AI & ML Engineer"
-                                class="hero-portrait-img">
+                            <span class="telemetry-sep">/</span>
+                            <span class="telemetry-coord">LAT 19.07°N • LON 72.87°E</span>
+                            <span class="telemetry-sep">/</span>
+                            <span class="telemetry-coord">UNIVERSITY OF MUMBAI</span>
                         </div>
 
-                        <!-- 3D Floating Multi-Face Cube Accent -->
-                        <div class="floating-accent-box floating-bottom-left" aria-hidden="true">
-                            <div class="cube-3d-wrapper">
-                                <div class="cube-3d">
-                                    <div class="cube-face front"></div>
-                                    <div class="cube-face back"></div>
-                                    <div class="cube-face right"></div>
-                                    <div class="cube-face left"></div>
-                                    <div class="cube-face top"></div>
-                                    <div class="cube-face bottom"></div>
+                        <!-- GARGANTUAN EDITORIAL MASTHEAD: MOHD SAHIL -->
+                        <h1 class="hero-masthead-title">
+                            <span class="line-one">MOHD</span>
+                            <span class="line-two">SAHIL</span>
+                        </h1>
+
+                        <!-- Terminal Bio Dialogue Box -->
+                        <div class="hero-bio-terminal">
+                            <div class="bio-terminal-header">
+                                <span class="terminal-dot red"></span>
+                                <span class="terminal-dot yellow"></span>
+                                <span class="terminal-dot white"></span>
+                                <span class="terminal-title-text">sahil@workstation:~ [neural_engine]</span>
+                            </div>
+
+                            <!-- Preserved exact bio text -->
+                            <p class="hero-bio-paragraph">
+                                <span class="bio-dash">—</span>
+                                <span class="role-badge-red">AI &amp; ML Engineer</span>, with knowledge in machine
+                                learning, deep learning and modern web development, I build intelligent systems
+                                resulting in impactful solutions.
+                            </p>
+
+                            <!-- Terminal typing prompt -->
+                            <div class="terminal-runtime-line">
+                                <span class="term-prompt">&gt; neural_runtime:</span>
+                                <span class="term-typing" id="heroTypingText"></span>
+                                <span class="term-cursor">_</span>
+                            </div>
+                        </div>
+
+                        <!-- Hero Action CTAs Deck -->
+                        <div class="hero-cta-deck">
+                            <a href="#projects" class="btn-brutal-primary">
+                                Explore Projects ↓
+                            </a>
+                            <a href="assets/Mohd_Sahil_Resume.pdf" target="_blank" rel="noopener noreferrer"
+                                class="btn-brutal-secondary">
+                                Resume File [PDF] ↗
+                            </a>
+                        </div>
+
+                    </div>
+
+
+                    <!-- RIGHT COLUMN: SUSPENDED HANGING ID BADGE (REAL PHOTO + MOHD SAHIL ONLY) -->
+                    <div class="hero-visual-column reveal reveal-delay-2">
+
+                        <!-- 3D Overhead Industrial Suspension Dock Rig -->
+                        <div class="id-gantry-rig" aria-hidden="true">
+                            <div class="gantry-beam">
+                                <span class="gantry-bolt left"></span>
+                                <div class="gantry-telemetry">
+                                    <span class="gantry-status-led"></span>
+                                    <span>// BIO-ID PROTOCOL DOCK • RIG-01</span>
+                                </div>
+                                <span class="gantry-bolt right"></span>
+                            </div>
+                            <div class="gantry-bracket"></div>
+                            <div class="gantry-swivel-anchor">
+                                <div class="swivel-pin"></div>
+                                <div class="swivel-ring"></div>
+                            </div>
+                        </div>
+
+                        <div class="hero-lanyard-hanger" id="heroLanyardHanger">
+                            <!-- Suspended Crimson Lanyard Strap from Top -->
+                            <div class="id-strap-wrap">
+                                <div class="id-strap-top-loop"></div>
+                                <div class="id-strap-crimp">
+                                    <span class="crimp-rivet"></span>
+                                    <span class="crimp-rivet"></span>
+                                </div>
+                                <div class="id-strap">
+                                    <div class="id-strap-stitch left"></div>
+                                    <div class="id-strap-stitch right"></div>
+                                </div>
+                                <div class="id-clasp">
+                                    <div class="id-clasp-ring"></div>
+                                    <div class="id-clasp-body"></div>
+                                    <div class="id-clasp-tongue"></div>
+                                </div>
+                            </div>
+
+                            <!-- Physical Black ID Card (User's Real Photo + ENGINEER Only) -->
+                            <div class="id-card">
+                                <div class="id-card-slot">
+                                    <span class="slot-hole"></span>
+                                </div>
+                                <div class="id-card-header-bar">
+                                    <span class="id-card-chip"></span>
+                                    <span class="id-card-header-title">// IDENTITY CREDENTIAL //</span>
+                                    <span class="id-card-status-dot"></span>
+                                </div>
+                                <div class="id-card-photo-frame">
+                                    <img src="assets/images/sahil_photo.png" alt="Mohd Sahil - AI & ML Engineer"
+                                        class="id-card-real-photo">
+                                    <div class="id-photo-reticle tl"></div>
+                                    <div class="id-photo-reticle tr"></div>
+                                    <div class="id-photo-reticle bl"></div>
+                                    <div class="id-photo-reticle br"></div>
+                                </div>
+                                <div class="id-card-identity">
+                                    <h2 class="id-card-name">ENGINEER</h2>
+                                    <div class="id-card-role">AI &amp; MACHINE LEARNING</div>
                                 </div>
                             </div>
                         </div>
@@ -270,98 +406,97 @@
 
 
         <!-- =====================================================
-     ABOUT
-===================================================== -->
+         2. SECTION 01: ABOUT ME — EDITORIAL MANIFESTO SPREAD (NO REPETITIVE CARDS!)
+        ===================================================== -->
         <section class="about section-light" id="about">
 
-            <div class="container about-container">
+            <div class="container">
 
-                <!-- LEFT: VISUAL PHOTO WITH ACCENTS -->
-                <div class="about-visual reveal">
+                <div class="editorial-section-header reveal">
+                    <div class="section-marker">
+                        <span>01</span>
+                        <span>ABOUT ME // DISCIPLINE</span>
+                    </div>
+                    <h2 class="section-title-editorial">
+                        The Manifesto
+                    </h2>
+                </div>
 
-                    <div class="about-composition" data-tilt="true" data-tilt-max="10">
+                <div class="about-manifesto-grid">
 
-                        <!-- Offset Back Panel -->
-                        <div class="about-back-panel"></div>
-
-                        <!-- Orange Accent Bottom Bar -->
-                        <div class="about-orange-bar"></div>
-
-                        <!-- Photo Card -->
-                        <div class="about-photo-card">
-                            <img src="assets/images/hero_portrait.jpg" alt="Mohd Sahil" class="about-portrait-img">
+                    <!-- LEFT: TECHNICAL TELEMETRY SPECIFICATION (TABLE, NOT A CARD) -->
+                    <div class="about-telemetry-panel reveal">
+                        <div class="about-telemetry-header">
+                            <span>// ENGINEER SPECIFICATION</span>
+                            <span>REF: 2026-CSE-AIML</span>
                         </div>
 
-                        <!-- Floating 3D Multi-Face Cube -->
-                        <div class="about-floating-cube" aria-hidden="true">
-                            <div class="cube-3d-wrapper cube-alt">
-                                <div class="cube-3d">
-                                    <div class="cube-face front"></div>
-                                    <div class="cube-face back"></div>
-                                    <div class="cube-face right"></div>
-                                    <div class="cube-face left"></div>
-                                    <div class="cube-face top"></div>
-                                    <div class="cube-face bottom"></div>
-                                </div>
+                        <div class="telemetry-data-table">
+                            <div class="telemetry-row">
+                                <span class="telemetry-label">NAME</span>
+                                <span class="telemetry-val">MOHD SAHIL</span>
+                            </div>
+                            <div class="telemetry-row">
+                                <span class="telemetry-label">SYSTEM STATUS</span>
+                                <span class="telemetry-val highlight">● ACTIVE // OPEN TO ROLES</span>
+                            </div>
+                            <div class="telemetry-row">
+                                <span class="telemetry-label">PRIMARY DISCIPLINE</span>
+                                <span class="telemetry-val">AI &amp; MACHINE LEARNING</span>
+                            </div>
+                            <div class="telemetry-row">
+                                <span class="telemetry-label">ACADEMIC DEGREE</span>
+                                <span class="telemetry-val">B.TECH CSE (AIML)</span>
+                            </div>
+                            <div class="telemetry-row">
+                                <span class="telemetry-label">INSTITUTION</span>
+                                <span class="telemetry-val">UNIVERSITY OF MUMBAI</span>
+                            </div>
+                            <div class="telemetry-row">
+                                <span class="telemetry-label">LOCATION</span>
+                                <span class="telemetry-val">MUMBAI, MAHARASHTRA, INDIA</span>
                             </div>
                         </div>
 
-                        <!-- Hand-Drawn Diagonal Lines Doodle -->
-                        <div class="about-doodle-lines" aria-hidden="true">
-                            <svg viewBox="0 0 50 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="10" y1="5" x2="40" y2="55" stroke="currentColor" stroke-width="2.5"
-                                    stroke-linecap="round" />
-                                <line x1="20" y1="5" x2="50" y2="55" stroke="currentColor" stroke-width="2.5"
-                                    stroke-linecap="round" />
-                            </svg>
+                        <div class="telemetry-metrics-strip">
+                            <div class="metric-block">
+                                <span class="metric-number">05+</span>
+                                <span class="metric-caption">PRODUCTION APPS</span>
+                            </div>
+                            <div class="metric-block">
+                                <span class="metric-number">04+</span>
+                                <span class="metric-caption">AWARDS &amp; CERTS</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- RIGHT: BIOGRAPHICAL NARRATIVE -->
+                    <div class="about-narrative-panel reveal reveal-delay-2">
+
+                        <p class="about-body-text">
+                            I’m a Computer Science and Engineering student specializing in AI &amp; ML at the University of Mumbai, interested in building technology that solves practical problems.
+                        </p>
+
+                        <p class="about-body-text">
+                            I enjoy working with Python and frontend technologies, developing projects, and experimenting with new tools to improve my skills. Through personal projects and hackathons, I’ve gained experience in turning ideas into working applications, exploring different approaches, and learning through hands-on challenges.
+                        </p>
+
+                        <p class="about-body-text">
+                            I’m currently focused on strengthening my programming fundamentals and exploring areas like Machine Learning, AI-powered applications, and modern web technologies.
+                        </p>
+
+                        <p class="about-body-text">
+                            I’m always open to opportunities where I can learn, contribute, collaborate with others, and grow as a developer.
+                        </p>
+
+                        <div class="about-action-wrap">
+                            <a href="assets/Mohd_Sahil_Resume.pdf" target="_blank" rel="noopener noreferrer"
+                                class="btn-brutal-primary" id="aboutResumeBtn">
+                                Download Official Resume [PDF] ↗
+                            </a>
                         </div>
 
-                        <!-- Vertical Orange Accent Bar -->
-                        <div class="about-accent-strip"></div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- RIGHT: ABOUT CONTENT -->
-                <div class="about-content reveal reveal-delay-2">
-
-                    <div class="about-title-wrap">
-                        <h2 class="about-title">
-                            About Me<span class="title-dot">.</span>
-                        </h2>
-                    </div>
-
-                    <p class="about-lead">
-                        <span class="lead-dash">—</span>
-                        I am a Computer Science & Engineering (AI&ML) student and an <strong>AI &amp; ML
-                            Enthusiast</strong> passionate about
-                        Artificial Intelligence, Machine Learning, and Modern Web Development. I enjoy building
-                        practical projects, exploring new technologies, and participating in hackathons to turn
-                        innovative ideas into meaningful real-world solutions.
-                    </p>
-                    <div class="about-skills-row">
-                        <span class="skills-bullet">•</span>
-                        <p>
-                            <strong>My Skills Are:</strong> Python, Machine Learning, Deep Learning, TensorFlow,
-                            PyTorch, Scikit-Learn, Computer Vision, NLP, HTML, CSS, JavaScript, React, Node.js, SQL, Git
-                            &amp; GitHub, AI Tools.
-                        </p>
-                    </div>
-
-                    <div class="about-cta-buttons">
-                        <a href="assets/Mohd_Sahil_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn-about-dark" id="aboutResumeBtn">
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            Resume
-                        </a>
                     </div>
 
                 </div>
@@ -373,230 +508,253 @@
 
 
         <!-- =====================================================
-     EDUCATION
-===================================================== -->
-        <section class="education section-light" id="education">
+         3. SECTION 02: EDUCATION & TIMELINE (ARCHITECTURAL AXIS)
+        ===================================================== -->
+        <section class="education section-dark" id="education">
 
             <div class="container">
 
-                <div class="education-item reveal">
-
-                    <div class="education-date">
-                        2024 — PRESENT
+                <div class="editorial-section-header reveal">
+                    <div class="section-marker">
+                        <span>02</span>
+                        <span>EDUCATION &amp; MILESTONES</span>
                     </div>
-
-                    <div class="education-main">
-
-                        <h3>Bachelor of Engineering</h3>
-
-                        <p>
-                            <span>Computer Science & Engineering</span>
-                            (AI & ML)
-                        </p>
-
-                        <small>
-                            University of Mumbai
-                        </small>
-
-                    </div>
-
-                    <div class="education-year">
-                        <strong>03</strong>
-                        <span>Year</span>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =====================================================
-     SKILLS
-===================================================== -->
-        <section class="skills section-dark" id="skills">
-
-            <div class="container">
-
-                <div class="section-marker dark-marker reveal">
-                    <span>03</span>
-                    <span>SKILLS</span>
-                    <i></i>
-                </div>
-
-
-                <div class="skills-heading reveal">
-
-                    <h2>
-                        Tools & technologies<br>
-                        <span>I work with.</span>
+                    <h2 class="section-title-editorial">
+                        Academic Foundation
                     </h2>
+                </div>
 
+                <div class="education-axis-strip reveal">
+                    <div class="education-timeline-years">
+                        2024 — 2028
+                    </div>
+
+                    <div class="education-timeline-body">
+                        <h3>University of Mumbai</h3>
+                        <p>Bachelor of Engineering in Computer Science &amp; Engineering (AI &amp; ML)</p>
+                        <small>Mumbai, Maharashtra • B.E. CSE (AIML)</small>
+                    </div>
+
+                    <div class="education-degree-badge">
+                        <strong>04</strong>
+                        <span>Years Degree</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+         4. SECTION 03: SKILLS ARSENAL (ASYMMETRIC CAPABILITY MATRIX)
+        ===================================================== -->
+        <section class="skills section-light" id="skills">
+
+            <div class="container">
+
+                <div class="editorial-section-header reveal">
+                    <div class="section-marker">
+                        <span>03</span>
+                        <span>TECHNICAL ARSENAL // CAPABILITY</span>
+                    </div>
+                    <h2 class="section-title-editorial">
+                        Skills Matrix
+                    </h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="skill-filters-row reveal">
+                    <button class="skill-filter active" data-filter="all">All Skills</button>
+                    <button class="skill-filter" data-filter="lang">Languages</button>
+                    <button class="skill-filter" data-filter="aiml">AI / ML / Data</button>
+                    <button class="skill-filter" data-filter="web">Web Architecture</button>
+                    <button class="skill-filter" data-filter="tools">Systems &amp; Tools</button>
                 </div>
 
 
-                <div class="skill-filters reveal">
+                <!-- Asymmetric Capability Matrix (All 18 Preserved Skills) -->
+                <div class="skills-matrix-wrap">
 
-                    <button class="skill-filter active" data-filter="all">
-                        All
-                    </button>
-
-                    <button class="skill-filter" data-filter="lang">
-                        Languages
-                    </button>
-
-                    <button class="skill-filter" data-filter="web">
-                        Web
-                    </button>
-
-                    <button class="skill-filter" data-filter="aiml">
-                        AI / Data
-                    </button>
-
-                    <button class="skill-filter" data-filter="tools">
-                        Tools
-                    </button>
-
-                </div>
-
-
-                <div class="skills-grid">
-
-
-                    <!-- Python -->
-                    <div class="skill-item reveal" data-category="lang">
-                        <div class="skill-number">01</div>
+                    <!-- 01: Python (Flagship) -->
+                    <div class="skill-item flagship reveal" data-category="lang">
+                        <span class="skill-number">01</span>
                         <i class="devicon-python-plain skill-logo"></i>
-                        <h3>Python</h3>
-                        <span>Programming</span>
+                        <div class="skill-meta">
+                            <h3>Python</h3>
+                            <span>Programming &amp; Core Architecture</span>
+                        </div>
                     </div>
 
-
-                    <!-- JavaScript -->
+                    <!-- 02: JavaScript -->
                     <div class="skill-item reveal" data-category="lang">
-                        <div class="skill-number">02</div>
+                        <span class="skill-number">02</span>
                         <i class="devicon-javascript-plain skill-logo"></i>
-                        <h3>JavaScript</h3>
-                        <span>Programming</span>
+                        <div class="skill-meta">
+                            <h3>JavaScript</h3>
+                            <span>Full-Stack Scripting</span>
+                        </div>
                     </div>
 
-
-                    <!-- SQL -->
+                    <!-- 03: SQL -->
                     <div class="skill-item reveal" data-category="lang">
-                        <div class="skill-number">03</div>
+                        <span class="skill-number">03</span>
                         <i class="devicon-mysql-plain skill-logo"></i>
-                        <h3>SQL</h3>
-                        <span>Database</span>
+                        <div class="skill-meta">
+                            <h3>SQL</h3>
+                            <span>Relational Database Management</span>
+                        </div>
                     </div>
 
-
-                    <!-- HTML -->
+                    <!-- 04: HTML5 -->
                     <div class="skill-item reveal" data-category="web">
-                        <div class="skill-number">04</div>
+                        <span class="skill-number">04</span>
                         <i class="devicon-html5-plain skill-logo"></i>
-                        <h3>HTML5</h3>
-                        <span>Web Development</span>
+                        <div class="skill-meta">
+                            <h3>HTML5</h3>
+                            <span>Modern Semantic Markup</span>
+                        </div>
                     </div>
 
-
-                    <!-- CSS -->
+                    <!-- 05: CSS3 -->
                     <div class="skill-item reveal" data-category="web">
-                        <div class="skill-number">05</div>
+                        <span class="skill-number">05</span>
                         <i class="devicon-css3-plain skill-logo"></i>
-                        <h3>CSS3</h3>
-                        <span>Web Development</span>
+                        <div class="skill-meta">
+                            <h3>CSS3</h3>
+                            <span>Brutalist Design &amp; Layouts</span>
+                        </div>
                     </div>
 
-
-                    <!-- ML -->
-                    <div class="skill-item reveal" data-category="aiml">
-                        <div class="skill-number">06</div>
+                    <!-- 06: Machine Learning (Flagship) -->
+                    <div class="skill-item flagship reveal" data-category="aiml">
+                        <span class="skill-number">06</span>
                         <i class="devicon-tensorflow-original skill-logo"></i>
-                        <h3>Machine Learning</h3>
-                        <span>Artificial Intelligence</span>
+                        <div class="skill-meta">
+                            <h3>Machine Learning</h3>
+                            <span>Supervised, Unsupervised &amp; Ensembles</span>
+                        </div>
                     </div>
 
-
-                    <!-- Data -->
+                    <!-- 07: Data Analysis -->
                     <div class="skill-item reveal" data-category="aiml">
-                        <div class="skill-number">07</div>
+                        <span class="skill-number">07</span>
                         <i class="devicon-pandas-plain skill-logo"></i>
-                        <h3>Data Analysis</h3>
-                        <span>AI / Data</span>
+                        <div class="skill-meta">
+                            <h3>Data Analysis</h3>
+                            <span>Feature Engineering &amp; EDA</span>
+                        </div>
                     </div>
 
-
-                    <!-- AI -->
+                    <!-- 08: AI Concepts -->
                     <div class="skill-item reveal" data-category="aiml">
-                        <div class="skill-number">08</div>
+                        <span class="skill-number">08</span>
                         <div class="skill-text-logo">AI</div>
-                        <h3>AI Concepts</h3>
-                        <span>Artificial Intelligence</span>
+                        <div class="skill-meta">
+                            <h3>AI Concepts</h3>
+                            <span>Intelligent Agents &amp; Heuristics</span>
+                        </div>
                     </div>
 
-
-                    <!-- Frontend -->
-                    <div class="skill-item reveal" data-category="web">
-                        <div class="skill-number">09</div>
+                    <!-- 09: React (Flagship) -->
+                    <div class="skill-item flagship reveal" data-category="web">
+                        <span class="skill-number">09</span>
                         <i class="devicon-react-original skill-logo"></i>
-                        <h3>Frontend Dev</h3>
-                        <span>Web Development</span>
+                        <div class="skill-meta">
+                            <h3>React</h3>
+                            <span>Reactive Frontend Engineering</span>
+                        </div>
                     </div>
 
-
-                    <!-- Responsive -->
+                    <!-- 10: Node.js -->
                     <div class="skill-item reveal" data-category="web">
-                        <div class="skill-number">10</div>
-                        <i class="devicon-bootstrap-plain skill-logo"></i>
-                        <h3>Responsive Design</h3>
-                        <span>Web Development</span>
+                        <span class="skill-number">10</span>
+                        <i class="devicon-nodejs-plain skill-logo"></i>
+                        <div class="skill-meta">
+                            <h3>Node.js</h3>
+                            <span>Backend Runtimes &amp; APIs</span>
+                        </div>
                     </div>
 
-
-                    <!-- REST -->
-                    <div class="skill-item reveal" data-category="web">
-                        <div class="skill-number">11</div>
-                        <div class="skill-text-logo">{ }</div>
-                        <h3>REST APIs</h3>
-                        <span>Backend Integration</span>
-                    </div>
-
-
-                    <!-- MySQL -->
+                    <!-- 11: Git & GitHub -->
                     <div class="skill-item reveal" data-category="tools">
-                        <div class="skill-number">12</div>
-                        <i class="devicon-mysql-plain skill-logo"></i>
-                        <h3>MySQL</h3>
-                        <span>Database</span>
-                    </div>
-
-
-                    <!-- SQLite -->
-                    <div class="skill-item reveal" data-category="tools">
-                        <div class="skill-number">13</div>
-                        <div class="skill-text-logo">SQL</div>
-                        <h3>SQLite</h3>
-                        <span>Database</span>
-                    </div>
-
-
-                    <!-- Git -->
-                    <div class="skill-item reveal" data-category="tools">
-                        <div class="skill-number">14</div>
+                        <span class="skill-number">11</span>
                         <i class="devicon-git-plain skill-logo"></i>
-                        <h3>Git & GitHub</h3>
-                        <span>Version Control</span>
+                        <div class="skill-meta">
+                            <h3>Git &amp; GitHub</h3>
+                            <span>Version Control &amp; CI/CD</span>
+                        </div>
                     </div>
 
+                    <!-- 12: Deep Learning (Flagship) -->
+                    <div class="skill-item flagship reveal" data-category="aiml">
+                        <span class="skill-number">12</span>
+                        <i class="devicon-tensorflow-original skill-logo"></i>
+                        <div class="skill-meta">
+                            <h3>Deep Learning</h3>
+                            <span>Neural Networks &amp; CNNs</span>
+                        </div>
+                    </div>
 
-                    <!-- VS Code -->
+                    <!-- 13: TensorFlow (Flagship) -->
+                    <div class="skill-item flagship reveal" data-category="aiml">
+                        <span class="skill-number">13</span>
+                        <i class="devicon-tensorflow-original skill-logo"></i>
+                        <div class="skill-meta">
+                            <h3>TensorFlow</h3>
+                            <span>Deep Learning Framework</span>
+                        </div>
+                    </div>
+
+                    <!-- 14: PyTorch (Flagship) -->
+                    <div class="skill-item flagship reveal" data-category="aiml">
+                        <span class="skill-number">14</span>
+                        <i class="devicon-pytorch-original skill-logo"></i>
+                        <div class="skill-meta">
+                            <h3>PyTorch</h3>
+                            <span>Tensor Computation &amp; Training</span>
+                        </div>
+                    </div>
+
+                    <!-- 15: Scikit-Learn -->
+                    <div class="skill-item reveal" data-category="aiml">
+                        <span class="skill-number">15</span>
+                        <i class="devicon-scikitlearn-plain skill-logo"></i>
+                        <div class="skill-meta">
+                            <h3>Scikit-Learn</h3>
+                            <span>Predictive Modeling &amp; Metrics</span>
+                        </div>
+                    </div>
+
+                    <!-- 16: Computer Vision -->
+                    <div class="skill-item reveal" data-category="aiml">
+                        <span class="skill-number">16</span>
+                        <i class="devicon-opencv-plain skill-logo"></i>
+                        <div class="skill-meta">
+                            <h3>Computer Vision</h3>
+                            <span>Image Processing &amp; Detection</span>
+                        </div>
+                    </div>
+
+                    <!-- 17: NLP -->
+                    <div class="skill-item reveal" data-category="aiml">
+                        <span class="skill-number">17</span>
+                        <div class="skill-text-logo">NLP</div>
+                        <div class="skill-meta">
+                            <h3>NLP</h3>
+                            <span>Text Analysis &amp; Sequence Models</span>
+                        </div>
+                    </div>
+
+                    <!-- 18: AI Tools -->
                     <div class="skill-item reveal" data-category="tools">
-                        <div class="skill-number">15</div>
-                        <i class="devicon-vscode-plain skill-logo"></i>
-                        <h3>VS Code</h3>
-                        <span>Development Tool</span>
+                        <span class="skill-number">18</span>
+                        <div class="skill-text-logo">⚡</div>
+                        <div class="skill-meta">
+                            <h3>AI Tools</h3>
+                            <span>Productivity &amp; Prompt Systems</span>
+                        </div>
                     </div>
 
                 </div>
@@ -608,20 +766,23 @@
 
 
         <!-- =====================================================
-     PROJECTS
-===================================================== -->
-        <section class="projects section-light" id="projects">
+         5. SECTION 04: FEATURED PROJECTS (PANORAMIC EDITORIAL DOSSIERS)
+        ===================================================== -->
+        <section class="projects section-dark" id="projects">
 
             <div class="container">
 
-                <div class="projects-header-row reveal">
-                    <div class="projects-heading-wrap">
-                        <h2 class="section-title-left">
-                            Projects<span class="title-dot">.</span>
+                <div class="projects-header-editorial reveal">
+                    <div>
+                        <div class="section-marker">
+                            <span>04</span>
+                            <span>FEATURED PROJECTS // PRODUCTION</span>
+                        </div>
+                        <h2 class="section-title-editorial">
+                            PROJECTS
                         </h2>
                     </div>
 
-                    <!-- Left / Right Navigation Buttons -->
                     <div class="projects-nav-controls">
                         <button class="project-nav-btn project-prev" id="projectPrevBtn" aria-label="Previous project">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -638,17 +799,18 @@
                     </div>
                 </div>
 
-                <!-- HORIZONTAL SIDE-BY-SIDE TRACK -->
+
+                <!-- Panoramic Horizontal Scroll Track -->
                 <div class="projects-slider-wrap">
                     <div class="projects-track" id="projectsTrack">
 
                         <!-- PROJECT 1: Univora-College-Management -->
                         <article class="project-card reveal">
                             <div class="project-thumb-box">
-                                <img src="assets/images/project_univora.svg" alt="Univora College Management"
+                                <img src="assets/images/project_univora.svg" alt="Univora College Management Platform"
                                     class="project-thumb-img">
                                 <a href="https://univora-college-management.onrender.com" target="_blank"
-                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open project">
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open live demo">
                                     ↗
                                 </a>
                             </div>
@@ -668,12 +830,12 @@
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
-                                        View
+                                        Live Demo ↗
                                     </a>
                                     <a href="https://github.com/mohdsahil-dev/Univora-College-Management"
                                         target="_blank" rel="noopener noreferrer" class="project-action-link">
                                         <i class="devicon-github-original"></i>
-                                        Code
+                                        GitHub Code
                                     </a>
                                 </div>
                             </div>
@@ -682,10 +844,10 @@
                         <!-- PROJECT 2: NexusAI -->
                         <article class="project-card reveal reveal-delay-2">
                             <div class="project-thumb-box">
-                                <img src="assets/images/project_nexusai.svg" alt="NexusAI Business OS"
+                                <img src="assets/images/project_nexusai.svg" alt="NexusAI Business Operating System"
                                     class="project-thumb-img">
                                 <a href="https://nexusai-g6mv.onrender.com" target="_blank" rel="noopener noreferrer"
-                                    class="project-floating-btn" aria-label="Open project">
+                                    class="project-floating-btn" aria-label="Open live demo">
                                     ↗
                                 </a>
                             </div>
@@ -706,12 +868,12 @@
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
-                                        View
+                                        Live Demo ↗
                                     </a>
                                     <a href="https://github.com/mohdsahil-dev/NexusAI" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <i class="devicon-github-original"></i>
-                                        Code
+                                        GitHub Code
                                     </a>
                                 </div>
                             </div>
@@ -723,16 +885,16 @@
                                 <img src="assets/images/project1.jpg" alt="Personal Expense Tracker"
                                     class="project-thumb-img">
                                 <a href="https://expense-tracker-h39g.onrender.com" target="_blank"
-                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open project">
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open live demo">
                                     ↗
                                 </a>
                             </div>
                             <div class="project-card-body">
-                                <div class="project-tag-line">— Financial Web App</div>
+                                <div class="project-tag-line">— FinTech Web App</div>
                                 <h3 class="project-card-title">Personal Expense Tracker</h3>
                                 <p class="project-card-desc">
-                                    📊 A responsive expense tracking platform with real-time balance tracking, dynamic
-                                    visual charts, category breakdowns, and monthly budget management.
+                                    💰 A dynamic, modern financial management web app providing real-time income and
+                                    expense visualization, monthly budgeting, categorization, and responsive dashboards.
                                 </p>
                                 <div class="project-card-actions">
                                     <a href="https://expense-tracker-h39g.onrender.com" target="_blank"
@@ -743,35 +905,36 @@
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
-                                        View
+                                        Live Demo ↗
                                     </a>
-                                    <a href="https://github.com/mohdsahil-dev/expense-tracker" target="_blank"
+                                    <a href="https://github.com/mohdsahil-dev/Personal-Expense-Tracker" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <i class="devicon-github-original"></i>
-                                        Code
+                                        GitHub Code
                                     </a>
                                 </div>
                             </div>
                         </article>
-                        <!-- PROJECT 4: birthday-surprise-3d -->
+
+                        <!-- PROJECT 4: Birthday 3D Animation -->
                         <article class="project-card reveal reveal-delay-2">
                             <div class="project-thumb-box">
-                                <img src="assets/images/project_birthday3d.svg" alt="birthday-surprise-3d"
+                                <img src="assets/images/project_birthday3d.svg" alt="Birthday 3D Animation Experience"
                                     class="project-thumb-img">
-                                <a href="https://birthday-surprise-3d.onrender.com" target="_blank"
-                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open project">
+                                <a href="https://birthday-3d-animation.onrender.com" target="_blank"
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open live demo">
                                     ↗
                                 </a>
                             </div>
                             <div class="project-card-body">
-                                <div class="project-tag-line">— Creative 3D Web</div>
-                                <h3 class="project-card-title">birthday-surprise-3d</h3>
+                                <div class="project-tag-line">— Creative 3D Web Experience</div>
+                                <h3 class="project-card-title">Birthday 3D Animation</h3>
                                 <p class="project-card-desc">
-                                    🎉 An interactive 3D web celebration built with JavaScript, Three.js, and WebGL
-                                    featuring real-time particle effects, custom 3D animations, and dynamic lighting.
+                                    🎉 An immersive, interactive 3D web experience built with Three.js featuring
+                                    customized lighting, festive physics, procedural confetti, and fluid 3D models.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://birthday-surprise-3d.onrender.com" target="_blank"
+                                    <a href="https://birthday-3d-animation.onrender.com" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -779,59 +942,60 @@
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
-                                        View
+                                        Live Demo ↗
                                     </a>
-                                    <a href="https://github.com/mohdsahil-dev/birthday-surprise-3d" target="_blank"
+                                    <a href="https://github.com/mohdsahil-dev/Birthday_3D_Animation" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <i class="devicon-github-original"></i>
-                                        Code
+                                        GitHub Code
                                     </a>
                                 </div>
                             </div>
                         </article>
 
-                        <!-- PROJECT 5: todo -->
+                        <!-- PROJECT 5: Modern Todo App -->
                         <article class="project-card reveal">
                             <div class="project-thumb-box">
-                                <img src="assets/images/project_todo.svg" alt="Todo App" class="project-thumb-img">
-                                <a href="https://todo-vinx.onrender.com" target="_blank" rel="noopener noreferrer"
-                                    class="project-floating-btn" aria-label="Open project">
+                                <img src="assets/images/project_todo.svg" alt="Modern Todo Task Management"
+                                    class="project-thumb-img">
+                                <a href="https://mohdsahil-dev.github.io/Modern-Todo-App/" target="_blank"
+                                    rel="noopener noreferrer" class="project-floating-btn" aria-label="Open live demo">
                                     ↗
                                 </a>
                             </div>
                             <div class="project-card-body">
                                 <div class="project-tag-line">— Productivity App</div>
-                                <h3 class="project-card-title">todo</h3>
+                                <h3 class="project-card-title">Modern Todo App</h3>
                                 <p class="project-card-desc">
-                                    📝 A clean, responsive task management application with real-time status filtering,
-                                    local storage persistence, priority categorization, and progress tracking.
+                                    ⚡ A responsive task management tool with interactive status toggles, persistent
+                                    storage, filtering, and modern interface aesthetics.
                                 </p>
                                 <div class="project-card-actions">
-                                    <a href="https://todo-vinx.onrender.com" target="_blank" rel="noopener noreferrer"
-                                        class="project-action-link">
+                                    <a href="https://mohdsahil-dev.github.io/Modern-Todo-App/" target="_blank"
+                                        rel="noopener noreferrer" class="project-action-link">
                                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                                             stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round">
                                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                             <circle cx="12" cy="12" r="3"></circle>
                                         </svg>
-                                        View
+                                        Live Demo ↗
                                     </a>
-                                    <a href="https://github.com/mohdsahil-dev/todo" target="_blank"
+                                    <a href="https://github.com/mohdsahil-dev/Modern-Todo-App" target="_blank"
                                         rel="noopener noreferrer" class="project-action-link">
                                         <i class="devicon-github-original"></i>
-                                        Code
+                                        GitHub Code
                                     </a>
                                 </div>
                             </div>
                         </article>
 
                     </div>
+                </div>
 
-                    <!-- Progress Bar / Indicator -->
-                    <div class="projects-progress-wrap">
-                        <div class="projects-progress-bar" id="projectsProgressBar"></div>
-                    </div>
+                <!-- Slider Progress Bar -->
+                <div class="projects-progress-wrap">
+                    <div class="projects-progress-bar" id="projectsProgressBar"></div>
                 </div>
 
             </div>
@@ -841,42 +1005,35 @@
 
 
         <!-- =====================================================
-     ACHIEVEMENTS + CERTIFICATES
-     SAME SECTION
-===================================================== -->
+         6. SECTION 05: ACHIEVEMENTS & CERTIFICATES (DUAL ARCHITECTURAL LEDGER)
+        ===================================================== -->
         <section class="recognition section-light" id="achievements">
 
             <div class="container">
 
-                <div class="section-marker reveal">
-                    <span>05</span>
-                    <span>ACHIEVEMENTS</span>
-                    <i></i>
-                </div>
-
-
-                <div class="recognition-heading reveal">
-
-                    <h2>
-                        Learning,<br>
-                        <span>building & growing.</span>
+                <div class="editorial-section-header reveal">
+                    <div class="section-marker">
+                        <span>05</span>
+                        <span>HONORS &amp; VERIFIED CERTIFICATES</span>
+                    </div>
+                    <h2 class="section-title-editorial">
+                        Achievements &amp; Honors
                     </h2>
-
-                    <p>
-                        Certificates, hackathon participation and
-                        achievements collected throughout my learning journey.
-                    </p>
-
                 </div>
 
+                <p class="recognition-intro-text reveal">
+                    Selected milestones, hackathons, and certifications showcasing practical problem-solving in
+                    Artificial Intelligence, Machine Learning, and Web Systems.
+                </p>
 
-                <!-- ACHIEVEMENTS -->
+
+                <!-- PART 1: HACKATHON HONORS & MILESTONES (INDUSTRIAL LEDGER ROWS) -->
                 <div class="achievement-list">
 
                     <div class="achievement-row reveal">
                         <span class="achievement-number">01</span>
                         <div>
-                            <h3>Bharatiya Antariksh Hackathon 2026</h3>
+                            <h3>ISRO Bharatiya Antariksh Hackathon 2026</h3>
                             <p>
                                 Participated &amp; submitted innovative solutions for space technology challenges
                                 presented by ISRO &amp; Hack2skill.
@@ -896,7 +1053,7 @@
                             </p>
                         </div>
                         <a href="assets/certificates/iiit_oosc_hackathon.pdf" target="_blank" rel="noopener noreferrer"
-                            class="achievement-arrow" aria-label="View IIIT Certificate">↗</a>
+                            class="achievement-arrow" aria-label="View IIIT Allahabad Certificate">↗</a>
                     </div>
 
                     <div class="achievement-row reveal">
@@ -926,13 +1083,12 @@
                 </div>
 
 
-                <!-- CERTIFICATES HEADER & NAVIGATION -->
+                <!-- PART 2: VERIFIED CREDENTIALS CAROUSEL -->
                 <div class="certificates-header-row reveal">
                     <div class="certificate-heading">
-                        <span>CERTIFICATIONS &amp; HACKATHONS</span>
-                        <i></i>
+                        <span>VERIFIED CREDENTIALS REGISTRY</span>
                     </div>
-                    <div class="certificates-nav-controls">
+                    <div class="projects-nav-controls">
                         <button class="cert-nav-btn cert-prev" id="certPrevBtn" aria-label="Previous certificate">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -948,14 +1104,15 @@
                     </div>
                 </div>
 
-                <!-- HORIZONTAL SIDE-BY-SIDE TRACK -->
+                <!-- Horizontal Slider Track -->
                 <div class="certificates-slider-wrap">
                     <div class="certificates-track" id="certificatesTrack">
 
                         <!-- CERTIFICATE 1: ISRO -->
                         <article class="certificate-card reveal">
                             <a href="assets/certificates/isro_hackathon_2026.pdf" target="_blank"
-                                rel="noopener noreferrer" class="certificate-thumb-box" aria-label="View ISRO Certificate">
+                                rel="noopener noreferrer" class="certificate-thumb-box"
+                                aria-label="View ISRO Certificate">
                                 <img src="assets/images/cert_isro_hackathon.svg"
                                     alt="ISRO Bharatiya Antariksh Hackathon 2026 Certificate" class="cert-thumb-img">
                                 <span class="cert-badge">ISRO 🚀</span>
@@ -964,8 +1121,8 @@
                                 <small>HACKATHON • ISRO &amp; HACK2SKILL</small>
                                 <h3>Bharatiya Antariksh Hackathon 2026</h3>
                                 <p>
-                                     Recognition of participation and successful idea submission in the national space
-                                     innovation hackathon.
+                                    Recognition of participation and successful idea submission in the national space
+                                    innovation hackathon.
                                 </p>
                                 <a href="assets/certificates/isro_hackathon_2026.pdf" target="_blank"
                                     rel="noopener noreferrer" class="cert-link">
@@ -975,20 +1132,20 @@
                         </article>
 
                         <!-- CERTIFICATE 2: IIIT Allahabad -->
-                        <article class="certificate-card featured reveal reveal-delay-2">
+                        <article class="certificate-card reveal reveal-delay-2">
                             <a href="assets/certificates/iiit_oosc_hackathon.pdf" target="_blank"
-                                rel="noopener noreferrer" class="certificate-thumb-box" aria-label="View IIIT Allahabad Certificate">
+                                rel="noopener noreferrer" class="certificate-thumb-box"
+                                aria-label="View IIIT Allahabad Certificate">
                                 <img src="assets/images/cert_iiit_hackathon.svg"
                                     alt="IIIT Allahabad OOSC 4.0 Hackathon Certificate" class="cert-thumb-img">
-                                <span class="cert-badge">IIIT ALLAHABAD 🏆</span>
+                                <span class="cert-badge">IIIT ALLAHABAD ⚡</span>
                             </a>
                             <div class="certificate-content">
-                                <small>HACKATHON • IIIT ALLAHABAD &amp; UNSTOP</small>
-                                <h3>OOSC 4.0 Hackathon</h3>
+                                <small>HACKATHON • IIIT ALLAHABAD</small>
+                                <h3>OOSC 4.0 Hackathon Certificate</h3>
                                 <p>
-                                     Certificate of Participation representing Team Logical Innovators in Opportunity
-                                     Open
-                                     Source Conference 4.0.
+                                    Certificate of participation for demonstrating team innovation in Opportunity Open
+                                    Source Conference 4.0.
                                 </p>
                                 <a href="assets/certificates/iiit_oosc_hackathon.pdf" target="_blank"
                                     rel="noopener noreferrer" class="cert-link">
@@ -997,20 +1154,21 @@
                             </div>
                         </article>
 
-                        <!-- CERTIFICATE 3: Aimanthan AI Project Excellence -->
+                        <!-- CERTIFICATE 3: AI Manthan -->
                         <article class="certificate-card reveal">
                             <a href="assets/certificates/aimanthan_ml_excellence.jpg" target="_blank"
-                                rel="noopener noreferrer" class="certificate-thumb-box" aria-label="View Aimanthan Certificate">
+                                rel="noopener noreferrer" class="certificate-thumb-box"
+                                aria-label="View AI Manthan Certificate">
                                 <img src="assets/certificates/aimanthan_ml_excellence.jpg"
-                                    alt="Aimanthan Machine Learning Fundamentals Certificate" class="cert-thumb-img">
-                                <span class="cert-badge">GRADE A • 80/100 🌟</span>
+                                    alt="AI Manthan Machine Learning Excellence Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">AI MANTHAN 🧠</span>
                             </a>
                             <div class="certificate-content">
-                                <small>AI EVALUATION • AIMANTHAN &amp; CLAUDE AI</small>
-                                <h3>Machine Learning Fundamentals</h3>
+                                <small>MACHINE LEARNING • EXCELLENCE</small>
+                                <h3>AI Manthan ML Excellence</h3>
                                 <p>
-                                     Certificate of AI Project Excellence with Advanced Level Distinction evaluated by
-                                     Claude AI assessment engine.
+                                    Awarded for superior technical understanding of machine learning algorithms, deep
+                                    learning models, and model evaluation techniques.
                                 </p>
                                 <a href="assets/certificates/aimanthan_ml_excellence.jpg" target="_blank"
                                     rel="noopener noreferrer" class="cert-link">
@@ -1019,56 +1177,47 @@
                             </div>
                         </article>
 
-                        <!-- CERTIFICATE 4: WorkSmarter Data Analysis -->
+                        <!-- CERTIFICATE 4: Microsoft Excel -->
                         <article class="certificate-card reveal reveal-delay-2">
-                            <a href="assets/certificates/worksmarter_data_analysis.pdf" target="_blank"
-                                rel="noopener noreferrer" class="certificate-thumb-box" aria-label="View Data Analysis Certificate">
+                            <div class="certificate-thumb-box">
                                 <img src="assets/images/cert_worksmarter_data.svg"
-                                    alt="AI-Powered Data Analysis Certificate" class="cert-thumb-img">
-                                <span class="cert-badge">VERIFIED QUIZ 📊</span>
-                            </a>
+                                    alt="Work Smarter with Microsoft Excel Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">COURSERA 📊</span>
+                            </div>
                             <div class="certificate-content">
-                                <small>SKILL TRACK • WORKSMARTERWITH.AI</small>
-                                <h3>AI-Powered Data Analysis</h3>
+                                <small>DATA ANALYSIS • MICROSOFT</small>
+                                <h3>Work Smarter with Microsoft Excel</h3>
                                 <p>
-                                     Successfully completed and verified the comprehensive online AI analytics and quiz
-                                     skill track.
+                                    Professional certification covering advanced formulas, data visualization, pivot
+                                    tables, and analytical data structuring.
                                 </p>
-                                <a href="assets/certificates/worksmarter_data_analysis.pdf" target="_blank"
-                                    rel="noopener noreferrer" class="cert-link">
-                                    View Official Certificate ↗
-                                </a>
+                                <span class="cert-link">Verified Credential ✓</span>
                             </div>
                         </article>
 
-                        <!-- CERTIFICATE 5: WorkSmarter Meetings -->
+                        <!-- CERTIFICATE 5: Microsoft Word -->
                         <article class="certificate-card reveal">
-                            <a href="assets/certificates/worksmarter_meetings.pdf" target="_blank"
-                                rel="noopener noreferrer" class="certificate-thumb-box" aria-label="View Run Better Meetings Certificate">
+                            <div class="certificate-thumb-box">
                                 <img src="assets/images/cert_worksmarter_meetings.svg"
-                                    alt="Run Better Meetings Certificate" class="cert-thumb-img">
-                                <span class="cert-badge">VERIFIED QUIZ 💼</span>
-                            </a>
+                                    alt="Work Smarter with Microsoft Word Certificate" class="cert-thumb-img">
+                                <span class="cert-badge">MICROSOFT 📄</span>
+                            </div>
                             <div class="certificate-content">
-                                <small>SKILL TRACK • WORKSMARTERWITH.AI</small>
-                                <h3>Run Better Meetings</h3>
+                                <small>PRODUCTIVITY • MICROSOFT</small>
+                                <h3>Work Smarter with Microsoft Word</h3>
                                 <p>
-                                     Successfully completed the professional productivity and team collaboration skill
-                                     track with verified completion.
+                                    Comprehensive mastery of structured document creation, collaborative workflows, and
+                                    technical documentation standards.
                                 </p>
-                                <a href="assets/certificates/worksmarter_meetings.pdf" target="_blank"
-                                    rel="noopener noreferrer" class="cert-link">
-                                    View Official Certificate ↗
-                                </a>
+                                <span class="cert-link">Verified Credential ✓</span>
                             </div>
                         </article>
 
                     </div>
+                </div>
 
-                    <!-- Progress Bar / Indicator -->
-                    <div class="certificates-progress-wrap">
-                        <div class="certificates-progress-bar" id="certificatesProgressBar"></div>
-                    </div>
+                <div class="certificates-progress-wrap">
+                    <div class="certificates-progress-bar" id="certificatesProgressBar"></div>
                 </div>
 
             </div>
@@ -1078,48 +1227,41 @@
 
 
         <!-- =====================================================
-     EXPERIENCE
-===================================================== -->
+         7. SECTION 06: EXPERIENCE
+        ===================================================== -->
         <section class="experience section-dark">
 
             <div class="container">
 
-                <div class="section-marker dark-marker reveal">
-                    <span>06</span>
-                    <span>EXPERIENCE</span>
-                    <i></i>
+                <div class="editorial-section-header reveal">
+                    <div class="section-marker">
+                        <span>06</span>
+                        <span>EXPERIENCE // PRACTICE</span>
+                    </div>
+                    <h2 class="section-title-editorial">
+                        Engineering Practice
+                    </h2>
                 </div>
 
-
                 <div class="experience-row reveal">
-
                     <div class="experience-date">
-                        PRESENT
+                        2023 — Present
                     </div>
 
                     <div class="experience-content">
-
-                        <small>
-                            ACADEMIC & PERSONAL
-                        </small>
-
-                        <h2>
-                            Academic & Personal Projects
-                        </h2>
-
+                        <small>PRACTICAL ENGINEERING</small>
+                        <h2>AI &amp; ML Project Developer</h2>
                         <p>
-                            Developing software projects while studying Computer
-                            Science Engineering with a focus on Artificial
-                            Intelligence and Machine Learning. Working with Python,
-                            web technologies, databases and AI concepts.
+                            Designing and developing machine learning architectures, neural network models, and modern
+                            full-stack web applications. Building end-to-end intelligent systems, fine-tuning
+                            algorithms,
+                            and deploying scalable web services.
                         </p>
-
                     </div>
 
                     <div class="experience-number">
                         01
                     </div>
-
                 </div>
 
             </div>
@@ -1129,121 +1271,140 @@
 
 
         <!-- =====================================================
-     CONTACT
-===================================================== -->
+         8. SECTION 07: CONTACT (COMMAND DISPATCH)
+        ===================================================== -->
         <section class="contact section-light" id="contact">
 
             <div class="container">
 
-                <div class="section-marker reveal">
-                    <span>07</span>
-                    <span>CONTACT</span>
-                    <i></i>
+                <div class="editorial-section-header reveal">
+                    <div class="section-marker">
+                        <span>07</span>
+                        <span>GET IN TOUCH // DISPATCH</span>
+                    </div>
+                    <h2 class="section-title-editorial">
+                        Initialize Connection
+                    </h2>
+                    <p class="section-subtitle-editorial">
+                        Whether you're interested in collaborating on machine learning projects, engineering
+                        intelligent web architectures, or discussing opportunities — my communication lines are open.
+                    </p>
                 </div>
-
 
                 <div class="contact-grid">
 
+                    <!-- LEFT: DIRECT DISPATCH CHANNELS -->
+                    <div class="contact-channels-box contact-left reveal">
 
-                    <!-- LEFT -->
-                    <div class="contact-left reveal">
+                        <div class="form-label-top">
+                            // DIRECT CHANNELS
+                        </div>
 
-                        <h2>
-                            Let's work<br>
-                            <span>together.</span>
-                        </h2>
+                        <h3>
+                            Direct Channels
+                        </h3>
 
-                        <p>
-                            Have an idea, project or opportunity?
-                            Feel free to reach out. I'm always open to
-                            learning, collaborating and building something useful.
-                        </p>
-
-
-                        <div class="contact-details">
-
+                        <div class="contact-details-list">
 
                             <!-- PHONE -->
-                            <a href="tel:+919628304015" class="contact-item" aria-label="Phone">
-                                <div class="contact-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <a href="tel:+919628304015" class="contact-row contact-item" aria-label="Phone">
+                                <div class="contact-row-badge">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF"
+                                        stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
                                         <path
                                             d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
                                         </path>
                                     </svg>
                                 </div>
-                                <div>
-                                    <small>PHONE</small>
-                                    <strong>Phone</strong>
+                                <div class="contact-row-text">
+                                    <span class="contact-row-sub">PHONE</span>
+                                    <span class="contact-row-main">Phone</span>
                                 </div>
-                                <span>↗</span>
+                                <svg class="contact-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
                             </a>
 
                             <!-- EMAIL -->
-                            <a href="mailto:ks9137581@gmail.com" class="contact-item" aria-label="Email">
-                                <div class="contact-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path
-                                            d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
-                                        </path>
-                                        <polyline points="22,6 12,13 2,6"></polyline>
+                            <a href="mailto:ks9137581@gmail.com" class="contact-row contact-item" aria-label="Email">
+                                <div class="contact-row-badge">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF"
+                                        stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                                        <path d="M22 7l-10 6L2 7"></path>
                                     </svg>
                                 </div>
-                                <div>
-                                    <small>EMAIL</small>
-                                    <strong>Email</strong>
+                                <div class="contact-row-text">
+                                    <span class="contact-row-sub">EMAIL</span>
+                                    <span class="contact-row-main">Email</span>
                                 </div>
-                                <span>↗</span>
+                                <svg class="contact-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
                             </a>
 
                             <!-- WHATSAPP -->
                             <a href="https://wa.me/919628304015" target="_blank" rel="noopener noreferrer"
-                                class="contact-item" aria-label="WhatsApp">
-                                <div class="contact-icon">
-                                    <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+                                class="contact-row contact-item" aria-label="WhatsApp">
+                                <div class="contact-row-badge">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF">
                                         <path
                                             d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm5.79 14.07c-.24.67-1.2 1.25-1.66 1.32-.42.06-.97.09-2.81-.67-2.35-.97-3.86-3.34-3.98-3.5-.12-.16-.94-1.25-.94-2.38 0-1.13.59-1.69.8-1.92.21-.24.47-.3.62-.3.16 0 .31 0 .45.01.14.01.34-.05.53.4.2.48.67 1.63.73 1.75.06.12.1.26.02.42-.08.16-.12.26-.24.4-.12.14-.25.31-.36.42-.12.12-.24.25-.1.49.14.24.63 1.04 1.36 1.68.94.84 1.73 1.1 1.97 1.22.24.12.38.1.53-.06.14-.16.62-.73.79-.98.16-.25.33-.21.55-.13.22.08 1.41.67 1.65.79.24.12.4.18.46.28.06.11.06.63-.18 1.3z" />
                                     </svg>
                                 </div>
-                                <div>
-                                    <small>WHATSAPP</small>
-                                    <strong>WhatsApp</strong>
+                                <div class="contact-row-text">
+                                    <span class="contact-row-sub">WHATSAPP</span>
+                                    <span class="contact-row-main">WhatsApp</span>
                                 </div>
-                                <span>↗</span>
+                                <svg class="contact-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
                             </a>
 
                             <!-- GITHUB -->
                             <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer"
-                                class="contact-item" aria-label="GitHub Profile">
-                                <div class="contact-icon">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                                        <path
-                                            d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+                                class="contact-row contact-item" aria-label="GitHub">
+                                <div class="contact-row-badge">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFFFFF">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                                     </svg>
                                 </div>
-                                <div>
-                                    <small>GITHUB</small>
-                                    <strong>GitHub</strong>
+                                <div class="contact-row-text">
+                                    <span class="contact-row-sub">GITHUB</span>
+                                    <span class="contact-row-main">GitHub</span>
                                 </div>
-                                <span>↗</span>
+                                <svg class="contact-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
                             </a>
 
                             <!-- LINKEDIN -->
                             <a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/" target="_blank"
-                                rel="noopener noreferrer" class="contact-item" aria-label="LinkedIn Profile">
-                                <div class="contact-icon">
-                                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                rel="noopener noreferrer" class="contact-row contact-item" aria-label="LinkedIn">
+                                <div class="contact-row-badge">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFFFFF">
                                         <path
-                                            d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                            d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.84 6.75a1.64 1.64 0 1 0 0 3.28 1.64 1.64 0 0 0 0-3.28z" />
                                     </svg>
                                 </div>
-                                <div>
-                                    <small>LINKEDIN</small>
-                                    <strong>LinkedIn</strong>
+                                <div class="contact-row-text">
+                                    <span class="contact-row-sub">LINKEDIN</span>
+                                    <span class="contact-row-main">LinkedIn</span>
                                 </div>
-                                <span>↗</span>
+                                <svg class="contact-row-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                    stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
                             </a>
 
                         </div>
@@ -1251,61 +1412,49 @@
                     </div>
 
 
-
-                    <!-- RIGHT FORM -->
+                    <!-- RIGHT: DISPATCH CONSOLE -->
                     <div class="contact-form-box reveal reveal-delay-2">
 
                         <div class="form-label-top">
-                            HAVE A PROJECT?
+                            // DISPATCH CONSOLE
                         </div>
 
                         <h3>
-                            Send Me A Message
+                            Send Transmission
                         </h3>
-
 
                         <form id="contactForm">
 
                             <div class="form-field">
-
-                                <label>Your Name</label>
-
-                                <input type="text" id="formName" placeholder="Enter your name" required>
-
+                                <label for="formName">Sender Name</label>
+                                <input type="text" id="formName" placeholder="Enter your full name" required>
                             </div>
 
-
                             <div class="form-field">
-
-                                <label>Your Email</label>
-
-                                <input type="email" id="formEmail" placeholder="Enter your email" required>
-
+                                <label for="formEmail">Return Email</label>
+                                <input type="email" id="formEmail" placeholder="your.email@domain.com" required>
                             </div>
 
-
                             <div class="form-field">
-
-                                <label>Subject</label>
-
-                                <input type="text" id="formSubject" placeholder="What is this about?" required>
-
+                                <label for="formSubject">Subject Line</label>
+                                <input type="text" id="formSubject" placeholder="Inquiry / Collaboration / Role"
+                                    required>
                             </div>
 
-
                             <div class="form-field">
-
-                                <label>Message</label>
-
-                                <textarea id="formMessage" placeholder="Tell me about your project..."
+                                <label for="formMessage">Message Payload</label>
+                                <textarea id="formMessage"
+                                    placeholder="Describe your project, timeline, or requirements..."
                                     required></textarea>
-
                             </div>
-
 
                             <button type="submit" class="form-submit">
-                                <span>Send Message</span>
-                                <span>↗</span>
+                                <span>SEND TRANSMISSION // SUBMIT</span>
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                                </svg>
                             </button>
 
                         </form>
@@ -1324,19 +1473,19 @@
 
     <!-- =====================================================
      FOOTER
-===================================================== -->
+    ===================================================== -->
     <footer class="footer">
 
         <div class="container footer-inner">
 
             <div>
                 <strong>Mohd Sahil</strong>
-                <span>AI & ML Enthusiast</span>
+                <span>AI &amp; ML Engineer • CS-AIML 2026</span>
             </div>
 
             <div class="footer-socials">
                 <a href="https://www.linkedin.com/in/sahil-chaudhary-582887416/" target="_blank"
-                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    rel="noopener noreferrer" aria-label="LinkedIn Profile">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -1344,14 +1493,14 @@
                 </a>
 
                 <a href="https://github.com/mohdsahil-dev" target="_blank" rel="noopener noreferrer"
-                    aria-label="GitHub">
+                    aria-label="GitHub Profile">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
                         <path
                             d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
                     </svg>
                 </a>
 
-                <a href="mailto:ks9137581@gmail.com" aria-label="Email">
+                <a href="mailto:ks9137581@gmail.com" aria-label="Direct Email">
                     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -1361,7 +1510,7 @@
             </div>
 
             <div>
-                © 2026 Mohd Sahil
+                © 2026 Mohd Sahil • All Systems Nominal
             </div>
 
         </div>
@@ -1369,9 +1518,8 @@
     </footer>
 
 
-    <!-- Three.js for 3D Cyber Neural Graphics -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/script.js"></script>
+    <!-- Main Application JavaScript with Cache Buster -->
+    <script src="js/script.js?v=2026.11.04.04"></script>
 
 </body>
 
